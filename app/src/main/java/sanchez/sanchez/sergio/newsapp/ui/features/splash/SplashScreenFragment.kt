@@ -20,10 +20,10 @@ class SplashScreenFragment : SupportFragment<SplashViewModel, Void>(SplashViewMo
 
         viewModel.result.observe(this, Observer{
 
-            if(it == SplashOperationResultEnum.USER_LOADED)
+            /*if(it == SplashOperationResultEnum.USER_LOADED)
                 onUserLoaded(viewModel.user.value!!)
             else
-                onUserNotAvailable()
+                onUserNotAvailable()*/
 
         })
 
