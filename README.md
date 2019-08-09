@@ -1,2 +1,2 @@
-# HealthyCitizen
-Healthy Citizen 
+# NewsApp
+NewsApp
