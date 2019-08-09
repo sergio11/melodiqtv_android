@@ -20,7 +20,7 @@
 
 
     <style name="AppTheme.SplashScreen" parent="AppTheme.NoActionBar">
-        <!--<item name="android:windowBackground">@drawable/splash_background</item>-->
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
