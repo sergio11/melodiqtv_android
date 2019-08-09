@@ -1,0 +1,4 @@
+include ':app', ':brownie_core', ':brownie_db'
+
+project(':brownie_core').projectDir = new File(rootProject.projectDir, '../brownie/app')
+project(':brownie_db').projectDir = new File(rootProject.projectDir, '../brownie_db')

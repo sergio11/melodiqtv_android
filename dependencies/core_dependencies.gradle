@@ -1,0 +1,15 @@
+/**
+ * Shared dependencies between modules
+ */
+
+ext.timber_version = '4.7.1'
+
+dependencies {
+    // Brownie Core - Kotlin Clean Architecture Library Core
+    implementation project(':brownie_core')
+    // Brownie Database Core Library
+    implementation project(':brownie_db')
+    // A logger with a small, extensible API which provides utility on top of Android's normal Log class.
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+}
