@@ -1,50 +1,128 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply from: '../dependencies/core_dependencies.gradle'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: "androidx.navigation.safeargs.kotlin"
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'dagger.hilt.android.plugin'
+
+project.ext {
+    androidx="1.1.0"
+    jUnit = "4.12"
+    daggerVersion = "2.23.2"
+    roomVersion = "2.2.4"
+    rxkotlin="2.4.0"
+    constraintLayout = "1.1.3"
+    rxAndroid = "2.0.1"
+    espresso = "3.1.0"
+    cardview="1.0.0"
+    kotlinCoroutines = "1.3.1"
+    fastAndroidNetworking = "1.0.0"
+    locationServices = "17.0.0"
+    dexter = "4.2.0"
+    glide = "4.9.0"
+    lifecycle = "2.2.0"
+}
 
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "sanchez.sanchez.sergio.newsapp"
+        applicationId "com.pravin.newsapp"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 3
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        kapt{
+            arguments{
+                arg("room.schemaLocation","$projectDir/schemas".toString())
+                arg("room.incremental","true")
+                arg("room.expandProjection","true")
+            }
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def nav_version = "2.3.0"
+    def paging_version = "3.0.0-alpha04"
+    def room_version = "2.3.0-alpha02"
 
-    implementation "com.google.android.gms:play-services-location:17.0.0"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.1"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //Paging library
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    //Hilt DI
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    /* Testing dependencies */
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+
+    // Assertions
+    testImplementation 'androidx.test.ext:truth:1.2.0'
+    testImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
 
-    implementation 'com.google.firebase:firebase-auth:18.1.0'
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
-
-    kapt "com.google.dagger:dagger-compiler:2.16"
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
-    implementation 'com.flaviofaria:kenburnsview:1.0.7'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
+    //Espresso dependencies
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-
 }
