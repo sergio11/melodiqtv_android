@@ -1,0 +1,3 @@
+package com.sanchezsergio.newsapp.persistence.network
+
+interface BaseDataSource
