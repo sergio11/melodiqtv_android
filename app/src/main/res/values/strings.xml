@@ -1,11 +1,3 @@
 <resources>
-    <string name="app_name">MVVM DI Example</string>
-
-    <string name="btn_save">Save</string>
-    <string name="lbl_name">Name</string>
-    <string name="lbl_age">Age</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">VoxLet</string>
 </resources>
