@@ -1,5 +1,5 @@
 
-# MelodiqTV
+# MelodiqTV 🎶✨: Unleash the Power of Music on Your TV
 
 Welcome to **MelodiqTV**, your ultimate music experience on Android TV. MelodiqTV brings the power of music and video clips to your TV screen, offering a vast and diverse collection of music genres from around the world. Whether you're into the latest hits, timeless classics, or discovering new sounds, MelodiqTV has something for everyone.
 
