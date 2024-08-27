@@ -84,20 +84,21 @@
 
     <!-- Save Profile -->
     <string name="create_profile_main_title">Create Your New Profile!</string>
-    <string name="create_profile_secondary_title">Give a unique touch to your FitFlexTV experience.</string>
+    <string name="create_profile_secondary_title">Give a unique touch to your MelodiqTV experience.</string>
     <string name="edit_profile_main_title">Edit Your Profile!</string>
-    <string name="edit_profile_secondary_title">Update your details and stay current.</string>
+    <string name="edit_profile_secondary_title">Update your details and keep your vibe fresh.</string>
     <string name="save_profile_form_avatar_label_text">Select Your Avatar</string>
     <string name="save_profile_form_alias_label_text">Profile Alias</string>
     <string name="save_profile_form_pin_label_text">Security PIN</string>
     <string name="save_profile_confirm_button_text">Save Changes</string>
     <string name="save_profile_cancel_button_text">Cancel</string>
-    <string name="save_profile_change_secure_pin_button_text">Change Secure Pin</string>
+    <string name="save_profile_change_secure_pin_button_text">Change Secure PIN</string>
     <string name="save_profile_form_invalid_data_provided">Invalid data provided. Please check your information.</string>
     <string name="save_profile_limit_reached_error" formatted="false">You have reached the maximum allowed profiles. The limit is %d profiles. Please delete an existing profile to add a new one.</string>
+
     <!-- Profile Selector -->
     <string name="profile_selector_main_title">Select Your Profile</string>
-    <string name="profile_selector_secondary_title">Choose who you are today on FitFlexTV.</string>
+    <string name="profile_selector_secondary_title">Choose who you are today on MelodiqTV.</string>
     <string name="profile_selector_add_profile_button_text">Add New Profile</string>
     <string name="profile_selector_profile_management_button_text">Manage Profiles</string>
 
@@ -116,7 +117,7 @@
 
     <!-- Change Secure Pin -->
     <string name="profiles_change_secure_pin_main_title">Ready for a PIN Refresh? 🔒</string>
-    <string name="profiles_change_secure_pin_main_description">Keep your profile secure and up-to-date by setting a new PIN.\n Your preferences are in good hands! 👌</string>
+    <string name="profiles_change_secure_pin_main_description">Keep your profile secure and up-to-date by setting a new PIN. Your preferences are in good hands! 👌</string>
     <string name="profiles_change_secure_pin_form_confirm_button_text">Confirm</string>
     <string name="profiles_change_secure_pin_delete_button_text">Delete Profile?</string>
     <string name="profiles_change_secure_pin_form_current_pin_label_text">Current Security PIN</string>
@@ -132,6 +133,7 @@
     <string name="delete_profile_explanation_text">Deleting a profile will remove all associated data permanently. Please proceed with caution.</string>
     <string name="delete_profile_dialog_title">Profile Gone! 🎉</string>
     <string name="delete_profile_dialog_description">The profile has been successfully removed. Say goodbye! 👋</string>
+
     <!-- Generic Actions -->
     <string name="add_to_favorites">Add to favorites</string>
     <string name="remove_from_favorites">Remove from favorites</string>
@@ -205,13 +207,14 @@
     <string name="month_subscription">Monthly Subscription</string>
     <string name="subscribe_now">Subscribe Now!</string>
     <string name="restore_purchases">Restore Purchases</string>
-    <string name="subscribe_to_premium">Unlock Your Full Potential with Premium</string>
-    <string name="subscribe_brief">Take the First Step Towards a Stronger, Healthier You! Our Premium Membership offers exclusive access to advanced workouts, personalized training plans, and much more. Don\'t just dream it—achieve it!</string>
+    <string name="subscribe_to_premium">Unlock Your Full Music Experience with Premium</string>
+    <string name="subscribe_brief">Take the First Step Towards Unlimited Music! Our Premium Membership offers exclusive access to ad-free listening, high-quality audio, and much more. Don\'t just listen—immerse yourself!</string>
     <string name="our_plans">Explore Our Plans</string>
     <string name="free_trail">Start Your 7-Day Free Trial</string>
     <string name="subscription_cancelled">Subscription Continues Until Cancelled</string>
     <string name="add_subscription_completed_dialog_title">Subscription Activated!</string>
-    <string name="add_subscription_completed_dialog_description">Congratulations! You’ve just unlocked a world of exclusive features and premium content. Get ready to elevate your fitness journey to the next level. Let’s do this!</string>
+    <string name="add_subscription_completed_dialog_description">Congratulations! You\'ve just unlocked a world of exclusive features and premium content. Get ready to elevate your music experience to the next level. Let\'s groove!</string>
+
     <!-- Training Types -->
     <string name="training_type_workout_name">Workout</string>
     <string name="training_type_series_name">Series</string>
