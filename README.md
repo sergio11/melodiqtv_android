@@ -1,9 +1,19 @@
 
 # MelodiqTV 🎶✨: Unleash the Power of Music on Your TV
 
+<img width="auto" height="200px" align="left" src="doc/main_logo.png" />
+
 Welcome to **MelodiqTV**, your ultimate music experience on Android TV. MelodiqTV brings the power of music and video clips to your TV screen, offering a vast and diverse collection of music genres from around the world. Whether you're into the latest hits, timeless classics, or discovering new sounds, MelodiqTV has something for everyone.
 
 MelodiqTV 🎶📺 is a cutting-edge music and video streaming platform designed for Android TV, offering users a personalized and immersive entertainment experience. With MelodiqTV, users can explore a vast library of music and music videos, organized by genres and categories, while easily creating and managing multiple profiles to keep track of their favorites ⭐. The app is built using Firebase 🔥 for real-time data synchronization and secure user authentication, ensuring a seamless and reliable experience. Developed with a robust architecture, it follows Clean Architecture principles and the MVI pattern 🏛️, making the codebase maintainable and scalable. The UI is crafted with Jetpack Compose for TV 📺, providing a modern, flexible, and reusable interface that enhances the overall user experience on large screens.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white" />
+  <img src="https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white" />
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
+  <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" />
+  <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" />
+</p>
 
 ## Key Features:
 - **Personalized Profiles:** Create multiple profiles, each with personalized playlists, favorite songs, and viewing history.
