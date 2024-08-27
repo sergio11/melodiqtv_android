@@ -3,6 +3,8 @@
 
 Welcome to **MelodiqTV**, your ultimate music experience on Android TV. MelodiqTV brings the power of music and video clips to your TV screen, offering a vast and diverse collection of music genres from around the world. Whether you're into the latest hits, timeless classics, or discovering new sounds, MelodiqTV has something for everyone.
 
+MelodiqTV 🎶📺 is a cutting-edge music and video streaming platform designed for Android TV, offering users a personalized and immersive entertainment experience. With MelodiqTV, users can explore a vast library of music and music videos, organized by genres and categories, while easily creating and managing multiple profiles to keep track of their favorites ⭐. The app is built using Firebase 🔥 for real-time data synchronization and secure user authentication, ensuring a seamless and reliable experience. Developed with a robust architecture, it follows Clean Architecture principles and the MVI pattern 🏛️, making the codebase maintainable and scalable. The UI is crafted with Jetpack Compose for TV 📺, providing a modern, flexible, and reusable interface that enhances the overall user experience on large screens.
+
 ## Key Features:
 - **Personalized Profiles:** Create multiple profiles, each with personalized playlists, favorite songs, and viewing history.
 - **Curated Music Selection:** Explore a wide range of genres and curated playlists, categorized for easy navigation.
