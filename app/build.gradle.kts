@@ -1,33 +1,29 @@
-import java.io.FileInputStream
-import java.util.Properties
+import org.jetbrains.kotlin.gradle.model.Kapt
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.googleServices)
-}
-
-val properties = Properties().apply {
-    FileInputStream(rootProject.file("local.properties")).use { load(it) }
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.dreamsoftware.voxlet"
-    compileSdk = 34
+    namespace = "com.dreamsoftware.melodiqtv"
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.dreamsoftware.voxlet"
-        minSdk = 21
-        targetSdk = 34
+        applicationId = "com.dreamsoftware.melodiqtv"
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        versionName = "1.0"
         vectorDrawables {
             useSupportLibrary = true
         }
-
     }
 
     buildTypes {
@@ -40,19 +36,18 @@ android {
         }
     }
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.androidComposeCompiler.get()
     }
     packaging {
         resources {
@@ -62,38 +57,54 @@ android {
 }
 
 dependencies {
-
-    implementation (libs.lottie.compose)
-    implementation(libs.androidx.foundation)
-
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.coil.compose)
-    implementation(libs.google.services)
-    implementation (libs.facebook.android.sdk)
-    implementation(libs.firebase.auth.ktx)
-    implementation(libs.firebase.storage.ktx)
-
-
-    implementation(libs.lifecycle.viewmodel)
-    implementation(libs.navigation.compose)
-    implementation(libs.firebase.firestore.ktx)
-    implementation(libs.play.services.auth)
-
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
+    // Core Android Libraries
     implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
+    implementation(libs.appcompat)
+    implementation(libs.tv.material)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.constraint.layout)
+    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.material.icons.extended)
+
+    // Jetpack Compose
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.runtime)
     implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
+    implementation(libs.activity.compose)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.ui.tooling)
+    implementation(libs.fudge.tv.compose)
+
+    // SplashScreen
+    implementation(libs.androidx.core.splashscreen)
+
+    // Hilt for Dependency Injection
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore.ktx)
+
+    // Media3 for Media Playback
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+
+    // JSON Parsing
+    implementation(libs.kotlinx.serialization)
+    implementation(libs.moshi.kotlin)
+
+    // Testing Libraries
     androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    // Baseline Profile Installer
+    implementation(libs.androidx.profileinstaller)
 }
