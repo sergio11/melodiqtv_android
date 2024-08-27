@@ -1,3 +1,223 @@
 <resources>
-    <string name="app_name">VoxLet</string>
+    <!-- App Name -->
+    <string name="app_name">MelodiqTV</string>
+
+    <!-- Generic Buttons -->
+    <string name="dialog_generic_accept_button">Accept</string>
+    <string name="dialog_generic_cancel_button">Cancel</string>
+
+    <!-- Progress Dialogs -->
+    <string name="generic_progress_dialog_title">Loading…</string>
+    <string name="generic_progress_dialog_description">Please wait a moment…</string>
+
+    <!-- Developer Credits -->
+    <string name="developer_credits_text">Build with passion by dreamsoftware. \n Sergio Sánchez Sánchez © 2024</string>
+    <string name="developer_credits_text_single_line">Build with passion by dreamsoftware. Sergio Sánchez Sánchez © 2024</string>
+
+    <!-- Dashboard Items -->
+    <string name="dashboard_navigation_drawer_home_item_name">Home</string>
+    <string name="dashboard_navigation_drawer_training_item_name">Training</string>
+    <string name="dashboard_navigation_drawer_favorite_item_name">Favorite</string>
+    <string name="dashboard_navigation_drawer_settings_item_name">Settings</string>
+    <string name="dashboard_navigation_drawer_profile_item_name">Profile</string>
+
+    <!-- Generic Error Messages -->
+    <string name="generic_form_invalid_data_provided">Invalid data provided, please check it and try again.</string>
+    <string name="generic_error_exception">An error occurred, please try again.</string>
+
+    <!-- Validation Messages -->
+    <string name="invalid_email_message">Invalid email format.</string>
+    <string name="short_password_message">Password must be at least %1$d characters long.</string>
+    <string name="passwords_do_not_match_message">Passwords do not match.</string>
+    <string name="invalid_secure_pin_message">Invalid secure pin format.</string>
+    <string name="invalid_alias_message">You must provide an alias.</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_main_title_text">Welcome to MelodiqTV!</string>
+    <string name="onboarding_secondary_title_text">Your Ultimate Music Experience Starts Here</string>
+    <string name="onboarding_additional_info_text">Join us and immerse yourself in a world of music with personalized playlists and exclusive content.</string>
+    <string name="onboarding_sign_in_button_text">Start Listening!</string>
+    <string name="onboarding_sign_up_button_text">Join Us Today!</string>
+    <string name="onboarding_exit_app_dialog_title">Leaving So Soon?</string>
+    <string name="onboarding_exit_app_dialog_description">Are you sure you want to exit the app? We\'ll miss your vibe!</string>
+
+    <!-- Sign In -->
+    <string name="sign_in_progress_dialog_title">Signing You In</string>
+    <string name="sign_in_progress_dialog_description">Please wait a moment while we tune into your personalized music experience.</string>
+    <string name="sign_in_do_not_have_account_yet_text">Don\'t have an account yet?</string>
+    <string name="sign_in_go_sign_up_button_text">Join us!</string>
+    <string name="sign_in_main_title_text">Welcome Back to MelodiqTV!</string>
+    <string name="sign_in_secondary_title_text">Continue your musical journey with MelodiqTV. Discover new tracks, watch videos, and dive into a world of rhythm and melody with personalized recommendations.</string>
+    <string name="sign_in_form_heading_text">Sign In to Your Account</string>
+    <string name="sign_in_form_email_label_text">Email Address</string>
+    <string name="sign_in_form_password_label_text">Password</string>
+    <string name="sign_in_main_button_text">Start Listening!</string>
+
+    <!-- Sign Up -->
+    <string name="sign_up_progress_dialog_title">Creating Your Account</string>
+    <string name="sign_up_progress_dialog_description">Hold tight while we set up your personalized music experience!</string>
+    <string name="sign_up_main_title_text">Join the MelodiqTV Community</string>
+    <string name="sign_up_secondary_title_text">Start your musical journey today.</string>
+    <string name="sign_up_main_button">Let’s Get Started!</string>
+    <string name="sign_up_form_first_name_label_text">First Name</string>
+    <string name="sign_up_form_surname_label_text">Surname</string>
+    <string name="sign_up_form_email_label_text">Email Address</string>
+    <string name="sign_up_form_username_label_text">Choose a Username</string>
+    <string name="sign_up_form_password_label_text">Create a Password</string>
+    <string name="sign_up_form_repeat_password_label_text">Repeat Password</string>
+
+    <!-- Favorites -->
+    <string name="favorites_screen_title">Favorites</string>
+    <string name="favorites_not_workout_available">No favorite songs available yet. Explore and add your favorites to build your personal music collection!</string>
+
+    <!-- Trainings -->
+    <string name="trainings_not_programs_available">No training programs available</string>
+
+    <!-- Instructor Detail -->
+    <string name="instructor_detail_title">Instructor Details</string>
+    <string name="instructor_detail_not_available">Instructor details are not available at the moment.</string>
+
+    <!-- Category Detail -->
+    <string name="category_detail_trainings_title" formatted="false">"%s" Trainings</string>
+    <string name="category_detail_trainings_title_default">Trainings</string>
+    <string name="category_detail_no_trainings_available">No training programs available in this category. Please check back later or explore other categories.</string>
+
+    <!-- Save Profile -->
+    <string name="create_profile_main_title">Create Your New Profile!</string>
+    <string name="create_profile_secondary_title">Give a unique touch to your FitFlexTV experience.</string>
+    <string name="edit_profile_main_title">Edit Your Profile!</string>
+    <string name="edit_profile_secondary_title">Update your details and stay current.</string>
+    <string name="save_profile_form_avatar_label_text">Select Your Avatar</string>
+    <string name="save_profile_form_alias_label_text">Profile Alias</string>
+    <string name="save_profile_form_pin_label_text">Security PIN</string>
+    <string name="save_profile_confirm_button_text">Save Changes</string>
+    <string name="save_profile_cancel_button_text">Cancel</string>
+    <string name="save_profile_change_secure_pin_button_text">Change Secure Pin</string>
+    <string name="save_profile_form_invalid_data_provided">Invalid data provided. Please check your information.</string>
+    <string name="save_profile_limit_reached_error" formatted="false">You have reached the maximum allowed profiles. The limit is %d profiles. Please delete an existing profile to add a new one.</string>
+    <!-- Profile Selector -->
+    <string name="profile_selector_main_title">Select Your Profile</string>
+    <string name="profile_selector_secondary_title">Choose who you are today on FitFlexTV.</string>
+    <string name="profile_selector_add_profile_button_text">Add New Profile</string>
+    <string name="profile_selector_profile_management_button_text">Manage Profiles</string>
+
+    <!-- Profile Management -->
+    <string name="profiles_management_main_title">Profile Management</string>
+    <string name="profiles_management_main_description">Manage all your profiles from here.</string>
+    <string name="profiles_management_form_confirm_button_text">Confirm</string>
+
+    <!-- Secure Pin -->
+    <string name="secure_pin_main_title">Security PIN</string>
+    <string name="secure_pin_main_description">Protect your profile with a secure PIN.</string>
+    <string name="secure_pin_form_label_text">Enter Your PIN</string>
+    <string name="secure_pin_info_profile_locked" formatted="false">You must enter the 6-digit PIN to unlock the %s profile.</string>
+    <string name="secure_pin_form_accept_button_text">Accept</string>
+    <string name="secure_pin_form_cancel_button_text">Cancel</string>
+
+    <!-- Change Secure Pin -->
+    <string name="profiles_change_secure_pin_main_title">Ready for a PIN Refresh? 🔒</string>
+    <string name="profiles_change_secure_pin_main_description">Keep your profile secure and up-to-date by setting a new PIN.\n Your preferences are in good hands! 👌</string>
+    <string name="profiles_change_secure_pin_form_confirm_button_text">Confirm</string>
+    <string name="profiles_change_secure_pin_delete_button_text">Delete Profile?</string>
+    <string name="profiles_change_secure_pin_form_current_pin_label_text">Current Security PIN</string>
+    <string name="profiles_change_secure_pin_form_new_pin_label_text">New Security PIN</string>
+    <string name="profiles_change_secure_updated_dialog_title">PIN Updated Successfully! 🔐</string>
+    <string name="profiles_change_secure_updated_dialog_description">Your secure PIN has been updated. You’re all set to keep your profile safe!</string>
+
+    <!-- Delete Profile -->
+    <string name="delete_profile_main_title">Delete Profile</string>
+    <string name="delete_profile_main_description">Are you sure you want to delete this profile? This action cannot be undone.</string>
+    <string name="delete_profile_form_accept_button_text">Delete</string>
+    <string name="delete_profile_form_cancel_button_text">Cancel</string>
+    <string name="delete_profile_explanation_text">Deleting a profile will remove all associated data permanently. Please proceed with caution.</string>
+    <string name="delete_profile_dialog_title">Profile Gone! 🎉</string>
+    <string name="delete_profile_dialog_description">The profile has been successfully removed. Say goodbye! 👋</string>
+    <!-- Generic Actions -->
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="start_workout">Let\'s Work Out!</string>
+    <string name="more_info">Get More Info</string>
+    <string name="play_training_song_button_text">Play Training Song!</string>
+    <string name="view_instructor">Meet Your Awesome Instructor</string>
+    <string name="share">Share the Fun</string>
+    <string name="start_session">Let\'s Get Started!</string>
+    <string name="start_routine">Kick Off Your Routine</string>
+    <string name="start_program">Start Your Program</string>
+    <string name="categories">Explore Categories</string>
+    <string name="recommended_for_you">Recommended for You</string>
+    <string name="image">View Image %1$s</string>
+    <string name="song_image">Discover Song Image</string>
+    <string name="set_up_daily_reminder">Set Up Daily Reminders</string>
+    <string name="recommend_schedule">Get Your Recommended Schedule</string>
+
+    <!-- Miscellaneous -->
+    <string name="to_go_back">Press Back</string>
+    <string name="press">Press</string>
+    <string name="whos_working_out_today">Who\'s Joining Today?</string>
+    <string name="sign_in_with_a_different_user">Sign in as Someone New</string>
+    <string name="length">Duration</string>
+    <string name="_15_30_mins">15–30 Minutes</string>
+    <string name="instructor">Instructor</string>
+    <string name="class_type">Class Type</string>
+    <string name="class_language">Language</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="subtitles">Subtitles</string>
+    <string name="sort_by">Sort By</string>
+    <string name="clear">Clear</string>
+    <string name="filters">Apply Filters</string>
+    <string name="days">Days</string>
+    <string name="week">Week</string>
+    <string name="filters_button">Filters</string>
+    <string name="classes">Classes</string>
+    <string name="intensity">Intensity</string>
+    <string name="minutes_per_day">Minutes per Day</string>
+    <string name="weekly_plan">Weekly Plan</string>
+    <string name="challenge_details">Challenge Details</string>
+    <string name="no_instructor_set">Not set</string>
+
+    <!-- Splash -->
+    <string name="splash_main_title_text">Preparing Your MelodiqTV Experience!</string>
+    <string name="splash_description_text">Hang tight while we set up your personalized music journey. This won\'t take long!</string>
+
+    <string name="generic_lost_network_connectivity_dialog_title">Network Connection Lost</string>
+    <string name="generic_lost_network_connectivity_dialog_description">It seems that your device has lost network connectivity. Please check your connection settings or restart the app.</string>
+    <string name="generic_lost_network_connectivity_dialog_open_settings_button_text">Open Settings</string>
+    <string name="generic_lost_network_connectivity_dialog_restart_app_button_text">Restart App</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="app_settings">App Settings</string>
+    <string name="about_settings">About</string>
+    <string name="settings_units_preference_title">Units Preference</string>
+    <string name="settings_language_title">Language</string>
+    <string name="settings_video_resolution_title">Video Resolution</string>
+    <string name="settings_close_session_title">Sign off</string>
+    <string name="settings_subscriptions_title">Subscriptions</string>
+    <string name="settings_about_me_title">About me</string>
+    <string name="settings_about_me_content">Hello, I\'m Sergio Sánchez Sánchez an accomplished developer with over 9 years of experience, specializing in crafting exceptional mobile experiences. As a seasoned Android developer, I\'ve delivered a diverse portfolio of projects, demonstrating my commitment to building robust and user-friendly applications. Over the years, I\'ve honed my skills to navigate the ever-evolving Android ecosystem, consistently pushing the boundaries of what\'s possible.</string>
+    <string name="settings_about_app_title">About FitFlexTV</string>
+    <string name="settings_about_app_content">FitFlexTV is a home workout application designed to provide personalized workout plans and track your fitness progress, all from the comfort of your home. 💪 Our app offers a variety of workout routines, ranging from short, high-intensity sessions to longer, more relaxed workouts, ensuring that there\'s something for everyone. Stay motivated, stay fit, and enjoy your fitness journey with FitFlexTV!</string>
+    <string name="settings_confirm_sign_off_dialog_title">Ready to Say Goodbye?</string>
+    <string name="settings_confirm_sign_off_dialog_description">You\'re about to sign off. Are you sure you want to leave your fitness journey for now?</string>
+    <!-- Subscription -->
+    <string name="month">Month</string>
+    <string name="months">Months</string>
+    <string name="month_subscription">Monthly Subscription</string>
+    <string name="subscribe_now">Subscribe Now!</string>
+    <string name="restore_purchases">Restore Purchases</string>
+    <string name="subscribe_to_premium">Unlock Your Full Potential with Premium</string>
+    <string name="subscribe_brief">Take the First Step Towards a Stronger, Healthier You! Our Premium Membership offers exclusive access to advanced workouts, personalized training plans, and much more. Don\'t just dream it—achieve it!</string>
+    <string name="our_plans">Explore Our Plans</string>
+    <string name="free_trail">Start Your 7-Day Free Trial</string>
+    <string name="subscription_cancelled">Subscription Continues Until Cancelled</string>
+    <string name="add_subscription_completed_dialog_title">Subscription Activated!</string>
+    <string name="add_subscription_completed_dialog_description">Congratulations! You’ve just unlocked a world of exclusive features and premium content. Get ready to elevate your fitness journey to the next level. Let’s do this!</string>
+    <!-- Training Types -->
+    <string name="training_type_workout_name">Workout</string>
+    <string name="training_type_series_name">Series</string>
+    <string name="training_type_challenges_name">Challenges</string>
+    <string name="training_type_routines_name">Routines</string>
+
+    <!-- Miscellaneous -->
+    <string name="no_text_value">--</string>
 </resources>

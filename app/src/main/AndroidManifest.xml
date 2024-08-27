@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.dreamsoftware.voxlet">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
     <application
+        android:name="com.dreamsoftware.melodiqtv.MelodiqTVApplication"
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VoxLetTheme"
-        tools:targetApi="31">
+        android:theme="@style/Theme.FitFlexTV"
+        android:usesCleartextTraffic="true">
+        <profileable
+            android:shell="true"
+            tools:targetApi="29" />
+
         <activity
-            android:name="com.dreamsoftware.voxlet.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.VoxLetTheme"
-            android:windowSoftInputMode="adjustResize">
+            android:name="com.dreamsoftware.melodiqtv.ui.MainActivity"
+            android:theme="@style/SplashScreenTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
