@@ -2,8 +2,8 @@ package com.dreamsoftware.melodiqtv.data.remote.datasource.impl
 
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IFavoritesRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.core.SupportFireStoreDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteTrainingDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteTrainingDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteSongDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.exception.AddToFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.DeleteProfileRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.GetFavoritesByUserRemoteException
@@ -19,23 +19,23 @@ import kotlinx.coroutines.withContext
 
 internal class FavoritesRemoteDataSourceImpl(
     private val firebaseStore: FirebaseFirestore,
-    private val addFavoriteMapper: IOneSideMapper<AddFavoriteTrainingDTO, Map<String, Any?>>,
-    private val favoriteMapper: IOneSideMapper<Map<String, Any?>, FavoriteTrainingDTO>,
+    private val addFavoriteMapper: IOneSideMapper<AddFavoriteSongDTO, Map<String, Any?>>,
+    private val favoriteMapper: IOneSideMapper<Map<String, Any?>, FavoriteSongDTO>,
     private val dispatcher: CoroutineDispatcher
 ): SupportFireStoreDataSourceImpl(dispatcher), IFavoritesRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "favorite_trainings"
-        const val SUB_COLLECTION_NAME = "trainings"
+        const val COLLECTION_NAME = "melodiqtv_favorite_songs"
+        const val SUB_COLLECTION_NAME = "songs"
     }
 
     @Throws(AddToFavoritesRemoteException::class)
-    override suspend fun addFavorite(data: AddFavoriteTrainingDTO): Boolean = try {
+    override suspend fun addFavorite(data: AddFavoriteSongDTO): Boolean = try {
             withContext(dispatcher) {
                 firebaseStore.collection(COLLECTION_NAME)
                     .document(data.profileId)
                     .collection(SUB_COLLECTION_NAME)
-                    .document(data.trainingId)
+                    .document(data.songId)
                     .set(addFavoriteMapper.mapInToOut(data), SetOptions.merge())
                     .await()
                 true
@@ -48,7 +48,7 @@ internal class FavoritesRemoteDataSourceImpl(
         }
 
     @Throws(GetFavoritesByUserRemoteException::class)
-    override suspend fun getFavoritesByUser(profileId: String): List<FavoriteTrainingDTO> = try {
+    override suspend fun getFavoritesByUser(profileId: String): List<FavoriteSongDTO> = try {
         fetchListFromFireStore(
             query = { firebaseStore
                 .collection(COLLECTION_NAME)

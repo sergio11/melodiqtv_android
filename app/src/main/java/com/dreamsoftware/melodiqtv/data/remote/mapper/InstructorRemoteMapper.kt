@@ -1,9 +1,9 @@
 package com.dreamsoftware.melodiqtv.data.remote.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.InstructorDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
-internal class InstructorRemoteMapper: IOneSideMapper<Map<String, Any?>, InstructorDTO> {
+internal class InstructorRemoteMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO> {
 
     private companion object {
         const val UID_KEY = "uid"
@@ -12,8 +12,8 @@ internal class InstructorRemoteMapper: IOneSideMapper<Map<String, Any?>, Instruc
         const val IMAGE_URL_KEY = "imageUrl"
     }
 
-    override fun mapInToOut(input: Map<String, Any?>): InstructorDTO = with(input) {
-        InstructorDTO(
+    override fun mapInToOut(input: Map<String, Any?>): ArtistDTO = with(input) {
+        ArtistDTO(
             id = get(UID_KEY) as String,
             name = get(NAME_KEY) as String,
             description = get(DESCRIPTION_KEY) as String,
@@ -21,6 +21,6 @@ internal class InstructorRemoteMapper: IOneSideMapper<Map<String, Any?>, Instruc
         )
     }
 
-    override fun mapInListToOutList(input: Iterable<Map<String, Any?>>): Iterable<InstructorDTO> =
+    override fun mapInListToOutList(input: Iterable<Map<String, Any?>>): Iterable<ArtistDTO> =
         input.map(::mapInToOut)
 }

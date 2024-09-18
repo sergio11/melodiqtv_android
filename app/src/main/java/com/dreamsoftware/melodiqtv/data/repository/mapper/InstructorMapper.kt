@@ -1,13 +1,13 @@
 package com.dreamsoftware.melodiqtv.data.repository.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.InstructorDTO
-import com.dreamsoftware.melodiqtv.domain.model.InstructorBO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
+import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
-internal class InstructorMapper : IOneSideMapper<InstructorDTO, InstructorBO> {
+internal class InstructorMapper : IOneSideMapper<ArtistDTO, ArtistBO> {
 
-    override fun mapInToOut(input: InstructorDTO): InstructorBO = with(input) {
-        InstructorBO(
+    override fun mapInToOut(input: ArtistDTO): ArtistBO = with(input) {
+        ArtistBO(
             id = id,
             name = name,
             description = description,
@@ -15,6 +15,6 @@ internal class InstructorMapper : IOneSideMapper<InstructorDTO, InstructorBO> {
         )
     }
 
-    override fun mapInListToOutList(input: Iterable<InstructorDTO>): Iterable<InstructorBO> =
+    override fun mapInListToOutList(input: Iterable<ArtistDTO>): Iterable<ArtistBO> =
         input.map(::mapInToOut)
 }

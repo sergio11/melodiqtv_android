@@ -1,7 +1,5 @@
 package com.dreamsoftware.melodiqtv.data.repository.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.TrainingSongDTO
-import com.dreamsoftware.melodiqtv.domain.model.TrainingSongBO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
 internal class TrainingSongMapper : IOneSideMapper<TrainingSongDTO, TrainingSongBO> {

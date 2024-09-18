@@ -1,15 +1,16 @@
 package com.dreamsoftware.melodiqtv.domain.usecase
 
-import com.dreamsoftware.melodiqtv.domain.model.TrainingSongBO
-import com.dreamsoftware.melodiqtv.domain.repository.ITrainingSongsRepository
+import com.dreamsoftware.melodiqtv.domain.repository.ISongRepository
 import com.dreamsoftware.fudge.core.FudgeTvUseCaseWithParams
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 
 class GetSongByIdUseCase(
-    private val trainingSongRepository: ITrainingSongsRepository
-) : FudgeTvUseCaseWithParams<GetSongByIdUseCase.Params, TrainingSongBO>() {
+    private val songRepository: ISongRepository
+) : FudgeTvUseCaseWithParams<GetSongByIdUseCase.Params, SongBO>() {
 
-    override suspend fun onExecuted(params: Params): TrainingSongBO =
-        trainingSongRepository.getSongById(params.id)
+    override suspend fun onExecuted(params: Params): SongBO = with(params) {
+        songRepository.getSongById(id = id)
+    }
 
     data class Params(
         val id: String

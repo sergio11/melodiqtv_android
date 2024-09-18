@@ -1,7 +1,5 @@
 package com.dreamsoftware.melodiqtv.ui.screens.player.audio
 
-import com.dreamsoftware.melodiqtv.domain.model.TrainingSongBO
-import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.EMPTY
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect

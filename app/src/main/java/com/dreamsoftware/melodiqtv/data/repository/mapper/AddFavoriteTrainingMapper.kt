@@ -1,20 +1,20 @@
 package com.dreamsoftware.melodiqtv.data.repository.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteTrainingDTO
-import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteTrainingBO
+import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteSongDTO
+import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteSongBO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
 internal class AddFavoriteTrainingMapper :
-    IOneSideMapper<AddFavoriteTrainingBO, AddFavoriteTrainingDTO> {
+    IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO> {
 
-    override fun mapInToOut(input: AddFavoriteTrainingBO): AddFavoriteTrainingDTO = with(input) {
-        AddFavoriteTrainingDTO(
+    override fun mapInToOut(input: AddFavoriteSongBO): AddFavoriteSongDTO = with(input) {
+        AddFavoriteSongDTO(
             profileId = profileId,
-            trainingId = trainingId,
+            songId = songId,
             trainingType = trainingType.name
         )
     }
 
-    override fun mapInListToOutList(input: Iterable<AddFavoriteTrainingBO>): Iterable<AddFavoriteTrainingDTO> =
+    override fun mapInListToOutList(input: Iterable<AddFavoriteSongBO>): Iterable<AddFavoriteSongDTO> =
         input.map(::mapInToOut)
 }
