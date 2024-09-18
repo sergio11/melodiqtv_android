@@ -25,7 +25,7 @@ internal class UserRemoteDataSourceImpl(
 ): SupportFireStoreDataSourceImpl(dispatcher), IUserRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "users"
+        const val COLLECTION_NAME = "melodiqtv_users"
         const val PROFILES_COUNT_FIELD = "profilesCount"
     }
 

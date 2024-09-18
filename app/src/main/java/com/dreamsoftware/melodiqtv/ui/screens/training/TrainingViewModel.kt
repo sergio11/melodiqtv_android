@@ -2,16 +2,15 @@ package com.dreamsoftware.melodiqtv.ui.screens.training
 
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.di.FavoritesScreenErrorMapper
-import com.dreamsoftware.melodiqtv.domain.model.ClassLanguageEnum
+import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
-import com.dreamsoftware.melodiqtv.domain.model.InstructorBO
+import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
 import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
 import com.dreamsoftware.melodiqtv.domain.model.SortTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.VideoLengthEnum
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutTypeEnum
-import com.dreamsoftware.melodiqtv.domain.usecase.GetInstructorsUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsByTypeUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetArtistsUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsByTypeUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.EMPTY
 import com.dreamsoftware.fudge.component.menu.FudgeTvFilterVO
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
@@ -24,18 +23,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrainingViewModel @Inject constructor(
-    private val getInstructorsUseCase: GetInstructorsUseCase,
-    private val getTrainingsByTypeUseCase: GetTrainingsByTypeUseCase,
+    private val getArtistsUseCase: GetArtistsUseCase,
+    private val getSongsByTypeUseCase: GetSongsByTypeUseCase,
     private val applicationAware: IFudgeTvApplicationAware,
     @FavoritesScreenErrorMapper private val errorMapper: IFudgeTvErrorMapper,
 ) : FudgeTvViewModel<TrainingUiState, TrainingSideEffects>(), TrainingScreenActionListener {
 
-    private var instructors: List<InstructorBO> = emptyList()
+    private var instructors: List<ArtistBO> = emptyList()
     private var instructor: String = String.EMPTY
     private var videoLength: VideoLengthEnum = VideoLengthEnum.NOT_SET
     private var workoutType: WorkoutTypeEnum = WorkoutTypeEnum.NOT_SET
     private var intensity: IntensityEnum = IntensityEnum.NOT_SET
-    private var classLanguage: ClassLanguageEnum = ClassLanguageEnum.NOT_SET
+    private var classLanguage: LanguageEnum = LanguageEnum.NOT_SET
     private var sortType: SortTypeEnum = SortTypeEnum.NOT_SET
 
     override fun onGetDefaultState(): TrainingUiState = TrainingUiState(
@@ -58,8 +57,8 @@ class TrainingViewModel @Inject constructor(
                 id = CLASS_LANGUAGE_FILTER,
                 icon = R.drawable.language_ic,
                 title = R.string.class_language,
-                description = ClassLanguageEnum.NOT_SET.value,
-                options = ClassLanguageEnum.entries.map { it.value }
+                description = LanguageEnum.NOT_SET.value,
+                options = LanguageEnum.entries.map { it.value }
             ),
             FudgeTvFilterVO(
                 id = DIFFICULTY_FILTER,
@@ -140,7 +139,7 @@ class TrainingViewModel @Inject constructor(
                     intensity = IntensityEnum.entries[currentIndex]
                 }
                 CLASS_LANGUAGE_FILTER -> {
-                    classLanguage = ClassLanguageEnum.entries[currentIndex]
+                    classLanguage = LanguageEnum.entries[currentIndex]
                 }
                 INSTRUCTOR_FILTER -> {
                     instructor = instructors.getOrNull(currentIndex)?.id.orEmpty()
@@ -156,7 +155,7 @@ class TrainingViewModel @Inject constructor(
                                     VIDEO_LENGTH_FILTER -> VideoLengthEnum.entries[currentIndex].value
                                     CLASS_TYPE_FILTER -> WorkoutTypeEnum.entries[currentIndex].value
                                     DIFFICULTY_FILTER -> IntensityEnum.entries[currentIndex].value
-                                    CLASS_LANGUAGE_FILTER -> ClassLanguageEnum.entries[currentIndex].value
+                                    CLASS_LANGUAGE_FILTER -> LanguageEnum.entries[currentIndex].value
                                     else -> instructors.getOrNull(currentIndex)?.name.orEmpty()
                                 }
                             )
@@ -196,20 +195,20 @@ class TrainingViewModel @Inject constructor(
     }
 
     private fun fetchInstructors() {
-        executeUseCase(useCase = getInstructorsUseCase, onSuccess = ::onGetInstructorsSuccessfully)
+        executeUseCase(useCase = getArtistsUseCase, onSuccess = ::onGetInstructorsSuccessfully)
     }
 
     private fun fetchTrainings() {
         executeUseCaseWithParams(
-            useCase = getTrainingsByTypeUseCase,
-            params = GetTrainingsByTypeUseCase.Params(
+            useCase = getSongsByTypeUseCase,
+            params = GetSongsByTypeUseCase.Params(
                 type = uiState.value.trainingTypeSelected,
-                classLanguage = classLanguage,
+                language = classLanguage,
                 workoutType = workoutType,
                 intensity = intensity,
                 videoLength = videoLength,
                 sortType = sortType,
-                instructor = instructor
+                artist = instructor
             ),
             onSuccess = ::onGetTrainingProgramsSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
@@ -223,7 +222,7 @@ class TrainingViewModel @Inject constructor(
         }
     }
 
-    private fun onGetInstructorsSuccessfully(instructorList: List<InstructorBO>) {
+    private fun onGetInstructorsSuccessfully(instructorList: List<ArtistBO>) {
         instructors = instructorList
         val noInstructorSet = applicationAware.getString(R.string.no_instructor_set)
         updateState {
@@ -231,7 +230,7 @@ class TrainingViewModel @Inject constructor(
                 filterItems = it.filterItems.map { item ->
                     if(item.id == INSTRUCTOR_FILTER) {
                         item.copy(
-                            options = instructorList.map(InstructorBO::name) + noInstructorSet,
+                            options = instructorList.map(ArtistBO::name) + noInstructorSet,
                             description = noInstructorSet
                         )
                     } else {
@@ -253,7 +252,7 @@ class TrainingViewModel @Inject constructor(
         videoLength = VideoLengthEnum.NOT_SET
         workoutType = WorkoutTypeEnum.NOT_SET
         intensity = IntensityEnum.NOT_SET
-        classLanguage = ClassLanguageEnum.NOT_SET
+        classLanguage = LanguageEnum.NOT_SET
         instructor = String.EMPTY
         updateState {
             it.copy(
@@ -270,7 +269,7 @@ class TrainingViewModel @Inject constructor(
                 VIDEO_LENGTH_FILTER -> VideoLengthEnum.NOT_SET.value
                 CLASS_TYPE_FILTER -> WorkoutTypeEnum.NOT_SET.value
                 DIFFICULTY_FILTER -> IntensityEnum.NOT_SET.value
-                CLASS_LANGUAGE_FILTER -> ClassLanguageEnum.NOT_SET.value
+                CLASS_LANGUAGE_FILTER -> LanguageEnum.NOT_SET.value
                 else -> String.EMPTY
             }
         )

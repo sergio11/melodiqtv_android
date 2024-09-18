@@ -2,31 +2,21 @@ package com.dreamsoftware.melodiqtv.di
 
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IAuthRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.ICategoryRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.IChallengesRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IFavoritesRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.IInstructorsRemoteDataSource
+import com.dreamsoftware.melodiqtv.data.remote.datasource.IArtistsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IProfilesRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.IRoutineRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.ISeriesRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.ISubscriptionsRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.ITrainingSongsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserSubscriptionsRemoteDataSource
-import com.dreamsoftware.melodiqtv.data.remote.datasource.IWorkoutRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.AuthRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.CategoryRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.ChallengesRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.FavoritesRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.InstructorsRemoteDataSourceImpl
+import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.ArtistsRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.ProfilesRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.RoutineRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.SeriesRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.SubscriptionsRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.TrainingSongsRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.UserRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.UserSubscriptionsRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.WorkoutRemoteDataSourceImpl
-import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteTrainingDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddUserSubscriptionDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.CreateProfileRequestDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.CreateUserDTO
@@ -35,20 +25,15 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.request.UpdatedUserRequestDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.AuthUserDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.CategoryDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ChallengeDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteTrainingDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.InstructorDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteSongDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ProfileDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.RoutineDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.SeriesDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.SubscriptionDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.TrainingSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.UserResponseDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.UserSubscriptionDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.WorkoutDTO
-import com.dreamsoftware.melodiqtv.data.remote.mapper.AddFavoriteTrainingRemoteMapper
+import com.dreamsoftware.melodiqtv.data.remote.mapper.AddFavoriteSongRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.AddUserSubscriptionRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CategoryRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.ChallengeRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CreateProfileRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CreateUserRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.FavoriteTrainingRemoteMapper
@@ -57,13 +42,11 @@ import com.dreamsoftware.melodiqtv.data.remote.mapper.ProfileRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.RoutineRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.SeriesRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.SubscriptionRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.TrainingSongRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdateProfileRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdatedUserRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UserAuthenticatedRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UserRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UserSubscriptionsRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.WorkoutRemoteMapper
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -185,7 +168,7 @@ class RemoteDataSourceModule {
      */
     @Provides
     @Singleton
-    fun provideAddFavoriteTrainingRemoteMapper(): IOneSideMapper<AddFavoriteTrainingDTO, Map<String, Any?>> = AddFavoriteTrainingRemoteMapper()
+    fun provideAddFavoriteTrainingRemoteMapper(): IOneSideMapper<AddFavoriteSongDTO, Map<String, Any?>> = AddFavoriteSongRemoteMapper()
 
     /**
      * Provides a singleton instance of FavoriteTrainingRemoteMapper.
@@ -193,7 +176,7 @@ class RemoteDataSourceModule {
      */
     @Provides
     @Singleton
-    fun provideFavoriteTrainingRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteTrainingDTO> = FavoriteTrainingRemoteMapper()
+    fun provideFavoriteTrainingRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteSongDTO> = FavoriteTrainingRemoteMapper()
 
     /**
      * Provides a singleton instance of SubscriptionRemoteMapper.
@@ -233,7 +216,7 @@ class RemoteDataSourceModule {
      */
     @Provides
     @Singleton
-    fun provideInstructorRemoteMapper(): IOneSideMapper<Map<String, Any?>, InstructorDTO> = InstructorRemoteMapper()
+    fun provideInstructorRemoteMapper(): IOneSideMapper<Map<String, Any?>, ArtistDTO> = InstructorRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -363,8 +346,8 @@ class RemoteDataSourceModule {
     @Singleton
     fun provideFavoritesRemoteDataSource(
         firebaseStore: FirebaseFirestore,
-        addFavoriteMapper: IOneSideMapper<AddFavoriteTrainingDTO, Map<String, Any?>>,
-        favoriteMapper: IOneSideMapper<Map<String, Any?>, FavoriteTrainingDTO>,
+        addFavoriteMapper: IOneSideMapper<AddFavoriteSongDTO, Map<String, Any?>>,
+        favoriteMapper: IOneSideMapper<Map<String, Any?>, FavoriteSongDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): IFavoritesRemoteDataSource = FavoritesRemoteDataSourceImpl(
         firebaseStore,
@@ -415,9 +398,9 @@ class RemoteDataSourceModule {
     @Singleton
     fun provideInstructorsRemoteDataSource(
         firebaseStore: FirebaseFirestore,
-        instructorMapper: IOneSideMapper<Map<String, Any?>, InstructorDTO>,
+        instructorMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IInstructorsRemoteDataSource = InstructorsRemoteDataSourceImpl(
+    ): IArtistsRemoteDataSource = ArtistsRemoteDataSourceImpl(
         firebaseStore,
         instructorMapper,
         dispatcher

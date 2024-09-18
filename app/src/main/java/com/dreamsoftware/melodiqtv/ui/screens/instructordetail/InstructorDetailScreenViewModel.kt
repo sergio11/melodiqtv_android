@@ -1,7 +1,7 @@
 package com.dreamsoftware.melodiqtv.ui.screens.instructordetail
 
-import com.dreamsoftware.melodiqtv.domain.model.InstructorBO
-import com.dreamsoftware.melodiqtv.domain.usecase.GetInstructorDetailUseCase
+import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
+import com.dreamsoftware.melodiqtv.domain.usecase.GetArtistDetailUseCase
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
@@ -10,20 +10,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class InstructorDetailScreenViewModel @Inject constructor(
-    private val getInstructorDetailUseCase: GetInstructorDetailUseCase
+    private val getArtistDetailUseCase: GetArtistDetailUseCase
 ) : FudgeTvViewModel<InstructorDetailUiState, InstructorDetailSideEffects>(), InstructorDetailActionListener {
 
     override fun onGetDefaultState(): InstructorDetailUiState = InstructorDetailUiState()
 
     fun fetchData(id: String) {
         executeUseCaseWithParams(
-            useCase = getInstructorDetailUseCase,
-            params = GetInstructorDetailUseCase.Params(id),
+            useCase = getArtistDetailUseCase,
+            params = GetArtistDetailUseCase.Params(id),
             onSuccess = ::onGetInstructorDetailsCompleted
         )
     }
 
-    private fun onGetInstructorDetailsCompleted(instructorDetail: InstructorBO) {
+    private fun onGetInstructorDetailsCompleted(instructorDetail: ArtistBO) {
         updateState { it.copy(instructorDetail = instructorDetail) }
     }
 
@@ -35,7 +35,7 @@ class InstructorDetailScreenViewModel @Inject constructor(
 data class InstructorDetailUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val instructorDetail: InstructorBO? = null
+    val instructorDetail: ArtistBO? = null
 ): UiState<InstructorDetailUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): InstructorDetailUiState =
         copy(isLoading = isLoading, errorMessage = errorMessage)

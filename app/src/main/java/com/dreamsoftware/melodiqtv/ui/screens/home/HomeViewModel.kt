@@ -4,8 +4,8 @@ import com.dreamsoftware.melodiqtv.domain.model.CategoryBO
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.GetCategoriesUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetFeaturedTrainingsUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsRecommendedUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetFeaturedSongsUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsRecommendedUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.HasActiveSubscriptionUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
@@ -16,9 +16,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getFeaturedTrainingsUseCase: GetFeaturedTrainingsUseCase,
+    private val getFeaturedSongsUseCase: GetFeaturedSongsUseCase,
     private val getCategoriesUseCase: GetCategoriesUseCase,
-    private val getTrainingsRecommendedUseCase: GetTrainingsRecommendedUseCase,
+    private val getSongsRecommendedUseCase: GetSongsRecommendedUseCase,
     private val hasActiveSubscriptionUseCase: HasActiveSubscriptionUseCase
 ) : FudgeTvViewModel<HomeUiState, HomeSideEffects>(), HomeScreenActionListener {
 
@@ -32,7 +32,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun fetchFeaturedTrainings() {
-        executeUseCase(useCase = getFeaturedTrainingsUseCase, onSuccess = ::onGetFeaturedTrainingsSuccessfully)
+        executeUseCase(useCase = getFeaturedSongsUseCase, onSuccess = ::onGetFeaturedTrainingsSuccessfully)
     }
 
     private fun fetchCategories() {
@@ -40,7 +40,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun fetchTrainingsRecommended() {
-        executeUseCase(useCase = getTrainingsRecommendedUseCase, onSuccess = ::onGetTrainingsRecommendedSuccessfully)
+        executeUseCase(useCase = getSongsRecommendedUseCase, onSuccess = ::onGetTrainingsRecommendedSuccessfully)
     }
 
     private fun verifyHasActiveSubscription() {
