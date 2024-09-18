@@ -178,8 +178,7 @@ private fun TrainingProgramList(
                                 }),
                                 imageUrl = training.imageUrl,
                                 title = training.name,
-                                timeText = training.duration,
-                                typeText = training.intensity.level,
+                                subtitle = "${training.duration} - ${training.intensity.level}",
                                 onClick = { actionListener.onItemClicked(training.id) }
                             )
                         }

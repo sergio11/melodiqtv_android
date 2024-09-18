@@ -48,7 +48,7 @@ internal fun MoreOptionsScreenContent(
                     FudgeTvCardDetails(
                         modifier = Modifier.width(268.dp).constrainAs(trainingDetails) {},
                         title = trainingProgram?.name.orEmpty(),
-                        time = trainingProgram.formatTimeAndTypeTraining(),
+                        subtitle = trainingProgram.formatTimeAndTypeTraining(),
                         description = trainingProgram?.description.orEmpty(),
                         imageUrl = trainingProgram?.imageUrl.orEmpty()
                     )
