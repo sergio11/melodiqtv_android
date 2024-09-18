@@ -95,8 +95,7 @@ internal fun FavoritesScreenContent(
                                     }),
                                     imageUrl = item.imageUrl,
                                     title = item.name,
-                                    timeText = item.duration,
-                                    typeText = item.intensity.level,
+                                    subtitle = "${item.duration} - ${item.intensity.level}",
                                     onClick = {
                                         actionListener.onTrainingProgramSelected(item)
                                     })
