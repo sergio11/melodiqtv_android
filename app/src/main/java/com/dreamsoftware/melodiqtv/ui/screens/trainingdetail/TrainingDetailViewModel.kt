@@ -7,10 +7,10 @@ import com.dreamsoftware.melodiqtv.domain.model.ChallengeWeaklyPlansBO
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.SeriesBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
-import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteTrainingUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingByIdUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteTrainingUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.VerifyTrainingInFavoritesUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteSongUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.VerifySongInFavoritesUseCase
 import com.dreamsoftware.melodiqtv.ui.screens.trainingdetail.TrainingDetailUiState.ChallengeWorkoutItemUiState
 import com.dreamsoftware.melodiqtv.ui.screens.trainingdetail.TrainingDetailUiState.TrainingInfoItem
 import com.dreamsoftware.melodiqtv.ui.utils.EMPTY
@@ -22,10 +22,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrainingDetailViewModel @Inject constructor(
-    private val getTrainingByIdUseCase: GetTrainingByIdUseCase,
-    private val addFavoriteTrainingUseCase: AddFavoriteTrainingUseCase,
-    private val removeFavoriteTrainingUseCase: RemoveFavoriteTrainingUseCase,
-    private val verifyTrainingInFavoritesUseCase: VerifyTrainingInFavoritesUseCase
+    private val getSongByIdUseCase: GetSongByIdUseCase,
+    private val addFavoriteSongUseCase: AddFavoriteSongUseCase,
+    private val removeFavoriteSongUseCase: RemoveFavoriteSongUseCase,
+    private val verifySongInFavoritesUseCase: VerifySongInFavoritesUseCase
 ) : FudgeTvViewModel<TrainingDetailUiState, TrainingDetailSideEffects>(), TrainingDetailScreenActionListener {
 
     override fun onGetDefaultState(): TrainingDetailUiState = TrainingDetailUiState()
@@ -33,13 +33,13 @@ class TrainingDetailViewModel @Inject constructor(
     fun fetchData(id: String, type: TrainingTypeEnum) {
         updateState { it.copy(trainingType = type) }
         executeUseCaseWithParams(
-            useCase = verifyTrainingInFavoritesUseCase,
-            params = VerifyTrainingInFavoritesUseCase.Params(trainingId = id),
+            useCase = verifySongInFavoritesUseCase,
+            params = VerifySongInFavoritesUseCase.Params(songId = id),
             onSuccess = ::onVerifyTrainingInFavoritesCompleted
         )
         executeUseCaseWithParams(
-            useCase = getTrainingByIdUseCase,
-            params = GetTrainingByIdUseCase.Params(id, type),
+            useCase = getSongByIdUseCase,
+            params = GetSongByIdUseCase.Params(id, type),
             onSuccess = ::onGetTrainingProgramByIdSuccessfully
         )
     }
@@ -66,16 +66,16 @@ class TrainingDetailViewModel @Inject constructor(
         with(uiState.value) {
             if(isFavorite) {
                 executeUseCaseWithParams(
-                    useCase = removeFavoriteTrainingUseCase,
-                    params = RemoveFavoriteTrainingUseCase.Params(
-                        trainingId = id
+                    useCase = removeFavoriteSongUseCase,
+                    params = RemoveFavoriteSongUseCase.Params(
+                        songId = id
                     ),
                     onSuccess = ::onChangeFavoriteTrainingCompleted
                 )
             } else {
                 executeUseCaseWithParams(
-                    useCase = addFavoriteTrainingUseCase,
-                    params = AddFavoriteTrainingUseCase.Params(
+                    useCase = addFavoriteSongUseCase,
+                    params = AddFavoriteSongUseCase.Params(
                         trainingId = id,
                         trainingType = trainingType
                     ),

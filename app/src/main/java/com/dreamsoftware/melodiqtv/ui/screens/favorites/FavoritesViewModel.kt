@@ -3,8 +3,8 @@ package com.dreamsoftware.melodiqtv.ui.screens.favorites
 import com.dreamsoftware.melodiqtv.di.FavoritesScreenErrorMapper
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
-import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesTrainingsByUserUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteTrainingUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesSongsByUserUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.IFudgeTvErrorMapper
@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(
-    private val getFavoritesTrainingsByUserUseCase: GetFavoritesTrainingsByUserUseCase,
-    private val removeFavoriteTrainingUseCase: RemoveFavoriteTrainingUseCase,
+    private val getFavoritesSongsByUserUseCase: GetFavoritesSongsByUserUseCase,
+    private val removeFavoriteSongUseCase: RemoveFavoriteSongUseCase,
     @FavoritesScreenErrorMapper private val errorMapper: IFudgeTvErrorMapper,
 ) : FudgeTvViewModel<FavoritesUiState, FavoritesSideEffects>(), FavoritesScreenActionListener {
 
@@ -24,7 +24,7 @@ class FavoritesViewModel @Inject constructor(
 
     fun fetchData() {
         executeUseCase(
-            useCase = getFavoritesTrainingsByUserUseCase,
+            useCase = getFavoritesSongsByUserUseCase,
             onSuccess = ::onGetFavoritesWorkoutsSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
@@ -46,8 +46,8 @@ class FavoritesViewModel @Inject constructor(
 
     override fun onTrainingProgramRemovedFromFavorites(id: String) {
         executeUseCaseWithParams(
-            useCase = removeFavoriteTrainingUseCase,
-            params = RemoveFavoriteTrainingUseCase.Params(trainingId = id),
+            useCase = removeFavoriteSongUseCase,
+            params = RemoveFavoriteSongUseCase.Params(songId = id),
             onSuccess = ::onTrainingProgramRemovedFromFavoritesCompletedSuccessfully
         )
     }

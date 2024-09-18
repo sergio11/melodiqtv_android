@@ -1,17 +1,13 @@
 package com.dreamsoftware.melodiqtv.data.repository.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.InstructorDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.WorkoutDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
-import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutBO
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutTypeEnum
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 import com.dreamsoftware.melodiqtv.utils.enumNameOfOrDefault
 
-internal class WorkoutMapper : IOneSideMapper<Pair<WorkoutDTO, InstructorDTO>, WorkoutBO> {
+internal class WorkoutMapper : IOneSideMapper<Pair<WorkoutDTO, ArtistDTO>, WorkoutBO> {
 
-    override fun mapInToOut(input: Pair<WorkoutDTO, InstructorDTO>): WorkoutBO = with(input) {
+    override fun mapInToOut(input: Pair<WorkoutDTO, ArtistDTO>): WorkoutBO = with(input) {
         WorkoutBO(
             id = first.id,
             name = first.name,
@@ -30,6 +26,6 @@ internal class WorkoutMapper : IOneSideMapper<Pair<WorkoutDTO, InstructorDTO>, W
         )
     }
 
-    override fun mapInListToOutList(input: Iterable<Pair<WorkoutDTO, InstructorDTO>>): Iterable<WorkoutBO> =
+    override fun mapInListToOutList(input: Iterable<Pair<WorkoutDTO, ArtistDTO>>): Iterable<WorkoutBO> =
         input.map(::mapInToOut)
 }

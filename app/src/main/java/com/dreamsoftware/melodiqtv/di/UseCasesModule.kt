@@ -5,39 +5,37 @@ import com.dreamsoftware.melodiqtv.domain.model.SignInBO
 import com.dreamsoftware.melodiqtv.domain.model.SignUpBO
 import com.dreamsoftware.melodiqtv.domain.model.UpdatedProfileRequestBO
 import com.dreamsoftware.melodiqtv.domain.repository.ICategoryRepository
-import com.dreamsoftware.melodiqtv.domain.repository.IInstructorRepository
+import com.dreamsoftware.melodiqtv.domain.repository.IArtistRepository
 import com.dreamsoftware.melodiqtv.domain.repository.IProfilesRepository
 import com.dreamsoftware.melodiqtv.domain.repository.ISubscriptionsRepository
-import com.dreamsoftware.melodiqtv.domain.repository.ITrainingRepository
-import com.dreamsoftware.melodiqtv.domain.repository.ITrainingSongsRepository
+import com.dreamsoftware.melodiqtv.domain.repository.ISongRepository
 import com.dreamsoftware.melodiqtv.domain.repository.IUserRepository
-import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteTrainingUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteSongUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.AddUserSubscriptionUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.ChangeSecurePinUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.CreateProfileUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.DeleteProfileUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetCategoriesUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetCategoryByIdUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesTrainingsByUserUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetFeaturedTrainingsUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetInstructorDetailUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetInstructorsUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesSongsByUserUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetFeaturedSongsUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetArtistDetailUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetArtistsUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetProfileByIdUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetProfileSelectedUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetProfilesUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetSubscriptionsUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingByIdUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsByCategoryUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsByTypeUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsRecommendedUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsByCategoryUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsByTypeUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsRecommendedUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetUserDetailUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetUserPreferencesUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetUserProfilesUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetUserSubscriptionUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.HasActiveSubscriptionUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.HasMultiplesProfilesUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteTrainingUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.RemoveUserSubscriptionUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.SaveUserPreferencesUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.SelectProfileUseCase
@@ -46,7 +44,7 @@ import com.dreamsoftware.melodiqtv.domain.usecase.SignOffUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.SignUpUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.UpdateProfileUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.VerifyPinUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.VerifyTrainingInFavoritesUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.VerifySongInFavoritesUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.VerifyUserSessionUseCase
 import com.dreamsoftware.melodiqtv.domain.validation.IBusinessEntityValidator
 import dagger.Module
@@ -84,21 +82,21 @@ class UseCasesModule {
     fun provideGetTrainingsRecommendedUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ITrainingRepository
-    ): GetTrainingsRecommendedUseCase =
-        GetTrainingsRecommendedUseCase(
+        trainingRepository: ISongRepository
+    ): GetSongsRecommendedUseCase =
+        GetSongsRecommendedUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            trainingRepository = trainingRepository
+            songsRepository = trainingRepository
         )
 
     @Provides
     @ViewModelScoped
     fun provideGetTrainingByIdUseCase(
-        trainingRepository: ITrainingRepository
-    ): GetTrainingByIdUseCase =
-        GetTrainingByIdUseCase(
-            trainingRepository = trainingRepository
+        trainingRepository: ISongRepository
+    ): GetSongByIdUseCase =
+        GetSongByIdUseCase(
+            songRepository = trainingRepository
         )
 
     @Provides
@@ -106,21 +104,21 @@ class UseCasesModule {
     fun provideGetTrainingsByTypeUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ITrainingRepository
-    ): GetTrainingsByTypeUseCase =
-        GetTrainingsByTypeUseCase(
+        trainingRepository: ISongRepository
+    ): GetSongsByTypeUseCase =
+        GetSongsByTypeUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            trainingRepository = trainingRepository
+            songsRepository = trainingRepository
         )
 
     @Provides
     @ViewModelScoped
     fun provideGetInstructorsUseCase(
-        instructorRepository: IInstructorRepository
-    ): GetInstructorsUseCase =
-        GetInstructorsUseCase(
-            instructorRepository = instructorRepository
+        instructorRepository: IArtistRepository
+    ): GetArtistsUseCase =
+        GetArtistsUseCase(
+            artistRepository = instructorRepository
         )
 
     @Provides
@@ -129,7 +127,7 @@ class UseCasesModule {
         trainingSongRepository: ITrainingSongsRepository
     ): GetSongByIdUseCase =
         GetSongByIdUseCase(
-            trainingSongRepository = trainingSongRepository
+            songRepository = trainingSongRepository
         )
 
     @Provides
@@ -162,12 +160,12 @@ class UseCasesModule {
     fun provideGetFeaturedTrainingsUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ITrainingRepository
-    ): GetFeaturedTrainingsUseCase =
-        GetFeaturedTrainingsUseCase(
+        trainingRepository: ISongRepository
+    ): GetFeaturedSongsUseCase =
+        GetFeaturedSongsUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
     @Provides
@@ -175,12 +173,12 @@ class UseCasesModule {
     fun provideGetTrainingsByCategoryUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ITrainingRepository
-    ): GetTrainingsByCategoryUseCase =
-        GetTrainingsByCategoryUseCase(
+        trainingRepository: ISongRepository
+    ): GetSongsByCategoryUseCase =
+        GetSongsByCategoryUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
     @Provides
@@ -300,12 +298,12 @@ class UseCasesModule {
     fun provideAddFavoriteTrainingUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ITrainingRepository
-    ): AddFavoriteTrainingUseCase =
-        AddFavoriteTrainingUseCase(
+        trainingRepository: ISongRepository
+    ): AddFavoriteSongUseCase =
+        AddFavoriteSongUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
 
@@ -314,23 +312,23 @@ class UseCasesModule {
     fun provideGetFavoritesTrainingsByUserUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ITrainingRepository
-    ): GetFavoritesTrainingsByUserUseCase =
-        GetFavoritesTrainingsByUserUseCase(
+        trainingRepository: ISongRepository
+    ): GetFavoritesSongsByUserUseCase =
+        GetFavoritesSongsByUserUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
     @Provides
     @ViewModelScoped
     fun provideRemoveFavoriteTrainingUseCase(
         userRepository: IUserRepository,
-        trainingRepository: ITrainingRepository
-    ): RemoveFavoriteTrainingUseCase =
-        RemoveFavoriteTrainingUseCase(
+        trainingRepository: ISongRepository
+    ): RemoveFavoriteSongUseCase =
+        RemoveFavoriteSongUseCase(
             userRepository = userRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
 
@@ -339,12 +337,12 @@ class UseCasesModule {
     fun provideVerifyTrainingInFavoritesUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ITrainingRepository
-    ): VerifyTrainingInFavoritesUseCase =
-        VerifyTrainingInFavoritesUseCase(
+        trainingRepository: ISongRepository
+    ): VerifySongInFavoritesUseCase =
+        VerifySongInFavoritesUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            trainingRepository = trainingRepository
+            songRepository = trainingRepository
         )
 
     @Provides
@@ -441,10 +439,10 @@ class UseCasesModule {
     @Provides
     @ViewModelScoped
     fun provideGetInstructorDetailUseCase(
-        instructorRepository: IInstructorRepository
-    ): GetInstructorDetailUseCase =
-        GetInstructorDetailUseCase(
-            instructorRepository = instructorRepository
+        instructorRepository: IArtistRepository
+    ): GetArtistDetailUseCase =
+        GetArtistDetailUseCase(
+            artistRepository = instructorRepository
         )
 
     @Provides

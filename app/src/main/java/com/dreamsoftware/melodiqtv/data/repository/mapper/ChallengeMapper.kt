@@ -1,22 +1,18 @@
 package com.dreamsoftware.melodiqtv.data.repository.mapper
 
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ChallengeDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.InstructorDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.WorkoutDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.domain.model.ChallengeBO
 import com.dreamsoftware.melodiqtv.domain.model.ChallengeWeaklyPlansBO
 import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
-import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutBO
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutTypeEnum
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 import com.dreamsoftware.melodiqtv.utils.enumNameOfOrDefault
 
 internal class ChallengeMapper(
-    private val workoutMapper: IOneSideMapper<Pair<WorkoutDTO, InstructorDTO>, WorkoutBO>
-) : IOneSideMapper<Triple<ChallengeDTO, List<WorkoutDTO>, InstructorDTO>, ChallengeBO> {
+    private val workoutMapper: IOneSideMapper<Pair<WorkoutDTO, ArtistDTO>, WorkoutBO>
+) : IOneSideMapper<Triple<ChallengeDTO, List<WorkoutDTO>, ArtistDTO>, ChallengeBO> {
 
-    override fun mapInToOut(input: Triple<ChallengeDTO, List<WorkoutDTO>, InstructorDTO>): ChallengeBO = with(input) {
+    override fun mapInToOut(input: Triple<ChallengeDTO, List<WorkoutDTO>, ArtistDTO>): ChallengeBO = with(input) {
         ChallengeBO(
             id = first.id,
             name = first.name,
@@ -44,6 +40,6 @@ internal class ChallengeMapper(
         )
     }
 
-    override fun mapInListToOutList(input: Iterable<Triple<ChallengeDTO, List<WorkoutDTO>, InstructorDTO>>): Iterable<ChallengeBO> =
+    override fun mapInListToOutList(input: Iterable<Triple<ChallengeDTO, List<WorkoutDTO>, ArtistDTO>>): Iterable<ChallengeBO> =
         input.map(::mapInToOut)
 }

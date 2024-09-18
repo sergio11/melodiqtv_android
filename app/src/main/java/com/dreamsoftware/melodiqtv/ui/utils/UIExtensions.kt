@@ -8,7 +8,6 @@ import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.SeriesBO
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
-import com.dreamsoftware.melodiqtv.domain.model.WorkoutBO
 
 fun ITrainingProgramBO?.formatTimeAndTypeTraining(): String =
     this?.run { "$duration | $intensity ••••" }.orEmpty()

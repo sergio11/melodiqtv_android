@@ -1,6 +1,5 @@
 package com.dreamsoftware.melodiqtv.data.remote.mapper
 
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.RoutineDTO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 import java.util.Date
 

@@ -2,7 +2,7 @@ package com.dreamsoftware.melodiqtv.ui.screens.player.video
 
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingByIdUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.EMPTY
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
@@ -12,15 +12,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class VideoPlayerViewModel @Inject constructor(
-    private val getTrainingByIdUseCase: GetTrainingByIdUseCase
+    private val getSongByIdUseCase: GetSongByIdUseCase
 ) : FudgeTvViewModel<VideoPlayerUiState, VideoPlayerSideEffects>() {
 
     override fun onGetDefaultState(): VideoPlayerUiState = VideoPlayerUiState()
 
     fun fetchData(id: String, type: TrainingTypeEnum) {
         executeUseCaseWithParams(
-            useCase = getTrainingByIdUseCase,
-            params = GetTrainingByIdUseCase.Params(id, type),
+            useCase = getSongByIdUseCase,
+            params = GetSongByIdUseCase.Params(id, type),
             onSuccess = ::onGetTrainingProgramByIdSuccessfully
         )
     }

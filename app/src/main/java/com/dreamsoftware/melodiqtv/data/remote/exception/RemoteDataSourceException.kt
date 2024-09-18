@@ -11,12 +11,9 @@ class SignUpRemoteException(message: String? = null, cause: Throwable? = null): 
 class FetchCategoriesRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 class FetchCategoryByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 
-// Instructors
-class FetchInstructorsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-class FetchInstructorByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-
-// Songs
-class FetchTrainingSongByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+// Artists
+class FetchArtistsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+class FetchArtistByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 
 // Subscriptions
 class FetchSubscriptionsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
@@ -27,12 +24,12 @@ class AddUserSubscriptionRemoteException(message: String? = null, cause: Throwab
 class RemoveUserSubscriptionRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 class VerifyHasActiveSubscriptionRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 
-// Trainings
-class FetchTrainingsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-class FetchTrainingByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-class FetchTrainingByCategoryRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-class FetchFeaturedTrainingsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
-class FetchRecommendedTrainingsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+// Songs
+class FetchSongsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+class FetchSongByIdRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+class FetchSongByCategoryRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+class FetchFeaturedSongsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
+class FetchRecommendedSongsRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)
 
 // Profiles
 class FetchProfilesRemoteException(message: String? = null, cause: Throwable? = null): RemoteDataSourceException(message, cause)

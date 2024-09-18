@@ -23,7 +23,7 @@ internal class UserSubscriptionsRemoteDataSourceImpl(
 ): SupportFireStoreDataSourceImpl(dispatcher), IUserSubscriptionsRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "user_subscriptions"
+        const val COLLECTION_NAME = "melodiqtv_user_subscriptions"
         const val VALID_UNTIL_KEY = "validUntil"
     }
 

@@ -16,7 +16,7 @@ internal class CategoryRemoteDataSourceImpl(
 ): SupportFireStoreDataSourceImpl(dispatcher), ICategoryRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "categories"
+        const val COLLECTION_NAME = "melodiqtv_categories"
     }
 
     @Throws(FetchCategoriesRemoteException::class)

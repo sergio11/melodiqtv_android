@@ -4,7 +4,7 @@ import com.dreamsoftware.melodiqtv.domain.model.CategoryBO
 import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.GetCategoryByIdUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.GetTrainingsByCategoryUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsByCategoryUseCase
 import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CategoryDetailScreenViewModel @Inject constructor(
-    private val getTrainingsByCategoryUseCase: GetTrainingsByCategoryUseCase,
+    private val getSongsByCategoryUseCase: GetSongsByCategoryUseCase,
     private val getCategoryByIdUseCase: GetCategoryByIdUseCase
 ) : FudgeTvViewModel<CategoryDetailUiState, CategoryDetailSideEffects>(), CategoryDetailActionListener {
 
@@ -37,8 +37,8 @@ class CategoryDetailScreenViewModel @Inject constructor(
 
     private fun fetchTrainingsByCategory(id: String) {
         executeUseCaseWithParams(
-            useCase = getTrainingsByCategoryUseCase,
-            params = GetTrainingsByCategoryUseCase.Params(id),
+            useCase = getSongsByCategoryUseCase,
+            params = GetSongsByCategoryUseCase.Params(id),
             onSuccess = ::onGetTrainingsByCategorySuccessfully
         )
     }
