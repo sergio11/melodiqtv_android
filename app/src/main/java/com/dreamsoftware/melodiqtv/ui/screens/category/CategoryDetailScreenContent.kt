@@ -71,8 +71,7 @@ internal fun CategoryDetailScreenContent(
                                     },
                                     imageUrl = item.imageUrl,
                                     title = item.name,
-                                    timeText = item.duration,
-                                    typeText = item.intensity.value
+                                    subtitle = "${item.duration} - ${item.intensity.value}",
                                 )
                             }
                         }
