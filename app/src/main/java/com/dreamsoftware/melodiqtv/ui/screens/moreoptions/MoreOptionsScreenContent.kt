@@ -47,10 +47,10 @@ internal fun MoreOptionsScreenContent(
 
                     FudgeTvCardDetails(
                         modifier = Modifier.width(268.dp).constrainAs(trainingDetails) {},
-                        title = trainingProgram?.name.orEmpty(),
-                        subtitle = trainingProgram.formatTimeAndTypeTraining(),
-                        description = trainingProgram?.description.orEmpty(),
-                        imageUrl = trainingProgram?.imageUrl.orEmpty()
+                        title = song?.name.orEmpty(),
+                        subtitle = song.formatTimeAndTypeTraining(),
+                        description = song?.description.orEmpty(),
+                        imageUrl = song?.imageUrl.orEmpty()
                     )
                     FudgeTvBackRowSchema(
                         modifier = Modifier.constrainAs(backRowSchema) {
@@ -66,9 +66,9 @@ internal fun MoreOptionsScreenContent(
                                     top.linkTo(trainingDetails.top)
                                     start.linkTo(trainingDetails.end, margin = 164.dp)
                                 },
-                            textRes = trainingProgram?.toTrainingType()?.getStartButtonID() ?: R.string.start_workout,
+                            textRes = song?.toTrainingType()?.getStartButtonID() ?: R.string.start_workout,
                             icon = R.drawable.ic_rounded_play,
-                            onClick = actionListener::onTrainingProgramOpened
+                            onClick = actionListener::onPlaySongVideoClip
                         )
                     }
 
@@ -96,7 +96,7 @@ internal fun MoreOptionsScreenContent(
                         },
                         textRes = R.string.play_training_song_button_text,
                         icon = R.drawable.music_icon,
-                        onClick = actionListener::onPlayTrainingSong
+                        onClick = actionListener::onPlaySong
                     )
                     FudgeTvMoreOptionsButton(
                         modifier = Modifier.constrainAs(viewInstructorButton) {
@@ -105,7 +105,7 @@ internal fun MoreOptionsScreenContent(
                         },
                         textRes = R.string.view_instructor,
                         icon = R.drawable.ic_instructor,
-                        onClick = actionListener::onOpenInstructorDetail
+                        onClick = actionListener::onOpenArtistDetail
                     )
                     FudgeTvMoreOptionsButton(
                         modifier = Modifier.constrainAs(shareButton) {

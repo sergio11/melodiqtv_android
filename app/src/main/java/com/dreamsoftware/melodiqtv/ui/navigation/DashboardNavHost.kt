@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import com.dreamsoftware.melodiqtv.ui.screens.category.CategoryDetailScreen
 import com.dreamsoftware.melodiqtv.ui.screens.favorites.FavoritesScreen
 import com.dreamsoftware.melodiqtv.ui.screens.home.HomeScreen
-import com.dreamsoftware.melodiqtv.ui.screens.instructordetail.InstructorDetailScreen
+import com.dreamsoftware.melodiqtv.ui.screens.artistdetail.ArtistDetailScreen
 import com.dreamsoftware.melodiqtv.ui.screens.moreoptions.MoreOptionsScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreen
@@ -52,7 +52,7 @@ fun DashboardNavHost(
                     onBackPressed = {
                         popBackStack()
                     },
-                    onOpenTrainingProgramDetail = { id, type ->
+                    onOpenSongDetail = { id, type ->
                         navigate(Screen.TrainingDetail.buildRoute(id, type))
                     }
                 )
@@ -64,7 +64,7 @@ fun DashboardNavHost(
                 with(navController) {
                     CategoryDetailScreen(
                         args = args,
-                        onOpenTrainingProgramDetail = {id, type ->
+                        onOpenSongDetail = { id, type ->
                             navigate(Screen.TrainingDetail.buildRoute(id, type))
                         },
                         onBackPressed = {
@@ -128,13 +128,13 @@ fun DashboardNavHost(
                 with(navController) {
                     MoreOptionsScreen(
                         args = args,
-                        onPlayTrainingProgram = { id, type ->
+                        onPlayVideoClip = { id, type ->
                             navigate(Screen.VideoPlayer.buildRoute(id, type))
                         },
-                        onPlayTrainingSong = {
+                        onPlaySong = {
                             navigate(Screen.AudioPlayer.buildRoute(it))
                         },
-                        onOpenInstructorDetail = {
+                        onOpenArtistDetail = {
                             navigate(Screen.InstructorDetail.buildRoute(it))
                         },
                         onBackPressed = {
@@ -148,7 +148,7 @@ fun DashboardNavHost(
         composable(Screen.InstructorDetail.route) { navBackStackEntry ->
             navBackStackEntry.arguments?.let(Screen.InstructorDetail::parseArgs)?.let { args ->
                 with(navController) {
-                    InstructorDetailScreen(
+                    ArtistDetailScreen(
                         args = args,
                         onBackPressed = {
                             popBackStack()

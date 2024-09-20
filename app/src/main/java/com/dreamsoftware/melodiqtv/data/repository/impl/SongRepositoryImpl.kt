@@ -22,7 +22,6 @@ import com.dreamsoftware.melodiqtv.domain.exception.FetchSongsRecommendedExcepti
 import com.dreamsoftware.melodiqtv.domain.exception.RemoveFavoriteSongException
 import com.dreamsoftware.melodiqtv.domain.exception.VerifyFavoriteSongException
 import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteSongBO
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongFilterDataBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum

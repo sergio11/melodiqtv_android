@@ -1,14 +1,12 @@
 package com.dreamsoftware.melodiqtv.ui.screens.category
 
 import com.dreamsoftware.melodiqtv.domain.model.CategoryBO
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.GetCategoryByIdUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetSongsByCategoryUseCase
-import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -24,22 +22,19 @@ class CategoryDetailScreenViewModel @Inject constructor(
 
     override fun onGetDefaultState(): CategoryDetailUiState = CategoryDetailUiState()
 
-    override fun onTrainingProgramOpened(trainingProgram: ITrainingProgramBO) {
-        with(trainingProgram) {
+    override fun onSongOpened(song: SongBO) {
+        with(song) {
             launchSideEffect(
-                CategoryDetailSideEffects.OpenTrainingProgramDetail(
-                    id = id,
-                    type = toTrainingType()
-                )
+                CategoryDetailSideEffects.OpenSongDetail(id = id)
             )
         }
     }
 
-    private fun fetchTrainingsByCategory(id: String) {
+    private fun fetchSongsByCategory(id: String) {
         executeUseCaseWithParams(
             useCase = getSongsByCategoryUseCase,
             params = GetSongsByCategoryUseCase.Params(id),
-            onSuccess = ::onGetTrainingsByCategorySuccessfully
+            onSuccess = ::onGetSongsByCategorySuccessfully
         )
     }
 
@@ -51,20 +46,20 @@ class CategoryDetailScreenViewModel @Inject constructor(
         )
     }
 
-    private fun onGetTrainingsByCategorySuccessfully(trainings: List<ITrainingProgramBO>) {
-        updateState { it.copy(trainings = trainings) }
+    private fun onGetSongsByCategorySuccessfully(songs: List<SongBO>) {
+        updateState { it.copy(songs = songs) }
     }
 
     private fun onGetCategoryDetailSuccessfully(category: CategoryBO) {
         updateState { it.copy(category = category) }
-        fetchTrainingsByCategory(category.id)
+        fetchSongsByCategory(category.id)
     }
 }
 
 data class CategoryDetailUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val trainings: List<ITrainingProgramBO> = emptyList(),
+    val songs: List<SongBO> = emptyList(),
     val category: CategoryBO? = null
 ): UiState<CategoryDetailUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): CategoryDetailUiState =
@@ -72,5 +67,5 @@ data class CategoryDetailUiState(
 }
 
 sealed interface CategoryDetailSideEffects : SideEffect {
-    data class OpenTrainingProgramDetail(val id: String, val type: TrainingTypeEnum): CategoryDetailSideEffects
+    data class OpenSongDetail(val id: String): CategoryDetailSideEffects
 }

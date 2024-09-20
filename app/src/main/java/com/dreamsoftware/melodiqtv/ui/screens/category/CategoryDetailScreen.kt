@@ -2,7 +2,6 @@ package com.dreamsoftware.melodiqtv.ui.screens.category
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.fudge.component.FudgeTvScreen
 
 data class CategoryDetailScreenArgs(
@@ -13,7 +12,7 @@ data class CategoryDetailScreenArgs(
 fun CategoryDetailScreen(
     viewModel: CategoryDetailScreenViewModel = hiltViewModel(),
     args: CategoryDetailScreenArgs,
-    onOpenTrainingProgramDetail: (String, TrainingTypeEnum) -> Unit,
+    onOpenSongDetail: (String) -> Unit,
     onBackPressed: () -> Unit
 ) {
    FudgeTvScreen(
@@ -22,7 +21,7 @@ fun CategoryDetailScreen(
         onInitialUiState = { CategoryDetailUiState() },
         onSideEffect = {
             when(it) {
-                is CategoryDetailSideEffects.OpenTrainingProgramDetail -> onOpenTrainingProgramDetail(it.id, it.type)
+                is CategoryDetailSideEffects.OpenSongDetail -> onOpenSongDetail(it.id)
             }
         },
         onInit = {

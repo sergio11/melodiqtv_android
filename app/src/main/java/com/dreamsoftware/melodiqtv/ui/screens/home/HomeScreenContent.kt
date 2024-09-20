@@ -16,8 +16,8 @@ import androidx.tv.material3.CarouselState
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import com.dreamsoftware.melodiqtv.ui.screens.home.components.Categories
-import com.dreamsoftware.melodiqtv.ui.screens.home.components.FeaturedTrainings
-import com.dreamsoftware.melodiqtv.ui.screens.home.components.TrainingsRecommended
+import com.dreamsoftware.melodiqtv.ui.screens.home.components.FeaturedSongs
+import com.dreamsoftware.melodiqtv.ui.screens.home.components.SongsRecommended
 import com.dreamsoftware.fudge.component.FudgeTvScreenContent
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -38,10 +38,10 @@ internal fun HomeScreenContent(
                 contentPadding = PaddingValues(vertical = 40.dp)
             ) {
                 item {
-                    FeaturedTrainings(
-                        trainings = featuredTrainings,
+                    FeaturedSongs(
+                        songs = featuredSongs,
                         padding = PaddingValues(horizontal = 32.dp),
-                        onOpenTrainingProgram = actionListener::onOpenTrainingProgram,
+                        onOpenSongDetail = actionListener::onOpenSongDetail,
                         carouselState = carouselState,
                         modifier = Modifier
                             .height(340.dp)
@@ -55,9 +55,9 @@ internal fun HomeScreenContent(
                     )
                 }
                 item {
-                    TrainingsRecommended(
+                    SongsRecommended(
                         state = state.recommended,
-                        onClick = actionListener::onOpenTrainingProgram
+                        onClick = actionListener::onOpenSongDetail
                     )
                 }
             }

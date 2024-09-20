@@ -71,46 +71,48 @@ private fun CategoryItem(
     categoryBO: CategoryBO,
     onClick: () -> Unit
 ) {
-    val gradiantColors = arrayOf(
-        GRADIENT_START to MaterialTheme.colorScheme.surfaceVariant,
-        GRADIENT_END to Color.Transparent
-    )
-    Card(
-        colors = CardDefaults.colors(Color.Transparent),
-        onClick = onClick,
-    ) {
-        Box(
-            modifier = Modifier.clip(MaterialTheme.shapes.small),
-            contentAlignment = Alignment.CenterStart
+    with(MaterialTheme.colorScheme) {
+        val gradiantColors = arrayOf(
+            GRADIENT_START to surfaceVariant,
+            GRADIENT_END to Color.Transparent
+        )
+        Card(
+            colors = CardDefaults.colors(Color.Transparent),
+            onClick = onClick,
         ) {
-            AsyncImage(
-                modifier = modifier
-                    .size(280.dp, 80.dp)
-                    .drawWithContent {
-                        drawContent()
-                        drawRect(Brush.horizontalGradient(colorStops = gradiantColors))
-                    },
-                model = categoryBO.imageUrl,
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-            Column(modifier = Modifier.padding(start = 16.dp)) {
-                FudgeTvText(
-                    modifier = Modifier.width(180.dp),
-                    titleText = categoryBO.title,
-                    type = FudgeTvTextTypeEnum.BODY_LARGE,
-                    textColor = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+            Box(
+                modifier = Modifier.clip(MaterialTheme.shapes.small),
+                contentAlignment = Alignment.CenterStart
+            ) {
+                AsyncImage(
+                    modifier = modifier
+                        .size(280.dp, 80.dp)
+                        .drawWithContent {
+                            drawContent()
+                            drawRect(Brush.horizontalGradient(colorStops = gradiantColors))
+                        },
+                    model = categoryBO.imageUrl,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop
                 )
-                FudgeTvText(
-                    modifier = Modifier.width(200.dp),
-                    titleText = categoryBO.description,
-                    type = FudgeTvTextTypeEnum.BODY_SMALL,
-                    textColor = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Column(modifier = Modifier.padding(start = 16.dp)) {
+                    FudgeTvText(
+                        modifier = Modifier.width(180.dp),
+                        titleText = categoryBO.title,
+                        type = FudgeTvTextTypeEnum.BODY_LARGE,
+                        textColor = onSurface,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    FudgeTvText(
+                        modifier = Modifier.width(200.dp),
+                        titleText = categoryBO.description,
+                        type = FudgeTvTextTypeEnum.BODY_SMALL,
+                        textColor = onSurface,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
         }
     }
@@ -125,14 +127,14 @@ private fun CategoriesPreview() {
                 CategoryBO(
                     id = "1",
                     imageUrl = "",
-                    title = "Yoga & Pilates",
-                    description = "There are many benefits to yoga and Pilates, including increased..."
+                    title = "Song 1 - title",
+                    description = "Song 1 - description"
                 ),
                 CategoryBO(
                     id = "2",
                     imageUrl = "",
-                    title = "Strength training",
-                    description = "Strength training makes you stronger, helps you control your..."
+                    title = "Song 2 - title",
+                    description = "Song 2 - description"
                 ),
             ),
             onClick = {}

@@ -115,7 +115,7 @@ internal fun AudioPlayerScreenContent(
             modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
             descriptionModifier = Modifier.align(alignment = Alignment.CenterHorizontally),
             title = state.title,
-            description = "${state.author} • ${state.description}"
+            description = "${state.artistName} • ${state.description}"
         )
 
         FudgeTvAudioPlayerSeeker(

@@ -2,12 +2,10 @@ package com.dreamsoftware.melodiqtv.ui.screens.player.video
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.fudge.component.FudgeTvScreen
 
 data class VideoPlayerScreenArgs(
-    val id: String,
-    val type: TrainingTypeEnum
+    val id: String
 )
 
 @Composable
@@ -22,7 +20,7 @@ fun VideoPlayerScreen(
         onInitialUiState = { VideoPlayerUiState() },
         onInit = {
             with(args) {
-                fetchData(id = id, type = type)
+                fetchData(id = id)
             }
         }
     ) { uiState ->

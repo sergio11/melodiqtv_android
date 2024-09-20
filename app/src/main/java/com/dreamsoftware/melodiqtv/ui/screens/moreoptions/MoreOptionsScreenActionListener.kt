@@ -5,8 +5,8 @@ import com.dreamsoftware.fudge.core.IFudgeTvScreenActionListener
 interface MoreOptionsScreenActionListener: IFudgeTvScreenActionListener {
 
     fun onBackPressed()
-    fun onTrainingProgramOpened()
+    fun onPlaySongVideoClip()
     fun onFavouriteClicked()
-    fun onOpenInstructorDetail()
-    fun onPlayTrainingSong()
+    fun onOpenArtistDetail()
+    fun onPlaySong()
 }

@@ -1,4 +1,4 @@
-package com.dreamsoftware.melodiqtv.ui.screens.instructordetail
+package com.dreamsoftware.melodiqtv.ui.screens.artistdetail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,15 +18,15 @@ import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 
 @Composable
-internal fun InstructorDetailScreenContent(
-    uiState: InstructorDetailUiState,
-    actionListener: InstructorDetailActionListener
+internal fun ArtistDetailScreenContent(
+    uiState: ArtistDetailUiState,
+    actionListener: ArtistDetailActionListener
 ) {
     with(uiState) {
         FudgeTvScreenContent(onErrorAccepted = actionListener::onErrorMessageCleared) {
             if (isLoading) {
                 FudgeTvLoadingState(modifier = Modifier.fillMaxSize())
-            } else if (instructorDetail == null) {
+            } else if (artistDetail == null) {
                 FudgeTvNoContentState(
                     modifier = Modifier.fillMaxSize(),
                     messageRes = R.string.instructor_detail_not_available
@@ -41,12 +41,14 @@ internal fun InstructorDetailScreenContent(
                         titleRes = R.string.instructor_detail_title,
                         textBold = true
                     )
-                    FudgeTvCardDetails(
-                        modifier = Modifier.width(400.dp),
-                        title = instructorDetail.name,
-                        description = instructorDetail.description,
-                        imageUrl = instructorDetail.imageUrl
-                    )
+                    with(artistDetail) {
+                        FudgeTvCardDetails(
+                            modifier = Modifier.width(400.dp),
+                            title = name,
+                            description = description,
+                            imageUrl = imageUrl
+                        )
+                    }
                     FudgeTvBackRowSchema(
                         onClickBack = actionListener::onBackPressed
                     )

@@ -15,16 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.tv.material3.MaterialTheme
 import com.dreamsoftware.melodiqtv.R
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.fudge.component.FudgeTvCard
 import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 
 @Composable
-internal fun TrainingsRecommended(
+internal fun SongsRecommended(
     modifier: Modifier = Modifier,
-    state: List<ITrainingProgramBO>,
-    onClick: (ITrainingProgramBO) -> Unit
+    state: List<SongBO>,
+    onClick: (SongBO) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(24.dp)) {
         FudgeTvText(
@@ -43,13 +43,13 @@ internal fun TrainingsRecommended(
             verticalArrangement = Arrangement.spacedBy(24.dp),
             contentPadding = PaddingValues(horizontal = 32.dp)
         ) {
-            items(state) { training ->
+            items(state) { song ->
                 FudgeTvCard(
                     modifier = modifier.width(196.dp),
-                    imageUrl = training.imageUrl,
-                    title = training.name,
-                    subtitle = "${training.duration} - ${training.instructorName}",
-                    onClick = { onClick(training) }
+                    imageUrl = song.imageUrl,
+                    title = song.title,
+                    subtitle = "${song.duration} - ${song.artistName}",
+                    onClick = { onClick(song) }
                 )
             }
         }
