@@ -33,7 +33,7 @@ internal fun CategoryDetailScreenContent(
         FudgeTvScreenContent(onErrorAccepted = actionListener::onErrorMessageCleared) {
             if (isLoading) {
                 FudgeTvLoadingState(modifier = Modifier.fillMaxSize())
-            } else if(category != null && trainings.isEmpty()) {
+            } else if(category != null && songs.isEmpty()) {
                 FudgeTvNoContentState(
                     modifier = Modifier.fillMaxSize(),
                     messageRes = R.string.category_detail_no_trainings_available
@@ -61,13 +61,13 @@ internal fun CategoryDetailScreenContent(
                             horizontalArrangement = Arrangement.spacedBy(24.dp),
                             verticalArrangement = Arrangement.spacedBy(24.dp)
                         ) {
-                            itemsIndexed(items = trainings, key = { _, item -> item.id }) { idx, item ->
+                            itemsIndexed(items = songs, key = { _, item -> item.id }) { idx, item ->
                                 FudgeTvCard(modifier = Modifier
                                     .conditional(condition = idx == 0, ifTrue = {
                                         focusRequester(focusRequester)
                                     }),
                                     onClick = {
-                                        actionListener.onTrainingProgramOpened(item)
+                                        actionListener.onSongOpened(item)
                                     },
                                     imageUrl = item.imageUrl,
                                     title = item.name,

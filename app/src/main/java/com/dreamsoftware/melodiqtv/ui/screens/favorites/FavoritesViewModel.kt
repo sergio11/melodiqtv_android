@@ -1,15 +1,13 @@
 package com.dreamsoftware.melodiqtv.ui.screens.favorites
 
-import com.dreamsoftware.melodiqtv.di.FavoritesScreenErrorMapper
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
-import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesSongsByUserUseCase
-import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
-import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.IFudgeTvErrorMapper
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
+import com.dreamsoftware.melodiqtv.di.FavoritesScreenErrorMapper
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.domain.usecase.GetFavoritesSongsByUserUseCase
+import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -25,46 +23,45 @@ class FavoritesViewModel @Inject constructor(
     fun fetchData() {
         executeUseCase(
             useCase = getFavoritesSongsByUserUseCase,
-            onSuccess = ::onGetFavoritesWorkoutsSuccessfully,
+            onSuccess = ::onGetFavoritesSongsSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
     }
 
-    override fun onTrainingProgramSelected(trainingProgram: ITrainingProgramBO) {
-        updateState { it.copy(trainingProgramSelected = trainingProgram) }
+    override fun onSongSelected(song: SongBO) {
+        updateState { it.copy(songSelected = song) }
     }
 
-    override fun onTrainingProgramStarted(id: String) {
-        uiState.value.trainingProgramSelected?.let { trainingProgramSelected ->
-            updateState { it.copy(trainingProgramSelected = null) }
-            launchSideEffect(FavoritesSideEffects.OpenTrainingProgramDetail(
+    override fun onOpenSongDetail(id: String) {
+        uiState.value.songSelected?.let { trainingProgramSelected ->
+            updateState { it.copy(songSelected = null) }
+            launchSideEffect(FavoritesSideEffects.OpenSongDetail(
                 id = trainingProgramSelected.id,
-                type = trainingProgramSelected.toTrainingType()
             ))
         }
     }
 
-    override fun onTrainingProgramRemovedFromFavorites(id: String) {
+    override fun onSongRemovedFromFavorites(id: String) {
         executeUseCaseWithParams(
             useCase = removeFavoriteSongUseCase,
             params = RemoveFavoriteSongUseCase.Params(songId = id),
-            onSuccess = ::onTrainingProgramRemovedFromFavoritesCompletedSuccessfully
+            onSuccess = ::onSongRemovedFromFavoritesCompletedSuccessfully
         )
     }
 
     override fun onDismissRequest() {
-        updateState { it.copy(trainingProgramSelected = null) }
+        updateState { it.copy(songSelected = null) }
     }
 
-    private fun onGetFavoritesWorkoutsSuccessfully(trainingProgramList: List<ITrainingProgramBO>) {
-        updateState { it.copy(favoritesTrainings = trainingProgramList) }
+    private fun onGetFavoritesSongsSuccessfully(songList: List<SongBO>) {
+        updateState { it.copy(favoriteSongs = songList) }
     }
 
-    private fun onTrainingProgramRemovedFromFavoritesCompletedSuccessfully(isRemoved: Boolean) {
+    private fun onSongRemovedFromFavoritesCompletedSuccessfully(isRemoved: Boolean) {
         if(isRemoved) {
             updateState { it.copy(
-                favoritesTrainings = it.favoritesTrainings.filterNot { training -> training.id == it.trainingProgramSelected?.id },
-                trainingProgramSelected = null
+                favoriteSongs = it.favoriteSongs.filterNot { training -> training.id == it.songSelected?.id },
+                songSelected = null
             ) }
         }
     }
@@ -79,13 +76,13 @@ class FavoritesViewModel @Inject constructor(
 data class FavoritesUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val favoritesTrainings: List<ITrainingProgramBO> = emptyList(),
-    val trainingProgramSelected: ITrainingProgramBO? = null
+    val favoriteSongs: List<SongBO> = emptyList(),
+    val songSelected: SongBO? = null
 ): UiState<FavoritesUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): FavoritesUiState =
         copy(isLoading = isLoading, errorMessage = errorMessage)
 }
 
 sealed interface FavoritesSideEffects: SideEffect {
-    data class OpenTrainingProgramDetail(val id: String, val type: TrainingTypeEnum): FavoritesSideEffects
+    data class OpenSongDetail(val id: String): FavoritesSideEffects
 }

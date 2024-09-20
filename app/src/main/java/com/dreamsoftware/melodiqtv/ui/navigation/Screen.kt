@@ -6,7 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.ui.screens.category.CategoryDetailScreenArgs
-import com.dreamsoftware.melodiqtv.ui.screens.instructordetail.InstructorDetailScreenArgs
+import com.dreamsoftware.melodiqtv.ui.screens.artistdetail.ArtistDetailScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.moreoptions.MoreOptionsScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreenArgs
@@ -216,9 +216,9 @@ sealed class Screen(
                 newValue = id
             )
 
-        fun parseArgs(args: Bundle): InstructorDetailScreenArgs? = with(args) {
+        fun parseArgs(args: Bundle): ArtistDetailScreenArgs? = with(args) {
             getString("id")?.let { id ->
-                InstructorDetailScreenArgs(id = id)
+                ArtistDetailScreenArgs(id = id)
             }
         }
     }
