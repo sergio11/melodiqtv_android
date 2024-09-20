@@ -3,7 +3,7 @@ package com.dreamsoftware.melodiqtv.data.remote.mapper
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
-internal class InstructorRemoteMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO> {
+internal class ArtistRemoteMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO> {
 
     private companion object {
         const val UID_KEY = "uid"
