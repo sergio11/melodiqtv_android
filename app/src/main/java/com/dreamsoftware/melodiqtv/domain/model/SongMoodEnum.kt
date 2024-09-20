@@ -15,5 +15,6 @@ enum class SongMoodEnum(val value: String) {
     CHEERFUL("Cheerful"),
     INTENSE("Intense"),
     SOOTHING("Soothing"),
-    DANCEABLE("Danceable")
+    DANCEABLE("Danceable"),
+    NOT_SET("Not Set")
 }

@@ -79,55 +79,46 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetTrainingsRecommendedUseCase(
+    fun provideGetSongsRecommendedUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ISongRepository
+        songsRepository: ISongRepository
     ): GetSongsRecommendedUseCase =
         GetSongsRecommendedUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            songsRepository = trainingRepository
-        )
-
-    @Provides
-    @ViewModelScoped
-    fun provideGetTrainingByIdUseCase(
-        trainingRepository: ISongRepository
-    ): GetSongByIdUseCase =
-        GetSongByIdUseCase(
-            songRepository = trainingRepository
-        )
-
-    @Provides
-    @ViewModelScoped
-    fun provideGetTrainingsByTypeUseCase(
-        userRepository: IUserRepository,
-        subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ISongRepository
-    ): GetSongsByTypeUseCase =
-        GetSongsByTypeUseCase(
-            userRepository = userRepository,
-            subscriptionsRepository = subscriptionsRepository,
-            songsRepository = trainingRepository
-        )
-
-    @Provides
-    @ViewModelScoped
-    fun provideGetInstructorsUseCase(
-        instructorRepository: IArtistRepository
-    ): GetArtistsUseCase =
-        GetArtistsUseCase(
-            artistRepository = instructorRepository
+            songsRepository = songsRepository
         )
 
     @Provides
     @ViewModelScoped
     fun provideGetSongByIdUseCase(
-        trainingSongRepository: ITrainingSongsRepository
+        songsRepository: ISongRepository
     ): GetSongByIdUseCase =
         GetSongByIdUseCase(
-            songRepository = trainingSongRepository
+            songRepository = songsRepository
+        )
+
+    @Provides
+    @ViewModelScoped
+    fun provideGetSongsByTypeUseCase(
+        userRepository: IUserRepository,
+        subscriptionsRepository: ISubscriptionsRepository,
+        songsRepository: ISongRepository
+    ): GetSongsByTypeUseCase =
+        GetSongsByTypeUseCase(
+            userRepository = userRepository,
+            subscriptionsRepository = subscriptionsRepository,
+            songsRepository = songsRepository
+        )
+
+    @Provides
+    @ViewModelScoped
+    fun provideGetArtistsUseCase(
+        artistRepository: IArtistRepository
+    ): GetArtistsUseCase =
+        GetArtistsUseCase(
+            artistRepository = artistRepository
         )
 
     @Provides
@@ -157,28 +148,28 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetFeaturedTrainingsUseCase(
+    fun provideGetFeaturedSongsUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ISongRepository
+        songsRepository: ISongRepository
     ): GetFeaturedSongsUseCase =
         GetFeaturedSongsUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            songRepository = trainingRepository
+            songRepository = songsRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideGetTrainingsByCategoryUseCase(
+    fun provideGetSongsByCategoryUseCase(
         userRepository: IUserRepository,
         subscriptionsRepository: ISubscriptionsRepository,
-        trainingRepository: ISongRepository
+        songsRepository: ISongRepository
     ): GetSongsByCategoryUseCase =
         GetSongsByCategoryUseCase(
             userRepository = userRepository,
             subscriptionsRepository = subscriptionsRepository,
-            songRepository = trainingRepository
+            songRepository = songsRepository
         )
 
     @Provides
@@ -295,54 +286,54 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideAddFavoriteTrainingUseCase(
+    fun provideAddFavoriteSongUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ISongRepository
+        songRepository: ISongRepository
     ): AddFavoriteSongUseCase =
         AddFavoriteSongUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            songRepository = trainingRepository
+            songRepository = songRepository
         )
 
 
     @Provides
     @ViewModelScoped
-    fun provideGetFavoritesTrainingsByUserUseCase(
+    fun provideGetFavoritesSongsByUserUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ISongRepository
+        songRepository: ISongRepository
     ): GetFavoritesSongsByUserUseCase =
         GetFavoritesSongsByUserUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            songRepository = trainingRepository
+            songRepository = songRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideRemoveFavoriteTrainingUseCase(
+    fun provideRemoveFavoriteSongUseCase(
         userRepository: IUserRepository,
-        trainingRepository: ISongRepository
+        songRepository: ISongRepository
     ): RemoveFavoriteSongUseCase =
         RemoveFavoriteSongUseCase(
             userRepository = userRepository,
-            songRepository = trainingRepository
+            songRepository = songRepository
         )
 
 
     @Provides
     @ViewModelScoped
-    fun provideVerifyTrainingInFavoritesUseCase(
+    fun provideVerifySongInFavoritesUseCase(
         userRepository: IUserRepository,
         profileRepository: IProfilesRepository,
-        trainingRepository: ISongRepository
+        songRepository: ISongRepository
     ): VerifySongInFavoritesUseCase =
         VerifySongInFavoritesUseCase(
             userRepository = userRepository,
             profileRepository = profileRepository,
-            songRepository = trainingRepository
+            songRepository = songRepository
         )
 
     @Provides
@@ -438,11 +429,11 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetInstructorDetailUseCase(
-        instructorRepository: IArtistRepository
+    fun provideGetArtistDetailUseCase(
+        artistRepository: IArtistRepository
     ): GetArtistDetailUseCase =
         GetArtistDetailUseCase(
-            artistRepository = instructorRepository
+            artistRepository = artistRepository
         )
 
     @Provides

@@ -3,7 +3,6 @@ package com.dreamsoftware.melodiqtv.ui.screens.songs
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
 import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
-import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
 import com.dreamsoftware.melodiqtv.domain.model.SortTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.VideoLengthEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.GetArtistsUseCase
@@ -17,6 +16,7 @@ import com.dreamsoftware.fudge.core.UiState
 import com.dreamsoftware.fudge.utils.IFudgeTvApplicationAware
 import com.dreamsoftware.melodiqtv.di.SongsScreenErrorMapper
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.domain.model.SongGenreEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -33,7 +33,7 @@ class SongViewModel @Inject constructor(
     private var artistFilter: String = String.EMPTY
     private var songType: SongTypeEnum = SongTypeEnum.ACOUSTIC
     private var videoLength: VideoLengthEnum = VideoLengthEnum.NOT_SET
-    private var intensity: IntensityEnum = IntensityEnum.NOT_SET
+    private var genre: SongGenreEnum = SongGenreEnum.NOT_SET
     private var language: LanguageEnum = LanguageEnum.NOT_SET
     private var sortType: SortTypeEnum = SortTypeEnum.NOT_SET
 
@@ -54,11 +54,11 @@ class SongViewModel @Inject constructor(
                 options = LanguageEnum.entries.map { it.value }
             ),
             FudgeTvFilterVO(
-                id = DIFFICULTY_FILTER,
+                id = GENRE_FILTER,
                 icon = R.drawable.difficulty_ic,
                 title = R.string.difficulty,
-                description = IntensityEnum.NOT_SET.value,
-                options = IntensityEnum.entries.map { it.value }
+                description = SongGenreEnum.NOT_SET.value,
+                options = SongGenreEnum.entries.map { it.value }
             ),
             FudgeTvFilterVO(
                 id = ARTIST_FILTER,
@@ -125,8 +125,8 @@ class SongViewModel @Inject constructor(
                 VIDEO_LENGTH_FILTER -> {
                     videoLength = VideoLengthEnum.entries[currentIndex]
                 }
-                DIFFICULTY_FILTER -> {
-                    intensity = IntensityEnum.entries[currentIndex]
+                GENRE_FILTER -> {
+                    genre = SongGenreEnum.entries[currentIndex]
                 }
                 LANGUAGE_FILTER -> {
                     language = LanguageEnum.entries[currentIndex]
@@ -143,7 +143,7 @@ class SongViewModel @Inject constructor(
                                 selectedOption = currentIndex,
                                 description = when(filter.id) {
                                     VIDEO_LENGTH_FILTER -> VideoLengthEnum.entries[currentIndex].value
-                                    DIFFICULTY_FILTER -> IntensityEnum.entries[currentIndex].value
+                                    GENRE_FILTER -> SongGenreEnum.entries[currentIndex].value
                                     LANGUAGE_FILTER -> LanguageEnum.entries[currentIndex].value
                                     else -> artists.getOrNull(currentIndex)?.name.orEmpty()
                                 }
@@ -189,7 +189,7 @@ class SongViewModel @Inject constructor(
             params = GetSongsByTypeUseCase.Params(
                 type = songType,
                 language = language,
-                intensity = intensity,
+                intensity = genre,
                 videoLength = videoLength,
                 sortType = sortType,
                 artist = artistFilter
@@ -234,7 +234,7 @@ class SongViewModel @Inject constructor(
 
     private fun resetFilters() {
         videoLength = VideoLengthEnum.NOT_SET
-        intensity = IntensityEnum.NOT_SET
+        genre = SongGenreEnum.NOT_SET
         songType = SongTypeEnum.ACOUSTIC
         language = LanguageEnum.NOT_SET
         artistFilter = String.EMPTY
@@ -251,7 +251,7 @@ class SongViewModel @Inject constructor(
             selectedOption = 0,
             description = when(item.id) {
                 VIDEO_LENGTH_FILTER -> VideoLengthEnum.NOT_SET.value
-                DIFFICULTY_FILTER -> IntensityEnum.NOT_SET.value
+                GENRE_FILTER -> SongGenreEnum.NOT_SET.value
                 LANGUAGE_FILTER -> LanguageEnum.NOT_SET.value
                 else -> String.EMPTY
             }
@@ -288,6 +288,6 @@ sealed interface SongsSideEffects : SideEffect {
 
 const val VIDEO_LENGTH_FILTER = "VIDEO_LENGTH_FILTER"
 const val CLASS_TYPE_FILTER = "CLASS_TYPE_FILTER"
-const val DIFFICULTY_FILTER = "DIFFICULTY_FILTER"
+const val GENRE_FILTER = "GENRE_FILTER"
 const val LANGUAGE_FILTER = "LANGUAGE_FILTER"
 const val ARTIST_FILTER = "ARTIST_FILTER"
