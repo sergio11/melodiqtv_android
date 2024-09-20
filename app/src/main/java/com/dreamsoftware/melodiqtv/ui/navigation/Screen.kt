@@ -14,7 +14,7 @@ import com.dreamsoftware.melodiqtv.ui.screens.profiles.changesecurepin.ChangeSec
 import com.dreamsoftware.melodiqtv.ui.screens.profiles.delete.DeleteProfileScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.profiles.save.SaveProfileScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.profiles.secure.SecurePinScreenArgs
-import com.dreamsoftware.melodiqtv.ui.screens.trainingdetail.TrainingDetailScreenArgs
+import com.dreamsoftware.melodiqtv.ui.screens.songdetail.SongDetailScreenArgs
 
 sealed class Screen(
     val route: String,
@@ -175,10 +175,10 @@ sealed class Screen(
                 newValue = type.name
             )
 
-        fun parseArgs(args: Bundle): TrainingDetailScreenArgs? = with(args) {
+        fun parseArgs(args: Bundle): SongDetailScreenArgs? = with(args) {
             getString("id")?.let { id ->
                 getString("type")?.let(TrainingTypeEnum::valueOf)?.let { type ->
-                    TrainingDetailScreenArgs(
+                    SongDetailScreenArgs(
                         id = id,
                         type = type
                     )
