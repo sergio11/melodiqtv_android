@@ -13,8 +13,8 @@ import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.settings.SettingsScreen
 import com.dreamsoftware.melodiqtv.ui.screens.subscription.SubscriptionScreen
-import com.dreamsoftware.melodiqtv.ui.screens.training.TrainingScreen
-import com.dreamsoftware.melodiqtv.ui.screens.trainingdetail.TrainingDetailScreen
+import com.dreamsoftware.melodiqtv.ui.screens.songs.SongsScreen
+import com.dreamsoftware.melodiqtv.ui.screens.songdetail.SongDetailScreen
 
 @Composable
 fun DashboardNavHost(
@@ -40,8 +40,8 @@ fun DashboardNavHost(
             }
         }
         composable(Screen.Training.route) {
-            TrainingScreen(
-                onGoToTrainingProgramDetail = { id, type ->
+            SongsScreen(
+                onOpenSongDetail = { id, type ->
                     navController.navigate(Screen.TrainingDetail.buildRoute(id, type))
                 }
             )
@@ -108,9 +108,9 @@ fun DashboardNavHost(
         composable(Screen.TrainingDetail.route) { navBackStackEntry ->
             navBackStackEntry.arguments?.let(Screen.TrainingDetail::parseArgs)?.let { args ->
                 with(navController) {
-                    TrainingDetailScreen(
+                    SongDetailScreen(
                         args = args,
-                        onPlayingTrainingProgram = { id, type ->
+                        onPlaySongVideoClip = { id, type ->
                             navigate(Screen.VideoPlayer.buildRoute(id, type))
                         },
                         onOpenMoreDetails = { id, type ->

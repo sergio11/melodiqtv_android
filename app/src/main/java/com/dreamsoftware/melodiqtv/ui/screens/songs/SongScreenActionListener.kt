@@ -1,9 +1,9 @@
-package com.dreamsoftware.melodiqtv.ui.screens.training
+package com.dreamsoftware.melodiqtv.ui.screens.songs
 
 import com.dreamsoftware.fudge.component.menu.FudgeTvFilterVO
 import com.dreamsoftware.fudge.core.IFudgeTvScreenActionListener
 
-interface TrainingScreenActionListener: IFudgeTvScreenActionListener {
+interface SongScreenActionListener: IFudgeTvScreenActionListener {
 
     fun onFilterClicked()
     fun onSortedClicked()
@@ -12,9 +12,9 @@ interface TrainingScreenActionListener: IFudgeTvScreenActionListener {
     fun onDismissFilterSideMenu()
     fun onFilterCleared()
     fun onDismissFieldFilterSideMenu()
-    fun onFilterFieldSelected(trainingFilter: FudgeTvFilterVO)
+    fun onFilterFieldSelected(filter: FudgeTvFilterVO)
     fun onSelectedSortedItem(currentIndex: Int)
-    fun onSelectedTrainingFilterOption(currentIndex: Int)
+    fun onSelectedFilterOption(currentIndex: Int)
     fun onChangeSelectedTab(index: Int)
     fun onChangeFocusTab(index: Int)
     fun onItemClicked(id: String)

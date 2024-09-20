@@ -5,7 +5,7 @@ import com.dreamsoftware.melodiqtv.ui.screens.favorites.FavoritesScreenSimpleErr
 import com.dreamsoftware.melodiqtv.ui.screens.profiles.save.SaveProfileScreenSimpleErrorMapper
 import com.dreamsoftware.melodiqtv.ui.screens.signin.SignInScreenSimpleErrorMapper
 import com.dreamsoftware.melodiqtv.ui.screens.signup.SignUpScreenSimpleErrorMapper
-import com.dreamsoftware.melodiqtv.ui.screens.training.TrainingScreenSimpleErrorMapper
+import com.dreamsoftware.melodiqtv.ui.screens.songs.SongScreenSimpleErrorMapper
 import com.dreamsoftware.fudge.core.IFudgeTvErrorMapper
 import dagger.Module
 import dagger.Provides
@@ -52,9 +52,9 @@ class UiModule {
 
     @Provides
     @ViewModelScoped
-    @TrainingScreenErrorMapper
+    @SongsScreenErrorMapper
     fun provideTrainingScreenSimpleErrorMapper(
         @ApplicationContext context: Context
     ): IFudgeTvErrorMapper =
-        TrainingScreenSimpleErrorMapper(context = context)
+        SongScreenSimpleErrorMapper(context = context)
 }
