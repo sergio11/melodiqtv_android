@@ -1,4 +1,4 @@
-package com.dreamsoftware.melodiqtv.ui.screens.training
+package com.dreamsoftware.melodiqtv.ui.screens.songs
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -40,9 +40,9 @@ import com.dreamsoftware.fudge.component.menu.FudgeTvSideMenu
 import com.dreamsoftware.fudge.utils.conditional
 
 @Composable
-internal fun TrainingScreenContent(
-    state: TrainingUiState,
-    actionListener: TrainingScreenActionListener
+internal fun SongsScreenContent(
+    state: SongsUiState,
+    actionListener: SongScreenActionListener
 ) {
     with(actionListener) {
         with(state) {
@@ -64,13 +64,13 @@ internal fun TrainingScreenContent(
                 backgroundContainerColor = surfaceContainerHigh,
                 isSideMenuExpended = isFieldFilterSelected
             ) {
-                selectedTrainingFilter?.run {
+                selectedFilter?.run {
                     FudgeTvOptionsSideMenu(
                         onDismissSideMenu = ::onDismissFieldFilterSideMenu,
                         selectedIndex = selectedOption,
                         titleRes = title,
                         items = options,
-                        onSelectedItem = ::onSelectedTrainingFilterOption
+                        onSelectedItem = ::onSelectedFilterOption
                     )
                 }
             }
@@ -97,8 +97,8 @@ internal fun TrainingScreenContent(
 
 @Composable
 private fun TrainingProgramList(
-    state: TrainingUiState,
-    actionListener: TrainingScreenActionListener
+    state: SongsUiState,
+    actionListener: SongScreenActionListener
 ) {
     FudgeTvFocusRequester(state) { focusRequester ->
         LazyColumn(
@@ -145,7 +145,7 @@ private fun TrainingProgramList(
                             .fillMaxWidth()
                             .height(400.dp)
                     )
-                } else if(state.trainingPrograms.isEmpty()) {
+                } else if(state.songs.isEmpty()) {
                     FudgeTvNoContentState(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -154,7 +154,7 @@ private fun TrainingProgramList(
                     )
                 }
                 AnimatedVisibility(
-                    visible = !state.isLoading && state.trainingPrograms.isNotEmpty(),
+                    visible = !state.isLoading && state.songs.isNotEmpty(),
                     enter = fadeIn(
                         animationSpec = tween(800)
                     ),
@@ -171,15 +171,15 @@ private fun TrainingProgramList(
                         verticalArrangement = Arrangement.spacedBy(24.dp),
                         contentPadding = PaddingValues(32.dp)
                     ) {
-                        itemsIndexed(state.trainingPrograms) { idx, training ->
+                        itemsIndexed(state.songs) { idx, song ->
                             FudgeTvCard(
                                 modifier = Modifier.conditional(condition = idx == 0, ifTrue = {
                                     focusRequester(focusRequester)
                                 }),
-                                imageUrl = training.imageUrl,
-                                title = training.name,
-                                subtitle = "${training.duration} - ${training.intensity.level}",
-                                onClick = { actionListener.onItemClicked(training.id) }
+                                imageUrl = song.imageUrl,
+                                title = song.title,
+                                subtitle = "${song.duration} - ${song.type}",
+                                onClick = { actionListener.onItemClicked(song.id) }
                             )
                         }
                     }
