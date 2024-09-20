@@ -4,7 +4,7 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
 
-internal class InstructorMapper : IOneSideMapper<ArtistDTO, ArtistBO> {
+internal class ArtistMapper : IOneSideMapper<ArtistDTO, ArtistBO> {
 
     override fun mapInToOut(input: ArtistDTO): ArtistBO = with(input) {
         ArtistBO(

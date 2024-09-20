@@ -24,7 +24,6 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.request.UpdatedProfileRequest
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.UpdatedUserRequestDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.AuthUserDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.CategoryDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.ChallengeDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ProfileDTO
@@ -36,11 +35,9 @@ import com.dreamsoftware.melodiqtv.data.remote.mapper.AddUserSubscriptionRemoteM
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CategoryRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CreateProfileRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.CreateUserRequestRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.FavoriteTrainingRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.InstructorRemoteMapper
+import com.dreamsoftware.melodiqtv.data.remote.mapper.FavoriteSongRemoteMapper
+import com.dreamsoftware.melodiqtv.data.remote.mapper.ArtistRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.ProfileRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.RoutineRemoteMapper
-import com.dreamsoftware.melodiqtv.data.remote.mapper.SeriesRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.SubscriptionRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdateProfileRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdatedUserRequestRemoteMapper
@@ -74,45 +71,12 @@ class RemoteDataSourceModule {
     fun provideUserAuthenticatedRemoteMapper(): IOneSideMapper<FirebaseUser, AuthUserDTO> = UserAuthenticatedRemoteMapper()
 
     /**
-     * Provides a singleton instance of RoutineMapper.
-     * @return a new instance of RoutineMapper.
-     */
-    @Provides
-    @Singleton
-    fun provideRoutineRemoteMapper(): IOneSideMapper<Map<String, Any?>, RoutineDTO> = RoutineRemoteMapper()
-
-    /**
-     * Provides a singleton instance of SeriesMapper.
-     * @return a new instance of SeriesMapper.
-     */
-    @Provides
-    @Singleton
-    fun provideSeriesRemoteMapper(): IOneSideMapper<Map<String, Any?>, SeriesDTO> = SeriesRemoteMapper()
-
-
-    /**
      * Provides a singleton instance of CategoryMapper.
      * @return a new instance of CategoryMapper.
      */
     @Provides
     @Singleton
     fun provideCategoryRemoteMapper(): IOneSideMapper<Map<String, Any?>, CategoryDTO> = CategoryRemoteMapper()
-
-    /**
-     * Provides a singleton instance of WorkoutRemoteMapper.
-     * @return a new instance of WorkoutRemoteMapper.
-     */
-    @Provides
-    @Singleton
-    fun provideWorkoutRemoteMapper(): IOneSideMapper<Map<String, Any?>, WorkoutDTO> = WorkoutRemoteMapper()
-
-    /**
-     * Provides a singleton instance of ChallengeRemoteMapper.
-     * @return a new instance of ChallengeRemoteMapper.
-     */
-    @Provides
-    @Singleton
-    fun provideChallengeRemoteMapper(): IOneSideMapper<Map<String, Any?>, ChallengeDTO> = ChallengeRemoteMapper()
 
     /**
      * Provides a singleton instance of CreateProfileRequestRemoteMapper.
@@ -176,7 +140,7 @@ class RemoteDataSourceModule {
      */
     @Provides
     @Singleton
-    fun provideFavoriteTrainingRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteSongDTO> = FavoriteTrainingRemoteMapper()
+    fun provideFavoriteTrainingRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteSongDTO> = FavoriteSongRemoteMapper()
 
     /**
      * Provides a singleton instance of SubscriptionRemoteMapper.
@@ -203,20 +167,12 @@ class RemoteDataSourceModule {
     fun provideUserSubscriptionsRemoteMapper(): IOneSideMapper<Map<String, Any?>, UserSubscriptionDTO> = UserSubscriptionsRemoteMapper()
 
     /**
-     * Provides a singleton instance of TrainingSongRemoteMapper.
-     * @return a new instance of TrainingSongRemoteMapper.
-     */
-    @Provides
-    @Singleton
-    fun provideTrainingSongRemoteMapper(): IOneSideMapper<Map<String, Any?>, TrainingSongDTO> = TrainingSongRemoteMapper()
-
-    /**
      * Provides a singleton instance of InstructorRemoteMapper.
      * @return a new instance of InstructorRemoteMapper.
      */
     @Provides
     @Singleton
-    fun provideInstructorRemoteMapper(): IOneSideMapper<Map<String, Any?>, ArtistDTO> = InstructorRemoteMapper()
+    fun provideInstructorRemoteMapper(): IOneSideMapper<Map<String, Any?>, ArtistDTO> = ArtistRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -249,31 +205,6 @@ class RemoteDataSourceModule {
         firebaseAuth
     )
 
-
-    @Provides
-    @Singleton
-    fun provideRoutineRemoteDataSource(
-        routineMapper: IOneSideMapper<Map<String, Any?>, RoutineDTO>,
-        firestore: FirebaseFirestore,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IRoutineRemoteDataSource = RoutineRemoteDataSourceImpl(
-        firestore,
-        routineMapper,
-        dispatcher
-    )
-
-    @Provides
-    @Singleton
-    fun provideSeriesRemoteDataSource(
-        seriesMapper: IOneSideMapper<Map<String, Any?>, SeriesDTO>,
-        firestore: FirebaseFirestore,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): ISeriesRemoteDataSource = SeriesRemoteDataSourceImpl(
-        firestore,
-        seriesMapper,
-        dispatcher
-    )
-
     @Provides
     @Singleton
     fun provideCategoryRemoteDataSource(
@@ -283,30 +214,6 @@ class RemoteDataSourceModule {
     ): ICategoryRemoteDataSource = CategoryRemoteDataSourceImpl(
         firestore,
         categoryMapper,
-        dispatcher
-    )
-
-    @Provides
-    @Singleton
-    fun provideWorkoutRemoteDataSource(
-        workoutMapper: IOneSideMapper<Map<String, Any?>, WorkoutDTO>,
-        firestore: FirebaseFirestore,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IWorkoutRemoteDataSource = WorkoutRemoteDataSourceImpl(
-        firestore,
-        workoutMapper,
-        dispatcher
-    )
-
-    @Provides
-    @Singleton
-    fun provideChallengesRemoteDataSource(
-        challengeMapper: IOneSideMapper<Map<String, Any?>, ChallengeDTO>,
-        firestore: FirebaseFirestore,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IChallengesRemoteDataSource = ChallengesRemoteDataSourceImpl(
-        firestore,
-        challengeMapper,
         dispatcher
     )
 
@@ -384,19 +291,7 @@ class RemoteDataSourceModule {
 
     @Provides
     @Singleton
-    fun provideTrainingSongsRemoteDataSource(
-        firebaseStore: FirebaseFirestore,
-        trainingSongsMapper: IOneSideMapper<Map<String, Any?>, TrainingSongDTO>,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): ITrainingSongsRemoteDataSource = TrainingSongsRemoteDataSourceImpl(
-        firebaseStore,
-        trainingSongsMapper,
-        dispatcher
-    )
-
-    @Provides
-    @Singleton
-    fun provideInstructorsRemoteDataSource(
+    fun provideArtistsRemoteDataSource(
         firebaseStore: FirebaseFirestore,
         instructorMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher

@@ -1,7 +1,6 @@
 package com.dreamsoftware.melodiqtv.domain.usecase
 
 import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
 import com.dreamsoftware.melodiqtv.domain.model.SortTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongFilterDataBO
 import com.dreamsoftware.melodiqtv.domain.model.VideoLengthEnum
@@ -30,7 +29,7 @@ class GetSongsByTypeUseCase(
     private fun Params.toTrainingFilterData() = SongFilterDataBO(
         type = type,
         classLanguage = language,
-        intensity = intensity,
+        genre = intensity,
         videoLength = videoLength,
         sortType = sortType,
         artist = artist

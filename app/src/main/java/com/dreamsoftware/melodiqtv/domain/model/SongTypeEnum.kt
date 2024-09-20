@@ -4,5 +4,6 @@ enum class SongTypeEnum(val value: String) {
     STUDIO("Studio"),
     LIVE("Live"),
     ACOUSTIC("Acoustic"),
-    REMIX("Remix")
+    REMIX("Remix"),
+    NOT_SET("Not Set")
 }

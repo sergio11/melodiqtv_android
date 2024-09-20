@@ -21,5 +21,6 @@ enum class SongGenreEnum(val value: String) {
     FUNK("Funk"),
     GOSPEL("Gospel"),
     WORLD_MUSIC("World Music"),
-    OTHER("Other")
+    OTHER("Other"),
+    NOT_SET("Not Set")
 }

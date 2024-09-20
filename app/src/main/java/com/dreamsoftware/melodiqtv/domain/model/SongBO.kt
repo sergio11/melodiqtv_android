@@ -20,7 +20,7 @@ data class SongBO(
     val language: LanguageEnum,
     val isTrending: Boolean,
     val rating: Double? = null,
-    val playCount: Int = 0,
+    val playCount: Long,
     val lyrics: String? = null,
     val mood: SongMoodEnum
 )

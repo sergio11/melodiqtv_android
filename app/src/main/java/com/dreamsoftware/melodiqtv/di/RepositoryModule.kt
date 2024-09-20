@@ -36,22 +36,17 @@ import com.dreamsoftware.melodiqtv.data.repository.impl.UserRepositoryImpl
 import com.dreamsoftware.melodiqtv.data.repository.mapper.AddFavoriteTrainingMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.AddUserSubscriptionMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.CategoryMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.ChallengeMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.CreateProfileRequestMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.CreateUserMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.InstructorMapper
+import com.dreamsoftware.melodiqtv.data.repository.mapper.ArtistMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.ProfileMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.RoutineMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.SeriesMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.SubscriptionMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.TrainingFilterDataMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.TrainingSongMapper
+import com.dreamsoftware.melodiqtv.data.repository.mapper.SongFilterDataMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UpdateProfileRequestMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UpdatedUserRequestMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UserDetailMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UserPreferencesMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UserSubscriptionMapper
-import com.dreamsoftware.melodiqtv.data.repository.mapper.WorkoutMapper
 import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteSongBO
 import com.dreamsoftware.melodiqtv.domain.model.AddUserSubscriptionBO
 import com.dreamsoftware.melodiqtv.domain.model.CategoryBO
@@ -144,7 +139,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideTrainingFilterDataMapper(): IOneSideMapper<SongFilterDataBO, SongFilterDTO> = TrainingFilterDataMapper()
+    fun provideTrainingFilterDataMapper(): IOneSideMapper<SongFilterDataBO, SongFilterDTO> = SongFilterDataMapper()
 
     @Provides
     @Singleton
@@ -164,7 +159,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideInstructorMapper(): IOneSideMapper<ArtistDTO, ArtistBO> = InstructorMapper()
+    fun provideInstructorMapper(): IOneSideMapper<ArtistDTO, ArtistBO> = ArtistMapper()
 
     @Provides
     @Singleton
