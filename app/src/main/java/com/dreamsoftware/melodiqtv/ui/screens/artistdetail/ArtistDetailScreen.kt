@@ -1,33 +1,33 @@
-package com.dreamsoftware.melodiqtv.ui.screens.instructordetail
+package com.dreamsoftware.melodiqtv.ui.screens.artistdetail
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dreamsoftware.fudge.component.FudgeTvScreen
 
-data class InstructorDetailScreenArgs(
+data class ArtistDetailScreenArgs(
     val id: String
 )
 
 @Composable
-fun InstructorDetailScreen(
-    viewModel: InstructorDetailScreenViewModel = hiltViewModel(),
-    args: InstructorDetailScreenArgs,
+fun ArtistDetailScreen(
+    viewModel: ArtistDetailScreenViewModel = hiltViewModel(),
+    args: ArtistDetailScreenArgs,
     onBackPressed: () -> Unit
 ) {
     FudgeTvScreen(
         viewModel = viewModel,
         onBackPressed = onBackPressed,
-        onInitialUiState = { InstructorDetailUiState() },
+        onInitialUiState = { ArtistDetailUiState() },
         onSideEffect = {
             when(it) {
-                InstructorDetailSideEffects.ExitFromInstructorDetail -> onBackPressed()
+                ArtistDetailSideEffects.ExitFromArtistDetail -> onBackPressed()
             }
         },
         onInit = {
             fetchData(args.id)
         }
     ) { uiState ->
-        InstructorDetailScreenContent(
+        ArtistDetailScreenContent(
             uiState = uiState,
             actionListener = viewModel
         )

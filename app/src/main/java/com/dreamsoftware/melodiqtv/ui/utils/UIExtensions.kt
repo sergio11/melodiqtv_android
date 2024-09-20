@@ -4,7 +4,6 @@ import android.content.Context
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.AvatarTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.ChallengeBO
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.SeriesBO
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum

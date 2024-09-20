@@ -21,10 +21,10 @@ class AddFavoriteSongUseCase(
 
     private fun Params.toAddFavoriteSongBO(profileId: String) = AddFavoriteSongBO(
         profileId = profileId,
-        songId = trainingId
+        songId = songId
     )
 
     data class Params(
-        val trainingId: String
+        val songId: String
     )
 }

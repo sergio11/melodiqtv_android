@@ -3,7 +3,6 @@ package com.dreamsoftware.melodiqtv.ui.screens.training
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.di.FavoritesScreenErrorMapper
 import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
 import com.dreamsoftware.melodiqtv.domain.model.IntensityEnum
 import com.dreamsoftware.melodiqtv.domain.model.SortTypeEnum

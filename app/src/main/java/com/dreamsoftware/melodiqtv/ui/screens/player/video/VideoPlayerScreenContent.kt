@@ -135,7 +135,7 @@ internal fun VideoPlayerScreenContent(
                         exoPlayer = exoPlayer,
                         state = videoPlayerState,
                         title = state.title,
-                        instructor = state.instructor,
+                        instructor = state.artist,
                     )
                 }
             )

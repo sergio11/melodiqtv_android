@@ -4,6 +4,8 @@ import com.dreamsoftware.melodiqtv.ui.utils.EMPTY
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -22,13 +24,13 @@ class AudioPlayerViewModel @Inject constructor(
         )
     }
 
-    private fun onGetSongByIdSuccessfully(trainingSongBO: TrainingSongBO) {
+    private fun onGetSongByIdSuccessfully(song: SongBO) {
         updateState {
-            with(trainingSongBO) {
+            with(song) {
                 it.copy(
                     title = title,
                     description = description,
-                    author = author,
+                    artistName = artistName,
                     audioUrl = audioUrl,
                     id = id,
                     imageUrl = imageUrl,
@@ -45,7 +47,7 @@ data class AudioPlayerUiState(
     val audioUrl: String = String.EMPTY,
     val title: String = String.EMPTY,
     val description: String = String.EMPTY,
-    val author: String = String.EMPTY,
+    val artistName: String = String.EMPTY,
     val imageUrl: String = String.EMPTY,
 ): UiState<AudioPlayerUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): AudioPlayerUiState =

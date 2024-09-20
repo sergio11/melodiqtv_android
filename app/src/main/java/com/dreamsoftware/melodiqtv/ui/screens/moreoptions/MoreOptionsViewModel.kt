@@ -1,15 +1,13 @@
 package com.dreamsoftware.melodiqtv.ui.screens.moreoptions
 
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteSongUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.GetSongByIdUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.RemoveFavoriteSongUseCase
 import com.dreamsoftware.melodiqtv.domain.usecase.VerifySongInFavoritesUseCase
-import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -23,94 +21,88 @@ class MoreOptionsViewModel @Inject constructor(
 
     override fun onGetDefaultState(): MoreOptionsUiState = MoreOptionsUiState()
 
-    fun fetchData(id: String, type: TrainingTypeEnum) {
+    fun fetchData(id: String) {
         executeUseCaseWithParams(
             useCase = verifySongInFavoritesUseCase,
             params = VerifySongInFavoritesUseCase.Params(songId = id),
-            onSuccess = ::onVerifyTrainingInFavoritesCompleted
+            onSuccess = ::onVerifySongInFavoritesCompleted
         )
         executeUseCaseWithParams(
             useCase = getSongByIdUseCase,
-            params = GetSongByIdUseCase.Params(id, type),
-            onSuccess = ::onGetTrainingProgramByIdSuccessfully
+            params = GetSongByIdUseCase.Params(id),
+            onSuccess = ::onGetSongByIdSuccessfully
         )
     }
 
-    private fun onGetTrainingProgramByIdSuccessfully(trainingProgram: ITrainingProgramBO) {
-        updateState { it.copy(trainingProgram = trainingProgram) }
+    private fun onGetSongByIdSuccessfully(song: SongBO) {
+        updateState { it.copy(song = song) }
     }
 
     override fun onBackPressed() {
-        launchSideEffect(MoreOptionsSideEffects.ExitFromMoreDetail)
+        launchSideEffect(MoreOptionsSideEffects.CloseMoreOptions)
     }
 
-    override fun onTrainingProgramOpened() {
-        uiState.value.trainingProgram?.let {
+    override fun onPlaySongVideoClip() {
+        uiState.value.song?.let {
             launchSideEffect(
-                MoreOptionsSideEffects.PlayTrainingProgram(
-                    id = it.id,
-                    type = it.toTrainingType()
-                )
+                MoreOptionsSideEffects.PlaySongVideoClip(id = it.id)
             )
         }
     }
 
     override fun onFavouriteClicked() {
         with(uiState.value) {
-            trainingProgram?.let {
+            song?.let {
                 if (isFavorite) {
-                    removeTrainingProgramFromFavorites(id = it.id)
+                    removeSongFromFavorites(id = it.id)
                 } else {
-                    addTrainingProgramToFavorites(id = it.id, type = it.toTrainingType())
+                    addSongToFavorites(id = it.id)
                 }
             }
         }
     }
 
-    override fun onOpenInstructorDetail() {
-        uiState.value.trainingProgram?.let {
+    override fun onOpenArtistDetail() {
+        uiState.value.song?.let {
             launchSideEffect(
-                MoreOptionsSideEffects.OpenInstructorDetail(id = it.instructorId)
+                MoreOptionsSideEffects.OpenArtistDetail(id = it.id)
             )
         }
     }
 
-    override fun onPlayTrainingSong() {
-        uiState.value.trainingProgram?.let {
+    override fun onPlaySong() {
+        uiState.value.song?.let {
             launchSideEffect(
-                MoreOptionsSideEffects.PlayTrainingSong(songId = it.song)
+                MoreOptionsSideEffects.PlaySong(id = it.id)
             )
         }
     }
 
-    private fun removeTrainingProgramFromFavorites(id: String) {
+    private fun removeSongFromFavorites(id: String) {
         executeUseCaseWithParams(
             useCase = removeFavoriteSongUseCase,
             params = RemoveFavoriteSongUseCase.Params(
                 songId = id
             ),
-            onSuccess = ::onChangeFavoriteTrainingCompleted
+            onSuccess = ::onChangeFavoriteSongCompleted
         )
     }
 
-    private fun addTrainingProgramToFavorites(id: String, type: TrainingTypeEnum) {
+    private fun addSongToFavorites(id: String) {
         executeUseCaseWithParams(
             useCase = addFavoriteSongUseCase,
-            params = AddFavoriteSongUseCase.Params(
-                trainingId = id,
-                trainingType = type
-            ),
-            onSuccess = ::onChangeFavoriteTrainingCompleted
+            params = AddFavoriteSongUseCase.Params(songId = id),
+            onSuccess = ::onChangeFavoriteSongCompleted
         )
     }
 
-    private fun onChangeFavoriteTrainingCompleted(isSuccess: Boolean) {
+    private fun onChangeFavoriteSongCompleted(isSuccess: Boolean) {
         if (isSuccess) {
             updateState { it.copy(isFavorite = !it.isFavorite) }
         }
     }
 
-    private fun onVerifyTrainingInFavoritesCompleted(isFavorite: Boolean) {
+    private fun onVerifySongInFavoritesCompleted(isFavorite: Boolean) {
         updateState { it.copy(isFavorite = isFavorite) }
     }
 }
@@ -118,7 +110,7 @@ class MoreOptionsViewModel @Inject constructor(
 data class MoreOptionsUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val trainingProgram: ITrainingProgramBO? = null,
+    val song: SongBO? = null,
     val isFavorite: Boolean = false
 ) : UiState<MoreOptionsUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): MoreOptionsUiState =
@@ -126,8 +118,8 @@ data class MoreOptionsUiState(
 }
 
 sealed interface MoreOptionsSideEffects : SideEffect {
-    data class PlayTrainingProgram(val id: String, val type: TrainingTypeEnum) : MoreOptionsSideEffects
-    data class PlayTrainingSong(val songId: String) : MoreOptionsSideEffects
-    data class OpenInstructorDetail(val id: String): MoreOptionsSideEffects
-    data object ExitFromMoreDetail: MoreOptionsSideEffects
+    data class PlaySongVideoClip(val id: String) : MoreOptionsSideEffects
+    data class PlaySong(val id: String) : MoreOptionsSideEffects
+    data class OpenArtistDetail(val id: String): MoreOptionsSideEffects
+    data object CloseMoreOptions: MoreOptionsSideEffects
 }

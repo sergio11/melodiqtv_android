@@ -45,7 +45,6 @@ import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.ShapeDefaults
 import coil.compose.AsyncImage
 import com.dreamsoftware.melodiqtv.R
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.ui.theme.shadowCarouselColor
 import com.dreamsoftware.fudge.component.FudgeTvButton
 import com.dreamsoftware.fudge.component.FudgeTvButtonStyleTypeEnum
@@ -54,14 +53,15 @@ import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 import com.dreamsoftware.fudge.utils.conditional
 import com.dreamsoftware.fudge.utils.shadowBox
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-internal fun FeaturedTrainings(
-    trainings: List<ITrainingProgramBO>,
+internal fun FeaturedSongs(
+    songs: List<SongBO>,
     padding: PaddingValues,
     carouselState: CarouselState,
-    onOpenTrainingProgram: (ITrainingProgramBO) -> Unit,
+    onOpenSongDetail: (SongBO) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     var isCarouselFocused by remember { mutableStateOf(false) }
@@ -86,11 +86,11 @@ internal fun FeaturedTrainings(
             .onFocusChanged {
                 isCarouselFocused = it.hasFocus
             },
-        itemCount = trainings.size,
+        itemCount = songs.size,
         carouselState = carouselState,
         carouselIndicator = {
             CarouselIndicator(
-                itemCount = trainings.size,
+                itemCount = songs.size,
                 activeItemIndex = carouselState.activeItemIndex
             )
         },
@@ -102,15 +102,15 @@ internal fun FeaturedTrainings(
         )
     ) { index ->
         Box(modifier = Modifier.fillMaxSize()) {
-            val training = trainings[index]
+            val song = songs[index]
             CarouselItemBackground(
                 modifier = Modifier.fillMaxSize(),
-                trainingProgram = training
+                song = song
             )
             CarouselItemForeground(
-                training = training,
+                song = song,
                 isCarouselFocused = isCarouselFocused,
-                onOpenTrainingProgram = { onOpenTrainingProgram(training) },
+                onOpenTrainingProgram = { onOpenSongDetail(song) },
                 modifier = Modifier.align(Alignment.BottomStart)
             )
         }
@@ -144,7 +144,7 @@ private fun BoxScope.CarouselIndicator(
 
 @Composable
 private fun CarouselItemForeground(
-    training: ITrainingProgramBO,
+    song: SongBO,
     onOpenTrainingProgram: () -> Unit,
     modifier: Modifier = Modifier,
     isCarouselFocused: Boolean = false
@@ -158,21 +158,21 @@ private fun CarouselItemForeground(
         ) {
             FudgeTvText(
                 type = FudgeTvTextTypeEnum.LABEL_MEDIUM,
-                titleText = training.instructorName,
+                titleText = song.artistName,
                 singleLine = true,
                 textColor = onSurfaceVariant
             )
             FudgeTvText(
                 modifier = Modifier.padding(top = 4.dp),
                 type = FudgeTvTextTypeEnum.HEADLINE_SMALL,
-                titleText = training.name,
+                titleText = song.title,
                 singleLine = true,
                 textColor = onSurface
             )
             FudgeTvText(
                 modifier = Modifier.padding(top = 12.dp, bottom = 28.dp),
                 type = FudgeTvTextTypeEnum.BODY_SMALL,
-                titleText = training.description,
+                titleText = song.description,
                 singleLine = true,
                 textColor = onSurfaceVariant,
                 maxLines = 2,
@@ -191,11 +191,11 @@ private fun CarouselItemForeground(
 }
 
 @Composable
-private fun CarouselItemBackground(trainingProgram: ITrainingProgramBO, modifier: Modifier = Modifier) {
+private fun CarouselItemBackground(song: SongBO, modifier: Modifier = Modifier) {
     with(MaterialTheme.colorScheme) {
         var sizeCard by remember { mutableStateOf(Size.Zero) }
-        AsyncImage(model = trainingProgram.imageUrl,
-            contentDescription = stringResource(id = R.string.image, trainingProgram.name),
+        AsyncImage(model = song.imageUrl,
+            contentDescription = stringResource(id = R.string.image, song.title),
             modifier = modifier
                 .fillMaxSize()
                 .aspectRatio(21F / 9F)

@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.ChallengeBO
 import com.dreamsoftware.melodiqtv.domain.model.ChallengeWeaklyPlansBO
-import com.dreamsoftware.melodiqtv.domain.model.ITrainingProgramBO
 import com.dreamsoftware.melodiqtv.domain.model.SeriesBO
 import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.AddFavoriteSongUseCase
@@ -76,7 +75,7 @@ class TrainingDetailViewModel @Inject constructor(
                 executeUseCaseWithParams(
                     useCase = addFavoriteSongUseCase,
                     params = AddFavoriteSongUseCase.Params(
-                        trainingId = id,
+                        songId = id,
                         trainingType = trainingType
                     ),
                     onSuccess = ::onChangeFavoriteTrainingCompleted
