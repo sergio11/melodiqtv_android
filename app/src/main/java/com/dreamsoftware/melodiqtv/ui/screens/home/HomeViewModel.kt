@@ -1,6 +1,5 @@
 package com.dreamsoftware.melodiqtv.ui.screens.home
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
@@ -39,7 +38,6 @@ class HomeViewModel @Inject constructor(
         fetchFeaturedSongs()
         fetchCategories()
         fetchSongsRecommended()
-        Log.d("ATV_VERIFY_SUBS", "fetchData: subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
         if(!subscriptionAlreadyVerified) {
             verifyHasActiveSubscription()
         }
@@ -69,7 +67,6 @@ class HomeViewModel @Inject constructor(
         if(!hasActiveSubscription) {
             launchSideEffect(HomeSideEffects.NoActivePremiumSubscription)
         }
-        Log.d("ATV_VERIFY_SUBS", "HomeViewModel - onVerifyHasActiveSubscriptionCompleted - hasActiveSubscription: $hasActiveSubscription - subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
         subscriptionAlreadyVerified = true
     }
 
@@ -89,11 +86,6 @@ class HomeViewModel @Inject constructor(
 
     override fun onCategorySelected(categoryId: String) {
         launchSideEffect(HomeSideEffects.OpenSongCategory(categoryId))
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("ATV_VERIFY_SUBS", "HomeViewModel - onCleared - subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
     }
 }
 
