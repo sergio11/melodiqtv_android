@@ -107,7 +107,7 @@ internal fun AudioPlayerScreenContent(
                 .scale(scale)
                 .clip(RoundedCornerShape(16.dp)),
             model = state.imageUrl,
-            contentDescription = stringResource(R.string.song_image),
+            contentDescription = stringResource(R.string.image_cannot_be_loaded),
             contentScale = ContentScale.Crop,
         )
 

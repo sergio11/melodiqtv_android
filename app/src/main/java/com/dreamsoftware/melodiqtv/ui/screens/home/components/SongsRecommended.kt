@@ -30,7 +30,7 @@ internal fun SongsRecommended(
         FudgeTvText(
             modifier = Modifier.padding(start = 32.dp),
             type = FudgeTvTextTypeEnum.HEADLINE_MEDIUM,
-            titleRes = R.string.recommended_for_you,
+            titleRes = R.string.home_recommended_for_you_row_title,
             textColor = MaterialTheme.colorScheme.onSurface,
             textBold = true
         )

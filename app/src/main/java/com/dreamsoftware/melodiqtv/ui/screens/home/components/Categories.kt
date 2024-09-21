@@ -41,7 +41,7 @@ internal fun Categories(
         FudgeTvText(
             modifier = Modifier.padding(start = 32.dp),
             type = FudgeTvTextTypeEnum.HEADLINE_MEDIUM,
-            titleRes = R.string.categories,
+            titleRes = R.string.home_categories_row_title,
             textColor = MaterialTheme.colorScheme.onSurface,
             textBold = true
         )

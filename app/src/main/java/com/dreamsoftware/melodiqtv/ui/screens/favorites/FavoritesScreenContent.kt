@@ -38,7 +38,6 @@ import com.dreamsoftware.melodiqtv.ui.theme.onSurface
 import com.dreamsoftware.melodiqtv.ui.theme.popupShadow
 import com.dreamsoftware.melodiqtv.ui.theme.surfaceContainerHigh
 import com.dreamsoftware.melodiqtv.ui.theme.surfaceVariant
-import com.dreamsoftware.melodiqtv.ui.utils.getStartButtonID
 import com.dreamsoftware.fudge.component.FudgeTvButton
 import com.dreamsoftware.fudge.component.FudgeTvButtonStyleTypeEnum
 import com.dreamsoftware.fudge.component.FudgeTvButtonTypeEnum
@@ -204,7 +203,7 @@ private fun SongDetailsPopup(
                             .padding(bottom = 12.dp),
                         type = FudgeTvButtonTypeEnum.MEDIUM,
                         style = FudgeTvButtonStyleTypeEnum.NORMAL,
-                        textRes = song.type.getStartButtonID()
+                        textRes = R.string.favorites_open_song_detail
                     ) {
                         onStartTrainingProgram(song.id)
                     }
@@ -214,7 +213,7 @@ private fun SongDetailsPopup(
                             .padding(bottom = 12.dp),
                         type = FudgeTvButtonTypeEnum.MEDIUM,
                         style = FudgeTvButtonStyleTypeEnum.INVERSE,
-                        textRes = R.string.remove_from_favorites
+                        textRes = R.string.more_options_remove_from_favorites_button_text
                     ) {
                         onRemoveFromFavorites(song.id)
                     }

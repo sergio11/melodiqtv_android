@@ -182,7 +182,7 @@ private fun CarouselItemForeground(
                 FudgeTvButton(
                     type = FudgeTvButtonTypeEnum.LARGE,
                     style = FudgeTvButtonStyleTypeEnum.TRANSPARENT,
-                    textRes = R.string.start_session,
+                    textRes = R.string.home_open_song_detail_button_text,
                     onClick = onOpenTrainingProgram
                 )
             }
@@ -195,7 +195,7 @@ private fun CarouselItemBackground(song: SongBO, modifier: Modifier = Modifier) 
     with(MaterialTheme.colorScheme) {
         var sizeCard by remember { mutableStateOf(Size.Zero) }
         AsyncImage(model = song.imageUrl,
-            contentDescription = stringResource(id = R.string.image, song.title),
+            contentDescription = stringResource(id = R.string.image_cannot_be_loaded, song.title),
             modifier = modifier
                 .fillMaxSize()
                 .aspectRatio(21F / 9F)

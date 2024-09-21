@@ -54,8 +54,8 @@ internal fun SongsScreenContent(
                 FudgeTvFilterSideMenu(
                     onClearFilters = ::onFilterCleared,
                     filtrationFields = filterItems,
-                    titleRes = R.string.filters,
-                    clearButtonTextRes = R.string.clear,
+                    titleRes = R.string.song_hub_filter_button_text,
+                    clearButtonTextRes = R.string.song_hub_filter_clear_button_text,
                     onFieldClicked = ::onFilterFieldSelected
                 )
             }
@@ -81,7 +81,7 @@ internal fun SongsScreenContent(
             ) {
                 FudgeTvOptionsSideMenu(
                     onDismissSideMenu = ::onSortCleared,
-                    titleRes = R.string.sort_by,
+                    titleRes = R.string.song_hub_sort_by_button_text,
                     items = SortTypeEnum.entries.map { it.value },
                     selectedIndex = selectedSortItem,
                     onSelectedItem = ::onSelectedSortedItem
@@ -123,7 +123,7 @@ private fun TrainingProgramList(
                     FudgeTvButton(
                         type = FudgeTvButtonTypeEnum.SMALL,
                         style = FudgeTvButtonStyleTypeEnum.TRANSPARENT,
-                        textRes = R.string.filters_button,
+                        textRes = R.string.song_hub_filters_button_text,
                         onClick = actionListener::onFilterClicked
                     )
                     Spacer(modifier = Modifier.width(14.dp))
@@ -131,7 +131,7 @@ private fun TrainingProgramList(
                         modifier = Modifier.width(140.dp),
                         type = FudgeTvButtonTypeEnum.SMALL,
                         style = FudgeTvButtonStyleTypeEnum.TRANSPARENT,
-                        text = "${stringResource(id = R.string.sort_by)}: ${SortTypeEnum.entries[state.selectedSortItem].value}",
+                        text = "${stringResource(id = R.string.song_hub_sort_by_button_text)}: ${SortTypeEnum.entries[state.selectedSortItem].value}",
                         onClick = actionListener::onSortedClicked
                     )
                     Spacer(modifier = Modifier.width(58.dp))
@@ -150,7 +150,7 @@ private fun TrainingProgramList(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(400.dp),
-                        messageRes = R.string.trainings_not_programs_available
+                        messageRes = R.string.no_songs_available
                     )
                 }
                 AnimatedVisibility(
