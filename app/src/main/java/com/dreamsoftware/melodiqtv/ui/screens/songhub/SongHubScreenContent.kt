@@ -1,4 +1,4 @@
-package com.dreamsoftware.melodiqtv.ui.screens.songs
+package com.dreamsoftware.melodiqtv.ui.screens.songhub
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -40,9 +40,9 @@ import com.dreamsoftware.fudge.component.menu.FudgeTvSideMenu
 import com.dreamsoftware.fudge.utils.conditional
 
 @Composable
-internal fun SongsScreenContent(
+internal fun SongHubScreenContent(
     state: SongsUiState,
-    actionListener: SongScreenActionListener
+    actionListener: SongHubScreenActionListener
 ) {
     with(actionListener) {
         with(state) {
@@ -87,7 +87,7 @@ internal fun SongsScreenContent(
                     onSelectedItem = ::onSelectedSortedItem
                 )
             }
-            TrainingProgramList(
+            SongHubList(
                 state = this,
                 actionListener = actionListener
             )
@@ -96,9 +96,9 @@ internal fun SongsScreenContent(
 }
 
 @Composable
-private fun TrainingProgramList(
+private fun SongHubList(
     state: SongsUiState,
-    actionListener: SongScreenActionListener
+    actionListener: SongHubScreenActionListener
 ) {
     FudgeTvFocusRequester(state) { focusRequester ->
         LazyColumn(

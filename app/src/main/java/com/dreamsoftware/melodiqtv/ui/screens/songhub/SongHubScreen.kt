@@ -1,12 +1,12 @@
-package com.dreamsoftware.melodiqtv.ui.screens.songs
+package com.dreamsoftware.melodiqtv.ui.screens.songhub
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dreamsoftware.fudge.component.FudgeTvScreen
 
 @Composable
-fun SongsScreen(
-    viewModel: SongViewModel = hiltViewModel(),
+fun SongHubScreen(
+    viewModel: SongHubViewModel = hiltViewModel(),
     onOpenSongDetail: (String) -> Unit
 ) {
     FudgeTvScreen(
@@ -21,7 +21,7 @@ fun SongsScreen(
             fetchData()
         }
     ) { uiState ->
-        SongsScreenContent(
+        SongHubScreenContent(
             state = uiState,
             actionListener = viewModel
         )

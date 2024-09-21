@@ -71,7 +71,7 @@ fun SongEntityDetails(
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(48.dp)) {
                         itemsInfo.forEach { item ->
-                            TrainingInfo(
+                            SongInfo(
                                 info = item.info,
                                 labelRes = item.labelRes
                             )
@@ -107,7 +107,7 @@ fun SongEntityDetails(
 }
 
 @Composable
-private fun TrainingInfo(
+private fun SongInfo(
     info: String,
     @StringRes labelRes: Int,
 ) {

@@ -1,11 +1,11 @@
-package com.dreamsoftware.melodiqtv.ui.screens.songs
+package com.dreamsoftware.melodiqtv.ui.screens.songhub
 
 import android.content.Context
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.exception.InvalidDataException
 import com.dreamsoftware.fudge.core.IFudgeTvErrorMapper
 
-class SongScreenSimpleErrorMapper(
+class SongHubScreenSimpleErrorMapper(
     private val context: Context
 ): IFudgeTvErrorMapper {
     override fun mapToMessage(ex: Throwable): String = context.getString(when(ex) {

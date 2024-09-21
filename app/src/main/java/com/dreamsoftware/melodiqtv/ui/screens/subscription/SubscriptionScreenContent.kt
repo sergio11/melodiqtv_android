@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -62,7 +63,7 @@ fun SubscriptionScreenContent(
                         )
                         .clip(RoundedCornerShape(16.dp)),
                     painter = painterResource(id = R.drawable.signup_background),
-                    contentDescription = "training photo",
+                    contentDescription = stringResource(id = R.string.image_cannot_be_loaded),
                     contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(28.dp))

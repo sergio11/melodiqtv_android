@@ -13,7 +13,7 @@ import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.settings.SettingsScreen
 import com.dreamsoftware.melodiqtv.ui.screens.subscription.SubscriptionScreen
-import com.dreamsoftware.melodiqtv.ui.screens.songs.SongsScreen
+import com.dreamsoftware.melodiqtv.ui.screens.songhub.SongHubScreen
 import com.dreamsoftware.melodiqtv.ui.screens.songdetail.SongDetailScreen
 
 @Composable
@@ -40,7 +40,7 @@ fun DashboardNavHost(
             }
         }
         composable(Screen.Songs.route) {
-            SongsScreen(
+            SongHubScreen(
                 onOpenSongDetail = { id ->
                     navController.navigate(Screen.SongDetail.buildRoute(id))
                 }
