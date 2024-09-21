@@ -3,7 +3,7 @@ package com.dreamsoftware.melodiqtv.domain.usecase
 import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
 import com.dreamsoftware.melodiqtv.domain.model.SortTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongFilterDataBO
-import com.dreamsoftware.melodiqtv.domain.model.VideoLengthEnum
+import com.dreamsoftware.melodiqtv.domain.model.DurationEnum
 import com.dreamsoftware.melodiqtv.domain.repository.ISubscriptionsRepository
 import com.dreamsoftware.melodiqtv.domain.repository.ISongRepository
 import com.dreamsoftware.melodiqtv.domain.repository.IUserRepository
@@ -33,7 +33,7 @@ class GetSongsByTypeUseCase(
         language = language,
         genre = genre,
         mood = mood,
-        videoLength = videoLength,
+        duration = duration,
         sortType = sortType,
         artist = artist
     )
@@ -43,7 +43,7 @@ class GetSongsByTypeUseCase(
         val language: LanguageEnum,
         val genre: SongGenreEnum,
         val mood: SongMoodEnum,
-        val videoLength: VideoLengthEnum,
+        val duration: DurationEnum,
         val sortType: SortTypeEnum,
         val artist: String
     )

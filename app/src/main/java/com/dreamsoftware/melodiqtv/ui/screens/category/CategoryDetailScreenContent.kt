@@ -36,7 +36,7 @@ internal fun CategoryDetailScreenContent(
             } else if(category != null && songs.isEmpty()) {
                 FudgeTvNoContentState(
                     modifier = Modifier.fillMaxSize(),
-                    messageRes = R.string.category_detail_no_trainings_available
+                    messageRes = R.string.category_detail_no_songs_available
                 )
             } else {
                 Column(
@@ -45,9 +45,9 @@ internal fun CategoryDetailScreenContent(
                     FudgeTvText(
                         modifier = Modifier.padding(bottom = 8.dp, top = 56.dp, start = 32.dp, end = 32.dp),
                         type = FudgeTvTextTypeEnum.HEADLINE_MEDIUM,
-                        titleRes = R.string.category_detail_trainings_title_default.takeUnless { category != null },
+                        titleRes = R.string.category_detail_songs_title_default.takeUnless { category != null },
                         titleText = category?.let {
-                            stringResource(id = R.string.category_detail_trainings_title, it.title)
+                            stringResource(id = R.string.category_detail_songs_title, it.title)
                         },
                         textBold = true
                     )

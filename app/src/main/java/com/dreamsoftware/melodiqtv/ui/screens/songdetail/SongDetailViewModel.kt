@@ -96,7 +96,7 @@ class SongDetailViewModel @Inject constructor(
                     description = description,
                     id = id,
                     itemsInfo = buildList {
-                        add(SongInfoItem(info = "$duration min", labelRes = R.string.length))
+                        add(SongInfoItem(info = "$duration min", labelRes = R.string.song_detail_song_duration_label_text))
                     },
                     imageUrl = imageUrl
                 )

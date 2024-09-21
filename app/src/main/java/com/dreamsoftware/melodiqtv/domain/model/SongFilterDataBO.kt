@@ -5,7 +5,7 @@ data class SongFilterDataBO(
     val language: LanguageEnum,
     val genre: SongGenreEnum,
     val mood: SongMoodEnum,
-    val videoLength: VideoLengthEnum,
+    val duration: DurationEnum,
     val sortType: SortTypeEnum,
     val artist: String
 )

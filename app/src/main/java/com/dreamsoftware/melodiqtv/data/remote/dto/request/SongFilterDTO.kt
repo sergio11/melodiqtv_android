@@ -5,7 +5,7 @@ data class SongFilterDTO(
     val type: String?,
     val genre: String?,
     val mood: String?,
-    val videoLength: IntRange?,
+    val duration: IntRange?,
     val artist: String?,
     val orderByReleasedDateDesc: Boolean = true,
     val priorityFeatured: Boolean = false

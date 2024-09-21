@@ -16,10 +16,15 @@
 
     <!-- Dashboard Items -->
     <string name="dashboard_navigation_drawer_home_item_name">Home</string>
-    <string name="dashboard_navigation_drawer_training_item_name">Training</string>
-    <string name="dashboard_navigation_drawer_favorite_item_name">Favorite</string>
+    <string name="dashboard_navigation_drawer_song_directory_item_name">Song Hub</string>
+    <string name="dashboard_navigation_drawer_favorite_item_name">Favorites</string>
     <string name="dashboard_navigation_drawer_settings_item_name">Settings</string>
     <string name="dashboard_navigation_drawer_profile_item_name">Profile</string>
+
+    <!-- Song Detail -->
+    <string name="song_detail_watch_video_clip_button_text">Watch the Magic! 🎥</string>
+    <string name="song_detail_more_info_button_text">Discover More! 🔍</string>
+    <string name="song_detail_song_duration_label_text">Duration</string>
 
     <!-- Generic Error Messages -->
     <string name="generic_form_invalid_data_provided">Invalid data provided, please check it and try again.</string>
@@ -67,20 +72,31 @@
     <string name="sign_up_form_repeat_password_label_text">Repeat Password</string>
 
     <!-- Favorites -->
-    <string name="favorites_screen_title">Favorites</string>
-    <string name="favorites_not_workout_available">No favorite songs available yet. Explore and add your favorites to build your personal music collection!</string>
+    <string name="favorites_screen_title">Your Favorite Hits! 🌟</string>
+    <string name="favorites_not_workout_available">No favorites yet! Add some! 🎶</string>
+    <string name="favorites_open_song_detail">Dive into the details! 🎤</string>
 
-    <!-- Trainings -->
-    <string name="trainings_not_programs_available">No training programs available</string>
+    <!-- Song Hub -->
+    <string name="no_songs_available">Oops! No songs available at the moment. Check back later!</string>
+    <string name="song_hub_duration_filter_option_text">Song Length</string>
+    <string name="song_hub_language_filter_option_text">Language Choice</string>
+    <string name="song_hub_genre_filter_option_text">Select Genre</string>
+    <string name="song_hub_mood_filter_option_text">Vibe Mood</string>
+    <string name="song_hub_artist_filter_option_text">Favorite Artist</string>
+    <string name="song_hub_not_artist_filter_set">No artist chosen</string>
+    <string name="song_hub_filter_button_text">Let’s Filter!</string>
+    <string name="song_hub_filter_clear_button_text">Reset Filters</string>
+    <string name="song_hub_sort_by_button_text">Sort It Out</string>
+    <string name="song_hub_filters_button_text">Filters</string>
 
-    <!-- Instructor Detail -->
-    <string name="instructor_detail_title">Instructor Details</string>
-    <string name="instructor_detail_not_available">Instructor details are not available at the moment.</string>
+    <!-- Artist Detail -->
+    <string name="artist_detail_title">Meet Your Favorite Artist</string>
+    <string name="artist_detail_not_available">Artist details are currently unavailable. Stay tuned for updates!</string>
 
     <!-- Category Detail -->
-    <string name="category_detail_trainings_title" formatted="false">"%s" Trainings</string>
-    <string name="category_detail_trainings_title_default">Trainings</string>
-    <string name="category_detail_no_trainings_available">No training programs available in this category. Please check back later or explore other categories.</string>
+    <string name="category_detail_songs_title" formatted="false">Explore the Vibrant World of "%s" Tunes! 🎶</string>
+    <string name="category_detail_songs_title_default">Discover Amazing Songs Across All Genres!</string>
+    <string name="category_detail_no_songs_available">Looks like there are no songs in this category yet! Keep exploring! 🌟</string>
 
     <!-- Save Profile -->
     <string name="create_profile_main_title">Create Your New Profile!</string>
@@ -134,47 +150,13 @@
     <string name="delete_profile_dialog_title">Profile Gone! 🎉</string>
     <string name="delete_profile_dialog_description">The profile has been successfully removed. Say goodbye! 👋</string>
 
-    <!-- Generic Actions -->
-    <string name="add_to_favorites">Add to favorites</string>
-    <string name="remove_from_favorites">Remove from favorites</string>
-    <string name="start_workout">Let\'s Work Out!</string>
-    <string name="more_info">Get More Info</string>
-    <string name="play_training_song_button_text">Play Training Song!</string>
-    <string name="view_instructor">Meet Your Awesome Instructor</string>
-    <string name="share">Share the Fun</string>
-    <string name="start_session">Let\'s Get Started!</string>
-    <string name="start_routine">Kick Off Your Routine</string>
-    <string name="start_program">Start Your Program</string>
-    <string name="categories">Explore Categories</string>
-    <string name="recommended_for_you">Recommended for You</string>
-    <string name="image">View Image %1$s</string>
-    <string name="song_image">Discover Song Image</string>
-    <string name="set_up_daily_reminder">Set Up Daily Reminders</string>
-    <string name="recommend_schedule">Get Your Recommended Schedule</string>
-
-    <!-- Miscellaneous -->
-    <string name="to_go_back">Press Back</string>
-    <string name="press">Press</string>
-    <string name="whos_working_out_today">Who\'s Joining Today?</string>
-    <string name="sign_in_with_a_different_user">Sign in as Someone New</string>
-    <string name="length">Duration</string>
-    <string name="_15_30_mins">15–30 Minutes</string>
-    <string name="instructor">Instructor</string>
-    <string name="class_type">Class Type</string>
-    <string name="class_language">Language</string>
-    <string name="difficulty">Difficulty</string>
-    <string name="subtitles">Subtitles</string>
-    <string name="sort_by">Sort By</string>
-    <string name="clear">Clear</string>
-    <string name="filters">Apply Filters</string>
-    <string name="days">Days</string>
-    <string name="week">Week</string>
-    <string name="filters_button">Filters</string>
-    <string name="classes">Classes</string>
-    <string name="intensity">Intensity</string>
-    <string name="minutes_per_day">Minutes per Day</string>
-    <string name="challenge_details">Challenge Details</string>
-    <string name="no_instructor_set">Not set</string>
+    <!-- More Options -->
+    <string name="more_options_view_artist_detail_button_text">Get to Know the Artist! 🎤</string>
+    <string name="more_options_share_button_text">Spread the Vibe! 📤</string>
+    <string name="more_options_add_to_favorites_button_text">Add to Your Favorites ❤️</string>
+    <string name="more_options_remove_from_favorites_button_text">Remove from Favorites ❌</string>
+    <string name="more_options_play_song_button_text">Play the Song 🎵</string>
+    <string name="more_options_play_song_video_clip_button_text">Watch the Video Clip 🎥</string>
 
     <!-- Splash -->
     <string name="splash_main_title_text">Preparing Your MelodiqTV Experience!</string>
@@ -184,6 +166,11 @@
     <string name="generic_lost_network_connectivity_dialog_description">It seems that your device has lost network connectivity. Please check your connection settings or restart the app.</string>
     <string name="generic_lost_network_connectivity_dialog_open_settings_button_text">Open Settings</string>
     <string name="generic_lost_network_connectivity_dialog_restart_app_button_text">Restart App</string>
+
+    <!-- Home -->
+    <string name="home_categories_row_title">Explore Your Categories 🌟</string>
+    <string name="home_recommended_for_you_row_title">Recommended Just for You 🎶</string>
+    <string name="home_open_song_detail_button_text">🎶 Dive Into the Details!</string>
 
     <!-- Settings -->
     <string name="settings">Settings</string>
@@ -216,12 +203,13 @@
     <string name="add_subscription_completed_dialog_title">Subscription Activated!</string>
     <string name="add_subscription_completed_dialog_description">Congratulations! You\'ve just unlocked a world of exclusive features and premium content. Get ready to elevate your music experience to the next level. Let\'s groove!</string>
 
-    <!-- Training Types -->
-    <string name="training_type_workout_name">Workout</string>
-    <string name="training_type_series_name">Series</string>
-    <string name="training_type_challenges_name">Challenges</string>
-    <string name="training_type_routines_name">Routines</string>
+    <!-- Songs Types -->
+    <string name="song_type_acoustic_name">Acoustic</string>
+    <string name="song_type_studio_name">Studio</string>
+    <string name="song_type_live_name">Live</string>
+    <string name="song_type_remix_name">Remix</string>
 
     <!-- Miscellaneous -->
     <string name="no_text_value">--</string>
+    <string name="image_cannot_be_loaded">Image cannot be loaded</string>
 </resources>

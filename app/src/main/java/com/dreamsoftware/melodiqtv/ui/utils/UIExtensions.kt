@@ -4,7 +4,6 @@ import android.content.Context
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.AvatarTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
-import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 
 fun SongBO?.formatTimeAndType(): String =
@@ -15,14 +14,6 @@ val String.Companion.EMPTY: String
 
 val Char.Companion.SPACE: Char
     get() = ' '
-
-
-fun SongTypeEnum.getStartButtonID() = when (this) {
-    SongTypeEnum.STUDIO -> R.string.start_program
-    SongTypeEnum.LIVE -> R.string.start_program
-    SongTypeEnum.ACOUSTIC -> R.string.start_program
-    else -> R.string.start_program
-}
 
 fun AvatarTypeEnum.toDrawableResource(): Int =
     when(this) {
