@@ -1,5 +1,7 @@
 package com.dreamsoftware.melodiqtv.ui.screens.home
 
+import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import com.dreamsoftware.fudge.core.FudgeTvViewModel
 import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
@@ -17,8 +19,19 @@ class HomeViewModel @Inject constructor(
     private val getFeaturedSongsUseCase: GetFeaturedSongsUseCase,
     private val getCategoriesUseCase: GetCategoriesUseCase,
     private val getSongsRecommendedUseCase: GetSongsRecommendedUseCase,
-    private val hasActiveSubscriptionUseCase: HasActiveSubscriptionUseCase
+    private val hasActiveSubscriptionUseCase: HasActiveSubscriptionUseCase,
+    private val savedStateHandle: SavedStateHandle
 ) : FudgeTvViewModel<HomeUiState, HomeSideEffects>(), HomeScreenActionListener {
+
+    companion object {
+        private const val KEY_SUBSCRIPTION_VERIFIED = "subscription_verified"
+    }
+
+    private var subscriptionAlreadyVerified: Boolean
+        get() = savedStateHandle[KEY_SUBSCRIPTION_VERIFIED] ?: false
+        set(value) {
+            savedStateHandle[KEY_SUBSCRIPTION_VERIFIED] = value
+        }
 
     override fun onGetDefaultState(): HomeUiState = HomeUiState()
 
@@ -26,7 +39,10 @@ class HomeViewModel @Inject constructor(
         fetchFeaturedSongs()
         fetchCategories()
         fetchSongsRecommended()
-        verifyHasActiveSubscription()
+        Log.d("ATV_VERIFY_SUBS", "fetchData: subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
+        if(!subscriptionAlreadyVerified) {
+            verifyHasActiveSubscription()
+        }
     }
 
     private fun fetchFeaturedSongs() {
@@ -53,6 +69,8 @@ class HomeViewModel @Inject constructor(
         if(!hasActiveSubscription) {
             launchSideEffect(HomeSideEffects.NoActivePremiumSubscription)
         }
+        Log.d("ATV_VERIFY_SUBS", "HomeViewModel - onVerifyHasActiveSubscriptionCompleted - hasActiveSubscription: $hasActiveSubscription - subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
+        subscriptionAlreadyVerified = true
     }
 
     private fun onGetCategoriesSuccessfully(categories: List<CategoryBO>) {
@@ -71,6 +89,11 @@ class HomeViewModel @Inject constructor(
 
     override fun onCategorySelected(categoryId: String) {
         launchSideEffect(HomeSideEffects.OpenSongCategory(categoryId))
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("ATV_VERIFY_SUBS", "HomeViewModel - onCleared - subscriptionAlreadyVerified: $subscriptionAlreadyVerified")
     }
 }
 
