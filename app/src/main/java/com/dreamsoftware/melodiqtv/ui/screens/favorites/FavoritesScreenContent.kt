@@ -112,7 +112,7 @@ internal fun FavoritesScreenContent(
                         songSelected?.let {
                             SongDetailsPopup(
                                 song = it,
-                                onStartTrainingProgram = actionListener::onOpenSongDetail,
+                                onOpenSongDetail = actionListener::onOpenSongDetail,
                                 onRemoveFromFavorites = actionListener::onSongRemovedFromFavorites,
                                 onBackPressed = actionListener::onDismissRequest
                             )
@@ -127,7 +127,7 @@ internal fun FavoritesScreenContent(
 @Composable
 private fun SongDetailsPopup(
     song: SongBO,
-    onStartTrainingProgram: (id: String) -> Unit,
+    onOpenSongDetail: (id: String) -> Unit,
     onRemoveFromFavorites: (id: String) -> Unit,
     onBackPressed: () -> Unit
 ) {
@@ -205,7 +205,7 @@ private fun SongDetailsPopup(
                         style = FudgeTvButtonStyleTypeEnum.NORMAL,
                         textRes = R.string.favorites_open_song_detail
                     ) {
-                        onStartTrainingProgram(song.id)
+                        onOpenSongDetail(song.id)
                     }
                     FudgeTvButton(
                         modifier = Modifier

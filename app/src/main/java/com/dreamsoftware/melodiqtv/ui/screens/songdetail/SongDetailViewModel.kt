@@ -30,7 +30,7 @@ class SongDetailViewModel @Inject constructor(
         executeUseCaseWithParams(
             useCase = verifySongInFavoritesUseCase,
             params = VerifySongInFavoritesUseCase.Params(songId = id),
-            onSuccess = ::onVerifyTrainingInFavoritesCompleted
+            onSuccess = ::onVerifySongInFavoritesCompleted
         )
         executeUseCaseWithParams(
             useCase = getSongByIdUseCase,
@@ -63,7 +63,7 @@ class SongDetailViewModel @Inject constructor(
                     params = RemoveFavoriteSongUseCase.Params(
                         songId = id
                     ),
-                    onSuccess = ::onChangeFavoriteTrainingCompleted
+                    onSuccess = ::onChangeFavoriteSongCompleted
                 )
             } else {
                 executeUseCaseWithParams(
@@ -71,19 +71,19 @@ class SongDetailViewModel @Inject constructor(
                     params = AddFavoriteSongUseCase.Params(
                         songId = id
                     ),
-                    onSuccess = ::onChangeFavoriteTrainingCompleted
+                    onSuccess = ::onChangeFavoriteSongCompleted
                 )
             }
         }
     }
 
-    private fun onChangeFavoriteTrainingCompleted(isSuccess: Boolean) {
+    private fun onChangeFavoriteSongCompleted(isSuccess: Boolean) {
         if(isSuccess) {
             updateState { it.copy(isFavorite = !it.isFavorite) }
         }
     }
 
-    private fun onVerifyTrainingInFavoritesCompleted(isFavorite: Boolean) {
+    private fun onVerifySongInFavoritesCompleted(isFavorite: Boolean) {
         updateState { it.copy(isFavorite = isFavorite) }
     }
 

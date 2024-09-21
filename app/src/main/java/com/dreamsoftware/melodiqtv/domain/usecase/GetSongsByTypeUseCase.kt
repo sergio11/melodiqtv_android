@@ -23,12 +23,12 @@ class GetSongsByTypeUseCase(
         val userUid = userRepository.getAuthenticatedUid()
         val hasActiveSubscription = subscriptionsRepository.hasActiveSubscription(userUid)
         return songsRepository.getSongs(
-            data = params.toTrainingFilterData(),
+            data = params.toSongFilterData(),
             includePremium = hasActiveSubscription
         ).toList()
     }
 
-    private fun Params.toTrainingFilterData() = SongFilterDataBO(
+    private fun Params.toSongFilterData() = SongFilterDataBO(
         type = type,
         language = language,
         genre = genre,

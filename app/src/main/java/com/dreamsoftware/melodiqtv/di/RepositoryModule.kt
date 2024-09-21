@@ -121,11 +121,11 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAddFavoriteTrainingMapper(): IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO> = AddFavoriteSongMapper()
+    fun provideAddFavoriteSongMapper(): IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO> = AddFavoriteSongMapper()
 
     @Provides
     @Singleton
-    fun provideTrainingFilterDataMapper(): IOneSideMapper<SongFilterDataBO, SongFilterDTO> = SongFilterDataMapper()
+    fun provideSongFilterDataMapper(): IOneSideMapper<SongFilterDataBO, SongFilterDTO> = SongFilterDataMapper()
 
     @Provides
     @Singleton

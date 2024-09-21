@@ -34,7 +34,7 @@ internal fun MoreOptionsScreenContent(
             ) {
                 ConstraintLayout {
                     val (
-                        trainingDetails,
+                        songDetails,
                         backRowSchema,
                         startButton,
                         favoritesButton,
@@ -44,7 +44,7 @@ internal fun MoreOptionsScreenContent(
                     ) = createRefs()
 
                     FudgeTvCardDetails(
-                        modifier = Modifier.width(268.dp).constrainAs(trainingDetails) {},
+                        modifier = Modifier.width(268.dp).constrainAs(songDetails) {},
                         title = song?.title.orEmpty(),
                         subtitle = song.formatTimeAndType(),
                         description = song?.description.orEmpty(),
@@ -52,7 +52,7 @@ internal fun MoreOptionsScreenContent(
                     )
                     FudgeTvBackRowSchema(
                         modifier = Modifier.constrainAs(backRowSchema) {
-                            top.linkTo(trainingDetails.bottom, margin = 50.dp)
+                            top.linkTo(songDetails.bottom, margin = 50.dp)
                         },
                         onClickBack = actionListener::onBackPressed
                     )
@@ -61,8 +61,8 @@ internal fun MoreOptionsScreenContent(
                             modifier = Modifier
                                 .focusRequester(focusRequester)
                                 .constrainAs(startButton) {
-                                    top.linkTo(trainingDetails.top)
-                                    start.linkTo(trainingDetails.end, margin = 164.dp)
+                                    top.linkTo(songDetails.top)
+                                    start.linkTo(songDetails.end, margin = 164.dp)
                                 },
                             textRes = R.string.more_options_play_song_video_clip_button_text,
                             icon = R.drawable.ic_rounded_play,

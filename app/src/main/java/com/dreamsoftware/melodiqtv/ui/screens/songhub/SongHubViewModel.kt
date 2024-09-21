@@ -1,4 +1,4 @@
-package com.dreamsoftware.melodiqtv.ui.screens.songs
+package com.dreamsoftware.melodiqtv.ui.screens.songhub
 
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.LanguageEnum
@@ -23,12 +23,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SongViewModel @Inject constructor(
+class SongHubViewModel @Inject constructor(
     private val getArtistsUseCase: GetArtistsUseCase,
     private val getSongsByTypeUseCase: GetSongsByTypeUseCase,
     private val applicationAware: IFudgeTvApplicationAware,
     @SongsScreenErrorMapper private val errorMapper: IFudgeTvErrorMapper,
-) : FudgeTvViewModel<SongsUiState, SongsSideEffects>(), SongScreenActionListener {
+) : FudgeTvViewModel<SongsUiState, SongsSideEffects>(), SongHubScreenActionListener {
 
     private var artists: List<ArtistBO> = emptyList()
     private var artistFilter: String = String.EMPTY
