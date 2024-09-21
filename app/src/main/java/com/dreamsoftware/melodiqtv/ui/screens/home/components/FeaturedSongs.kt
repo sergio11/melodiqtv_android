@@ -110,7 +110,7 @@ internal fun FeaturedSongs(
             CarouselItemForeground(
                 song = song,
                 isCarouselFocused = isCarouselFocused,
-                onOpenTrainingProgram = { onOpenSongDetail(song) },
+                onOpenSongDetail = { onOpenSongDetail(song) },
                 modifier = Modifier.align(Alignment.BottomStart)
             )
         }
@@ -145,7 +145,7 @@ private fun BoxScope.CarouselIndicator(
 @Composable
 private fun CarouselItemForeground(
     song: SongBO,
-    onOpenTrainingProgram: () -> Unit,
+    onOpenSongDetail: () -> Unit,
     modifier: Modifier = Modifier,
     isCarouselFocused: Boolean = false
 ) {
@@ -183,7 +183,7 @@ private fun CarouselItemForeground(
                     type = FudgeTvButtonTypeEnum.LARGE,
                     style = FudgeTvButtonStyleTypeEnum.TRANSPARENT,
                     textRes = R.string.home_open_song_detail_button_text,
-                    onClick = onOpenTrainingProgram
+                    onClick = onOpenSongDetail
                 )
             }
         }

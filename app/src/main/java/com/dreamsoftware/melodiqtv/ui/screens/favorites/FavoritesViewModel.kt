@@ -33,10 +33,10 @@ class FavoritesViewModel @Inject constructor(
     }
 
     override fun onOpenSongDetail(id: String) {
-        uiState.value.songSelected?.let { trainingProgramSelected ->
+        uiState.value.songSelected?.let { songSelected ->
             updateState { it.copy(songSelected = null) }
             launchSideEffect(FavoritesSideEffects.OpenSongDetail(
-                id = trainingProgramSelected.id,
+                id = songSelected.id,
             ))
         }
     }
@@ -60,7 +60,7 @@ class FavoritesViewModel @Inject constructor(
     private fun onSongRemovedFromFavoritesCompletedSuccessfully(isRemoved: Boolean) {
         if(isRemoved) {
             updateState { it.copy(
-                favoriteSongs = it.favoriteSongs.filterNot { training -> training.id == it.songSelected?.id },
+                favoriteSongs = it.favoriteSongs.filterNot { song -> song.id == it.songSelected?.id },
                 songSelected = null
             ) }
         }

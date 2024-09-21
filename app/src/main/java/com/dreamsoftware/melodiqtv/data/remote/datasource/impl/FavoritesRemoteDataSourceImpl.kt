@@ -42,7 +42,7 @@ internal class FavoritesRemoteDataSourceImpl(
             }
         } catch (ex: Exception) {
             throw AddToFavoritesRemoteException(
-                "An error occurred when trying to add training to favorites",
+                "An error occurred when trying to add song to favorites",
                 ex
             )
         }
@@ -58,7 +58,7 @@ internal class FavoritesRemoteDataSourceImpl(
             mapper = { favoriteMapper.mapInToOut(it) }
         )
     } catch (ex: Exception) {
-        throw GetFavoritesByUserRemoteException("An error occurred when trying to fetch favorite trainings", ex)
+        throw GetFavoritesByUserRemoteException("An error occurred when trying to fetch favorite songs", ex)
     }
 
     @Throws(HasSongInFavoritesRemoteException::class)
@@ -91,7 +91,7 @@ internal class FavoritesRemoteDataSourceImpl(
         }
     } catch (ex: Exception) {
         throw DeleteProfileRemoteException(
-            "An error occurred when trying to remove training $songId from favorites",
+            "An error occurred when trying to remove song $songId from favorites",
             ex
         )
     }

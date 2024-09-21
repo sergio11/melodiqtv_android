@@ -1,9 +1,9 @@
-package com.dreamsoftware.melodiqtv.ui.screens.songs
+package com.dreamsoftware.melodiqtv.ui.screens.songhub
 
 import com.dreamsoftware.fudge.component.menu.FudgeTvFilterVO
 import com.dreamsoftware.fudge.core.IFudgeTvScreenActionListener
 
-interface SongScreenActionListener: IFudgeTvScreenActionListener {
+interface SongHubScreenActionListener: IFudgeTvScreenActionListener {
 
     fun onFilterClicked()
     fun onSortedClicked()
