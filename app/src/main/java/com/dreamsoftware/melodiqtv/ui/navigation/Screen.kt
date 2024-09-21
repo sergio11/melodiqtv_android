@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.ui.screens.category.CategoryDetailScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.artistdetail.ArtistDetailScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.moreoptions.MoreOptionsScreenArgs
@@ -108,34 +107,23 @@ sealed class Screen(
     }
 
     data object Home: Screen(route = "home", name = "Home")
-    data object Training: Screen(route = "training", name = "Training")
+    data object Songs: Screen(route = "songs", name = "Songs")
     data object Favorite: Screen(route = "favorite", name = "Favorite")
     data object Settings: Screen(route = "settings", name = "Settings")
-    data object VideoPlayer: Screen(route = "video_player/{type}/{id}", name = "VideoPlayer", arguments = listOf(
-        navArgument("type") {
-            type = NavType.StringType
-        },
+    data object VideoPlayer: Screen(route = "video_player/{id}", name = "VideoPlayer", arguments = listOf(
         navArgument("id") {
             type = NavType.StringType
         }
     )) {
-        fun buildRoute(id: String, type: TrainingTypeEnum): String =
+        fun buildRoute(id: String): String =
             route.replace(
                 oldValue = "{id}",
                 newValue = id
-            ).replace(
-                oldValue = "{type}",
-                newValue = type.name
             )
 
         fun parseArgs(args: Bundle): VideoPlayerScreenArgs? = with(args) {
             getString("id")?.let { id ->
-                getString("type")?.let(TrainingTypeEnum::valueOf)?.let { type ->
-                    VideoPlayerScreenArgs(
-                        id = id,
-                        type = type
-                    )
-                }
+                VideoPlayerScreenArgs(id = id)
             }
         }
     }
@@ -158,31 +146,20 @@ sealed class Screen(
             }
         }
     }
-    data object TrainingDetail : Screen(route = "training_detail/{type}/{id}", name = "TrainingDetail", arguments = listOf(
-        navArgument("type") {
-            type = NavType.StringType
-        },
+    data object SongDetail : Screen(route = "song_detail/{id}", name = "SongDetail", arguments = listOf(
         navArgument("id") {
             type = NavType.StringType
         }
     )) {
-        fun buildRoute(id: String, type: TrainingTypeEnum): String =
+        fun buildRoute(id: String): String =
             route.replace(
                 oldValue = "{id}",
                 newValue = id
-            ).replace(
-                oldValue = "{type}",
-                newValue = type.name
             )
 
         fun parseArgs(args: Bundle): SongDetailScreenArgs? = with(args) {
             getString("id")?.let { id ->
-                getString("type")?.let(TrainingTypeEnum::valueOf)?.let { type ->
-                    SongDetailScreenArgs(
-                        id = id,
-                        type = type
-                    )
-                }
+                SongDetailScreenArgs(id = id)
             }
         }
     }
@@ -205,7 +182,7 @@ sealed class Screen(
         }
     }
 
-    data object InstructorDetail : Screen(route = "instructor_detail/{id}", name = "InstructorDetail", arguments = listOf(
+    data object ArtistDetail : Screen(route = "artist_detail/{id}", name = "ArtistDetail", arguments = listOf(
         navArgument("id") {
             type = NavType.StringType
         }
@@ -223,31 +200,22 @@ sealed class Screen(
         }
     }
 
-    data object MoreOptions : Screen(route = "more_options/{type}/{id}", name = "MoreOptions", arguments = listOf(
-        navArgument("type") {
-            type = NavType.StringType
-        },
+    data object MoreOptions : Screen(route = "more_options/{id}", name = "MoreOptions", arguments = listOf(
         navArgument("id") {
             type = NavType.StringType
         }
     )) {
-        fun buildRoute(id: String, type: TrainingTypeEnum): String =
+        fun buildRoute(id: String): String =
             route.replace(
                 oldValue = "{id}",
                 newValue = id
-            ).replace(
-                oldValue = "{type}",
-                newValue = type.name
             )
 
         fun parseArgs(args: Bundle): MoreOptionsScreenArgs? = with(args) {
             getString("id")?.let { id ->
-                getString("type")?.let(TrainingTypeEnum::valueOf)?.let { type ->
-                    MoreOptionsScreenArgs(
-                        id = id,
-                        type = type
-                    )
-                }
+                MoreOptionsScreenArgs(
+                    id = id
+                )
             }
         }
     }

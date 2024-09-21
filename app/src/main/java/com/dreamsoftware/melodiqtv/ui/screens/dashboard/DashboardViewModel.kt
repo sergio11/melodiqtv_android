@@ -57,7 +57,7 @@ class DashboardViewModel @Inject constructor(
         FudgeTvNavigationDrawerItemModel(
             nameRes = R.string.dashboard_navigation_drawer_training_item_name,
             imageRes = R.drawable.fitness_center,
-            route = Screen.Training.route
+            route = Screen.Songs.route
         ),
         FudgeTvNavigationDrawerItemModel(
             nameRes = R.string.dashboard_navigation_drawer_favorite_item_name,

@@ -9,6 +9,8 @@ import com.dreamsoftware.melodiqtv.domain.repository.ISongRepository
 import com.dreamsoftware.melodiqtv.domain.repository.IUserRepository
 import com.dreamsoftware.fudge.core.FudgeTvUseCaseWithParams
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.domain.model.SongGenreEnum
+import com.dreamsoftware.melodiqtv.domain.model.SongMoodEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
 
 class GetSongsByTypeUseCase(
@@ -28,8 +30,9 @@ class GetSongsByTypeUseCase(
 
     private fun Params.toTrainingFilterData() = SongFilterDataBO(
         type = type,
-        classLanguage = language,
-        genre = intensity,
+        language = language,
+        genre = genre,
+        mood = mood,
         videoLength = videoLength,
         sortType = sortType,
         artist = artist
@@ -38,7 +41,8 @@ class GetSongsByTypeUseCase(
     data class Params(
         val type: SongTypeEnum,
         val language: LanguageEnum,
-        val intensity: IntensityEnum,
+        val genre: SongGenreEnum,
+        val mood: SongMoodEnum,
         val videoLength: VideoLengthEnum,
         val sortType: SortTypeEnum,
         val artist: String

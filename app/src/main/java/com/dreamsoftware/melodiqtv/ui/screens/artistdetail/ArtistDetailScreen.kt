@@ -20,7 +20,7 @@ fun ArtistDetailScreen(
         onInitialUiState = { ArtistDetailUiState() },
         onSideEffect = {
             when(it) {
-                ArtistDetailSideEffects.ExitFromArtistDetail -> onBackPressed()
+                ArtistDetailSideEffects.CloseDetail -> onBackPressed()
             }
         },
         onInit = {

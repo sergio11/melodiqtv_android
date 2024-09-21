@@ -11,9 +11,8 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.dreamsoftware.melodiqtv.R
-import com.dreamsoftware.melodiqtv.ui.utils.formatTimeAndTypeTraining
+import com.dreamsoftware.melodiqtv.ui.utils.formatTimeAndType
 import com.dreamsoftware.melodiqtv.ui.utils.getStartButtonID
-import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.component.FudgeTvBackRowSchema
 import com.dreamsoftware.fudge.component.FudgeTvCardDetails
 import com.dreamsoftware.fudge.component.FudgeTvFocusRequester
@@ -47,8 +46,8 @@ internal fun MoreOptionsScreenContent(
 
                     FudgeTvCardDetails(
                         modifier = Modifier.width(268.dp).constrainAs(trainingDetails) {},
-                        title = song?.name.orEmpty(),
-                        subtitle = song.formatTimeAndTypeTraining(),
+                        title = song?.title.orEmpty(),
+                        subtitle = song.formatTimeAndType(),
                         description = song?.description.orEmpty(),
                         imageUrl = song?.imageUrl.orEmpty()
                     )
@@ -66,7 +65,7 @@ internal fun MoreOptionsScreenContent(
                                     top.linkTo(trainingDetails.top)
                                     start.linkTo(trainingDetails.end, margin = 164.dp)
                                 },
-                            textRes = song?.toTrainingType()?.getStartButtonID() ?: R.string.start_workout,
+                            textRes = song?.type?.getStartButtonID() ?: R.string.start_workout,
                             icon = R.drawable.ic_rounded_play,
                             onClick = actionListener::onPlaySongVideoClip
                         )

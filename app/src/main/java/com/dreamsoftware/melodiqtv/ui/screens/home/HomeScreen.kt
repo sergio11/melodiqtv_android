@@ -6,7 +6,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.tv.material3.CarouselState
 import androidx.tv.material3.ExperimentalTvMaterial3Api
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.fudge.component.FudgeTvScreen
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -17,8 +16,8 @@ val carouselSaver =
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onOpenTrainingCategory: (String) -> Unit,
-    onOpenTrainingProgram: (String, TrainingTypeEnum) -> Unit,
+    onOpenCategory: (String) -> Unit,
+    onOpenSongDetail: (String) -> Unit,
     onGoToSubscriptions: () -> Unit
 ) {
     val carouselState = rememberSaveable(saver = carouselSaver) { CarouselState(0) }
@@ -27,8 +26,8 @@ fun HomeScreen(
         onInitialUiState = { HomeUiState() },
         onSideEffect = {
             when(it) {
-                is HomeSideEffects.OpenSongCategory -> onOpenTrainingCategory(it.categoryId)
-                is HomeSideEffects.OpenSongDetail -> onOpenTrainingProgram(it.id, it.type )
+                is HomeSideEffects.OpenSongCategory -> onOpenCategory(it.categoryId)
+                is HomeSideEffects.OpenSongDetail -> onOpenSongDetail(it.id)
                 HomeSideEffects.NoActivePremiumSubscription -> onGoToSubscriptions()
             }
         },
