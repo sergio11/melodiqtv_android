@@ -17,6 +17,7 @@ import com.dreamsoftware.fudge.utils.IFudgeTvApplicationAware
 import com.dreamsoftware.melodiqtv.di.SongsScreenErrorMapper
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongGenreEnum
+import com.dreamsoftware.melodiqtv.domain.model.SongMoodEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -34,6 +35,7 @@ class SongViewModel @Inject constructor(
     private var songType: SongTypeEnum = SongTypeEnum.ACOUSTIC
     private var videoLength: VideoLengthEnum = VideoLengthEnum.NOT_SET
     private var genre: SongGenreEnum = SongGenreEnum.NOT_SET
+    private var mood: SongMoodEnum = SongMoodEnum.NOT_SET
     private var language: LanguageEnum = LanguageEnum.NOT_SET
     private var sortType: SortTypeEnum = SortTypeEnum.NOT_SET
 
@@ -69,7 +71,7 @@ class SongViewModel @Inject constructor(
     )
 
     fun fetchData() {
-        fetchTrainings()
+        fetchSongs()
     }
 
     override fun onFilterClicked() {
@@ -83,7 +85,7 @@ class SongViewModel @Inject constructor(
     override fun onSortCleared() {
         sortType = SortTypeEnum.NOT_SET
         updateState { it.copy(selectedSortItem = 0, isSortExpended = false) }
-        fetchTrainings()
+        fetchSongs()
     }
 
     override fun onDismissSortSideMenu() {
@@ -96,7 +98,7 @@ class SongViewModel @Inject constructor(
 
     override fun onFilterCleared() {
         resetFilters()
-        fetchTrainings()
+        fetchSongs()
     }
 
     override fun onDismissFieldFilterSideMenu() {
@@ -115,7 +117,7 @@ class SongViewModel @Inject constructor(
     override fun onSelectedSortedItem(currentIndex: Int) {
         sortType = SortTypeEnum.entries[currentIndex]
         updateState { it.copy(selectedSortItem = currentIndex, isSortExpended = false) }
-        fetchTrainings()
+        fetchSongs()
     }
 
     override fun onSelectedFilterOption(currentIndex: Int) {
@@ -124,6 +126,9 @@ class SongViewModel @Inject constructor(
             when(filter.id) {
                 VIDEO_LENGTH_FILTER -> {
                     videoLength = VideoLengthEnum.entries[currentIndex]
+                }
+                MOOD_FILTER -> {
+                    mood = SongMoodEnum.entries[currentIndex]
                 }
                 GENRE_FILTER -> {
                     genre = SongGenreEnum.entries[currentIndex]
@@ -143,6 +148,7 @@ class SongViewModel @Inject constructor(
                                 selectedOption = currentIndex,
                                 description = when(filter.id) {
                                     VIDEO_LENGTH_FILTER -> VideoLengthEnum.entries[currentIndex].value
+                                    MOOD_FILTER -> SongMoodEnum.entries[currentIndex].value
                                     GENRE_FILTER -> SongGenreEnum.entries[currentIndex].value
                                     LANGUAGE_FILTER -> LanguageEnum.entries[currentIndex].value
                                     else -> artists.getOrNull(currentIndex)?.name.orEmpty()
@@ -155,7 +161,7 @@ class SongViewModel @Inject constructor(
                     selectedFilter = null
                 )
             }
-            fetchTrainings()
+            fetchSongs()
         }
     }
 
@@ -166,7 +172,7 @@ class SongViewModel @Inject constructor(
                 songs = emptyList()
             )
         }
-        fetchTrainings()
+        fetchSongs()
     }
 
     override fun onChangeFocusTab(index: Int) {
@@ -179,17 +185,18 @@ class SongViewModel @Inject constructor(
         )
     }
 
-    private fun fetchInstructors() {
-        executeUseCase(useCase = getArtistsUseCase, onSuccess = ::onGetInstructorsSuccessfully)
+    private fun fetchArtists() {
+        executeUseCase(useCase = getArtistsUseCase, onSuccess = ::onGetArtistsSuccessfully)
     }
 
-    private fun fetchTrainings() {
+    private fun fetchSongs() {
         executeUseCaseWithParams(
             useCase = getSongsByTypeUseCase,
             params = GetSongsByTypeUseCase.Params(
                 type = songType,
                 language = language,
-                intensity = genre,
+                genre = genre,
+                mood = mood,
                 videoLength = videoLength,
                 sortType = sortType,
                 artist = artistFilter
@@ -202,20 +209,20 @@ class SongViewModel @Inject constructor(
     private fun onGetSongsSuccessfully(songs: List<SongBO>) {
         updateState { it.copy(songs = songs) }
         if(artists.isEmpty()) {
-            fetchInstructors()
+            fetchArtists()
         }
     }
 
-    private fun onGetInstructorsSuccessfully(instructorList: List<ArtistBO>) {
-        artists = instructorList
-        val noInstructorSet = applicationAware.getString(R.string.no_instructor_set)
+    private fun onGetArtistsSuccessfully(artists: List<ArtistBO>) {
+        this.artists = artists
+        val noArtistSet = applicationAware.getString(R.string.no_instructor_set)
         updateState {
             it.copy(
                 filterItems = it.filterItems.map { item ->
                     if(item.id == ARTIST_FILTER) {
                         item.copy(
-                            options = instructorList.map(ArtistBO::name) + noInstructorSet,
-                            description = noInstructorSet
+                            options = artists.map(ArtistBO::name) + noArtistSet,
+                            description = noArtistSet
                         )
                     } else {
                         item
@@ -235,6 +242,7 @@ class SongViewModel @Inject constructor(
     private fun resetFilters() {
         videoLength = VideoLengthEnum.NOT_SET
         genre = SongGenreEnum.NOT_SET
+        mood = SongMoodEnum.NOT_SET
         songType = SongTypeEnum.ACOUSTIC
         language = LanguageEnum.NOT_SET
         artistFilter = String.EMPTY
@@ -251,6 +259,7 @@ class SongViewModel @Inject constructor(
             selectedOption = 0,
             description = when(item.id) {
                 VIDEO_LENGTH_FILTER -> VideoLengthEnum.NOT_SET.value
+                MOOD_FILTER -> SongMoodEnum.NOT_SET.value
                 GENRE_FILTER -> SongGenreEnum.NOT_SET.value
                 LANGUAGE_FILTER -> LanguageEnum.NOT_SET.value
                 else -> String.EMPTY
@@ -287,7 +296,7 @@ sealed interface SongsSideEffects : SideEffect {
 }
 
 const val VIDEO_LENGTH_FILTER = "VIDEO_LENGTH_FILTER"
-const val CLASS_TYPE_FILTER = "CLASS_TYPE_FILTER"
+const val MOOD_FILTER = "MOOD_FILTER"
 const val GENRE_FILTER = "GENRE_FILTER"
 const val LANGUAGE_FILTER = "LANGUAGE_FILTER"
 const val ARTIST_FILTER = "ARTIST_FILTER"

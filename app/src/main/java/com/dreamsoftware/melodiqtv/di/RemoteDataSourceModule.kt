@@ -5,6 +5,7 @@ import com.dreamsoftware.melodiqtv.data.remote.datasource.ICategoryRemoteDataSou
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IFavoritesRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IArtistsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IProfilesRemoteDataSource
+import com.dreamsoftware.melodiqtv.data.remote.datasource.ISongRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.ISubscriptionsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserSubscriptionsRemoteDataSource
@@ -13,6 +14,7 @@ import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.CategoryRemoteDat
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.FavoritesRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.ArtistsRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.ProfilesRemoteDataSourceImpl
+import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.SongRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.SubscriptionsRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.UserRemoteDataSourceImpl
 import com.dreamsoftware.melodiqtv.data.remote.datasource.impl.UserSubscriptionsRemoteDataSourceImpl
@@ -27,6 +29,7 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.response.CategoryDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ProfileDTO
+import com.dreamsoftware.melodiqtv.data.remote.dto.response.SongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.SubscriptionDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.UserResponseDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.UserSubscriptionDTO
@@ -38,6 +41,7 @@ import com.dreamsoftware.melodiqtv.data.remote.mapper.CreateUserRequestRemoteMap
 import com.dreamsoftware.melodiqtv.data.remote.mapper.FavoriteSongRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.ArtistRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.ProfileRemoteMapper
+import com.dreamsoftware.melodiqtv.data.remote.mapper.SongRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.SubscriptionRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdateProfileRequestRemoteMapper
 import com.dreamsoftware.melodiqtv.data.remote.mapper.UpdatedUserRequestRemoteMapper
@@ -127,20 +131,20 @@ class RemoteDataSourceModule {
     fun provideProfileRemoteMapper(): IOneSideMapper<Map<String, Any?>, ProfileDTO> = ProfileRemoteMapper()
 
     /**
-     * Provides a singleton instance of AddFavoriteTrainingRemoteMapper.
-     * @return a new instance of AddFavoriteTrainingRemoteMapper.
+     * Provides a singleton instance of AddFavoriteSongRemoteMapper.
+     * @return a new instance of AddFavoriteSongRemoteMapper.
      */
     @Provides
     @Singleton
-    fun provideAddFavoriteTrainingRemoteMapper(): IOneSideMapper<AddFavoriteSongDTO, Map<String, Any?>> = AddFavoriteSongRemoteMapper()
+    fun provideAddFavoriteSongRemoteMapper(): IOneSideMapper<AddFavoriteSongDTO, Map<String, Any?>> = AddFavoriteSongRemoteMapper()
 
     /**
-     * Provides a singleton instance of FavoriteTrainingRemoteMapper.
-     * @return a new instance of FavoriteTrainingRemoteMapper.
+     * Provides a singleton instance of FavoriteSongRemoteMapper.
+     * @return a new instance of FavoriteSongRemoteMapper.
      */
     @Provides
     @Singleton
-    fun provideFavoriteTrainingRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteSongDTO> = FavoriteSongRemoteMapper()
+    fun provideFavoriteSongRemoteMapper(): IOneSideMapper<Map<String, Any?>, FavoriteSongDTO> = FavoriteSongRemoteMapper()
 
     /**
      * Provides a singleton instance of SubscriptionRemoteMapper.
@@ -167,12 +171,20 @@ class RemoteDataSourceModule {
     fun provideUserSubscriptionsRemoteMapper(): IOneSideMapper<Map<String, Any?>, UserSubscriptionDTO> = UserSubscriptionsRemoteMapper()
 
     /**
-     * Provides a singleton instance of InstructorRemoteMapper.
-     * @return a new instance of InstructorRemoteMapper.
+     * Provides a singleton instance of ArtistRemoteMapper.
+     * @return a new instance of ArtistRemoteMapper.
      */
     @Provides
     @Singleton
-    fun provideInstructorRemoteMapper(): IOneSideMapper<Map<String, Any?>, ArtistDTO> = ArtistRemoteMapper()
+    fun provideArtistRemoteMapper(): IOneSideMapper<Map<String, Any?>, ArtistDTO> = ArtistRemoteMapper()
+
+    /**
+     * Provides a singleton instance of SongRemoteMapper.
+     * @return a new instance of SongRemoteMapper.
+     */
+    @Provides
+    @Singleton
+    fun provideSongRemoteMapper(): IOneSideMapper<Map<String, Any?>, SongDTO> = SongRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -293,11 +305,23 @@ class RemoteDataSourceModule {
     @Singleton
     fun provideArtistsRemoteDataSource(
         firebaseStore: FirebaseFirestore,
-        instructorMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
+        artistMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): IArtistsRemoteDataSource = ArtistsRemoteDataSourceImpl(
         firebaseStore,
-        instructorMapper,
+        artistMapper,
+        dispatcher
+    )
+
+    @Provides
+    @Singleton
+    fun provideSongRemoteDataSource(
+        firebaseStore: FirebaseFirestore,
+        dataMapper: IOneSideMapper<Map<String, Any?>, SongDTO>,
+        @IoDispatcher dispatcher: CoroutineDispatcher
+    ): ISongRemoteDataSource = SongRemoteDataSourceImpl(
+        firebaseStore,
+        dataMapper,
         dispatcher
     )
 }

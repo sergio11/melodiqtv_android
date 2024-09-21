@@ -9,6 +9,7 @@ import com.dreamsoftware.melodiqtv.data.remote.datasource.ICategoryRemoteDataSou
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IFavoritesRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IArtistsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IProfilesRemoteDataSource
+import com.dreamsoftware.melodiqtv.data.remote.datasource.ISongRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.ISubscriptionsRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IUserSubscriptionsRemoteDataSource
@@ -20,7 +21,6 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.request.SongFilterDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.UpdatedProfileRequestDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.UpdatedUserRequestDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.CategoryDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.ChallengeDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.ProfileDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.SubscriptionDTO
@@ -33,7 +33,7 @@ import com.dreamsoftware.melodiqtv.data.repository.impl.ProfilesRepositoryImpl
 import com.dreamsoftware.melodiqtv.data.repository.impl.SubscriptionsRepositoryImpl
 import com.dreamsoftware.melodiqtv.data.repository.impl.SongRepositoryImpl
 import com.dreamsoftware.melodiqtv.data.repository.impl.UserRepositoryImpl
-import com.dreamsoftware.melodiqtv.data.repository.mapper.AddFavoriteTrainingMapper
+import com.dreamsoftware.melodiqtv.data.repository.mapper.AddFavoriteSongMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.AddUserSubscriptionMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.CategoryMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.CreateProfileRequestMapper
@@ -42,6 +42,8 @@ import com.dreamsoftware.melodiqtv.data.repository.mapper.ArtistMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.ProfileMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.SubscriptionMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.SongFilterDataMapper
+import com.dreamsoftware.melodiqtv.data.repository.mapper.SongMapper
+import com.dreamsoftware.melodiqtv.data.repository.mapper.SongMapperData
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UpdateProfileRequestMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UpdatedUserRequestMapper
 import com.dreamsoftware.melodiqtv.data.repository.mapper.UserDetailMapper
@@ -50,13 +52,11 @@ import com.dreamsoftware.melodiqtv.data.repository.mapper.UserSubscriptionMapper
 import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteSongBO
 import com.dreamsoftware.melodiqtv.domain.model.AddUserSubscriptionBO
 import com.dreamsoftware.melodiqtv.domain.model.CategoryBO
-import com.dreamsoftware.melodiqtv.domain.model.ChallengeBO
 import com.dreamsoftware.melodiqtv.domain.model.CreateProfileRequestBO
 import com.dreamsoftware.melodiqtv.domain.model.ArtistBO
 import com.dreamsoftware.melodiqtv.domain.model.SignUpBO
 import com.dreamsoftware.melodiqtv.domain.model.ProfileBO
-import com.dreamsoftware.melodiqtv.domain.model.RoutineBO
-import com.dreamsoftware.melodiqtv.domain.model.SeriesBO
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 import com.dreamsoftware.melodiqtv.domain.model.SongFilterDataBO
 import com.dreamsoftware.melodiqtv.domain.model.UpdatedProfileRequestBO
@@ -85,25 +85,11 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRoutineMapper(): IOneSideMapper<Pair<RoutineDTO, ArtistDTO>, RoutineBO> = RoutineMapper()
+    fun provideSongMapper(): IOneSideMapper<SongMapperData, SongBO> = SongMapper()
 
     @Provides
     @Singleton
     fun provideCategoryMapper(): IOneSideMapper<CategoryDTO, CategoryBO> = CategoryMapper()
-
-    @Provides
-    @Singleton
-    fun provideSeriesMapper(): IOneSideMapper<Pair<SeriesDTO, ArtistDTO>, SeriesBO> = SeriesMapper()
-
-    @Provides
-    @Singleton
-    fun provideWorkoutMapper(): IOneSideMapper<Pair<WorkoutDTO, ArtistDTO>, WorkoutBO> = WorkoutMapper()
-
-    @Provides
-    @Singleton
-    fun provideChallengeMapper(
-        workoutMapper: IOneSideMapper<Pair<WorkoutDTO, ArtistDTO>, WorkoutBO>
-    ): IOneSideMapper<Triple<ChallengeDTO, List<WorkoutDTO>, ArtistDTO>, ChallengeBO> = ChallengeMapper(workoutMapper)
 
     @Provides
     @Singleton
@@ -135,7 +121,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAddFavoriteTrainingMapper(): IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO> = AddFavoriteTrainingMapper()
+    fun provideAddFavoriteTrainingMapper(): IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO> = AddFavoriteSongMapper()
 
     @Provides
     @Singleton
@@ -155,11 +141,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideTrainingSongMapper(): IOneSideMapper<TrainingSongDTO, TrainingSongBO> = TrainingSongMapper()
-
-    @Provides
-    @Singleton
-    fun provideInstructorMapper(): IOneSideMapper<ArtistDTO, ArtistBO> = ArtistMapper()
+    fun provideArtistMapper(): IOneSideMapper<ArtistDTO, ArtistBO> = ArtistMapper()
 
     @Provides
     @Singleton
@@ -167,7 +149,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideInstructorRepository(
+    fun provideArtistRepository(
         instructorsRemoteDataSource: IArtistsRemoteDataSource,
         instructorMapper: IOneSideMapper<ArtistDTO, ArtistBO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
@@ -178,37 +160,26 @@ class RepositoryModule {
             dispatcher
         )
 
-
     @Provides
     @Singleton
-    fun provideTrainingRepository(
-        routineRemoteDataSource: IRoutineRemoteDataSource,
-        workoutRemoteDataSource: IWorkoutRemoteDataSource,
-        seriesRemoteDataSource: ISeriesRemoteDataSource,
-        challengesRemoteDataSource: IChallengesRemoteDataSource,
+    fun provideSongRepository(
+        songRemoteDataSource: ISongRemoteDataSource,
         favoritesRemoteDataSource: IFavoritesRemoteDataSource,
-        instructorRemoteDataSource: IArtistsRemoteDataSource,
-        routineMapper: IOneSideMapper<Pair<RoutineDTO, ArtistDTO>, RoutineBO>,
-        workoutMapper: IOneSideMapper<Pair<WorkoutDTO, ArtistDTO>, WorkoutBO>,
-        seriesMapper: IOneSideMapper<Pair<SeriesDTO, ArtistDTO>, SeriesBO>,
+        artistRemoteDataSource: IArtistsRemoteDataSource,
+        categoryRemoteDataSource: ICategoryRemoteDataSource,
+        songsMapper: IOneSideMapper<SongMapperData, SongBO>,
         addFavoriteMapper: IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO>,
-        trainingFilterDataMapper: IOneSideMapper<SongFilterDataBO, SongFilterDTO>,
-        challengesMapper: IOneSideMapper<Triple<ChallengeDTO, List<WorkoutDTO>, ArtistDTO>, ChallengeBO>,
+        filterDataMapper: IOneSideMapper<SongFilterDataBO, SongFilterDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): ISongRepository =
         SongRepositoryImpl(
-            routineRemoteDataSource,
-            workoutRemoteDataSource,
-            seriesRemoteDataSource,
-            challengesRemoteDataSource,
+            songRemoteDataSource,
             favoritesRemoteDataSource,
-            instructorRemoteDataSource,
-            routineMapper,
-            workoutMapper,
-            seriesMapper,
+            artistRemoteDataSource,
+            categoryRemoteDataSource,
+            songsMapper,
             addFavoriteMapper,
-            trainingFilterDataMapper,
-            challengesMapper,
+            filterDataMapper,
             dispatcher
         )
 
@@ -290,20 +261,6 @@ class RepositoryModule {
             subscriptionMapper,
             addUserSubscriptionMapper,
             userSubscriptionMapper,
-            dispatcher
-        )
-
-
-    @Provides
-    @Singleton
-    fun provideTrainingSongsRepository(
-        trainingSongsRemoteDataSource: ITrainingSongsRemoteDataSource,
-        trainingSongsMapper: IOneSideMapper<TrainingSongDTO, TrainingSongBO>,
-        @IoDispatcher dispatcher: CoroutineDispatcher
-    ): ITrainingSongsRepository =
-        TrainingSongsRepositoryImpl(
-            trainingSongsRemoteDataSource,
-            trainingSongsMapper,
             dispatcher
         )
 }

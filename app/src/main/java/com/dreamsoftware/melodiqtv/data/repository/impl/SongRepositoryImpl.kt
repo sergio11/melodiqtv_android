@@ -1,17 +1,19 @@
 package com.dreamsoftware.melodiqtv.data.repository.impl
 
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IArtistsRemoteDataSource
+import com.dreamsoftware.melodiqtv.data.remote.datasource.ICategoryRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.datasource.IFavoritesRemoteDataSource
+import com.dreamsoftware.melodiqtv.data.remote.datasource.ISongRemoteDataSource
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.AddFavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.request.SongFilterDTO
-import com.dreamsoftware.melodiqtv.data.remote.dto.response.ArtistDTO
 import com.dreamsoftware.melodiqtv.data.remote.dto.response.SongDTO
 import com.dreamsoftware.melodiqtv.data.remote.exception.AddToFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.GetFavoritesByUserRemoteException
-import com.dreamsoftware.melodiqtv.data.remote.exception.HasTrainingInFavoritesRemoteException
+import com.dreamsoftware.melodiqtv.data.remote.exception.HasSongInFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.RemoteDataSourceException
 import com.dreamsoftware.melodiqtv.data.remote.exception.RemoveFromFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.repository.impl.core.SupportRepositoryImpl
+import com.dreamsoftware.melodiqtv.data.repository.mapper.SongMapperData
 import com.dreamsoftware.melodiqtv.domain.exception.AddFavoriteSongException
 import com.dreamsoftware.melodiqtv.domain.exception.FetchFavoritesSongsByUserException
 import com.dreamsoftware.melodiqtv.domain.exception.FetchFeaturedSongsException
@@ -24,98 +26,75 @@ import com.dreamsoftware.melodiqtv.domain.exception.VerifyFavoriteSongException
 import com.dreamsoftware.melodiqtv.domain.model.AddFavoriteSongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongFilterDataBO
-import com.dreamsoftware.melodiqtv.domain.model.TrainingTypeEnum
 import com.dreamsoftware.melodiqtv.domain.repository.ISongRepository
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
-import com.dreamsoftware.melodiqtv.utils.enumNameOfOrDefault
-import com.dreamsoftware.melodiqtv.utils.executeAsync
 import com.dreamsoftware.melodiqtv.utils.parallelMap
 import kotlinx.coroutines.CoroutineDispatcher
 
 internal class SongRepositoryImpl(
+    private val songRemoteDataSource: ISongRemoteDataSource,
     private val favoritesRemoteDataSource: IFavoritesRemoteDataSource,
-    private val instructorRemoteDataSource: IArtistsRemoteDataSource,
-    private val songsMapper: IOneSideMapper<Pair<SongDTO, ArtistDTO>, SongBO>,
+    private val artistRemoteDataSource: IArtistsRemoteDataSource,
+    private val categoryRemoteDataSource: ICategoryRemoteDataSource,
+    private val songsMapper: IOneSideMapper<SongMapperData, SongBO>,
     private val addFavoriteMapper: IOneSideMapper<AddFavoriteSongBO, AddFavoriteSongDTO>,
-    private val trainingFilterDataMapper: IOneSideMapper<SongFilterDataBO, SongFilterDTO>,
-    private val dispatcher: CoroutineDispatcher
+    private val filterDataMapper: IOneSideMapper<SongFilterDataBO, SongFilterDTO>,
+    dispatcher: CoroutineDispatcher
 ) : SupportRepositoryImpl(dispatcher), ISongRepository {
 
     @Throws(FetchSongsException::class)
-    override suspend fun getSongs(data: SongFilterDataBO, includePremium: Boolean): Iterable<ITrainingProgramBO> = with(data) {
+    override suspend fun getSongs(data: SongFilterDataBO, includePremium: Boolean): Iterable<SongBO> =
         safeExecute {
-            val filterDTO = trainingFilterDataMapper.mapInToOut(data)
             try {
-                when (type) {
-                    TrainingTypeEnum.WORK_OUT -> workoutRemoteDataSource.getTrainings(filterDTO, includePremium).workoutsToTrainingPrograms()
-                    TrainingTypeEnum.SERIES -> seriesRemoteDataSource.getTrainings(filterDTO, includePremium).seriesToTrainingPrograms()
-                    TrainingTypeEnum.CHALLENGES -> challengeRemoteDataSource.getTrainings(filterDTO, includePremium).challengesToTrainingPrograms()
-                    TrainingTypeEnum.ROUTINE -> routineRemoteDataSource.getTrainings(filterDTO, includePremium).routinesToTrainingPrograms()
-                }
+                val filterDTO = filterDataMapper.mapInToOut(data)
+                songRemoteDataSource.getSongs(filterDTO, includePremium).mapToSongBoList()
             } catch (ex: RemoteDataSourceException) {
-                throw FetchSongsException("An error occurred when fetching trainings", ex)
+                throw FetchSongsException("An error occurred when fetching songs", ex)
             }
         }
-    }
 
     @Throws(FetchSongByIdException::class)
-    override suspend fun getTrainingById(id: String, type: TrainingTypeEnum): ITrainingProgramBO =
+    override suspend fun getSongById(id: String): SongBO =
         safeExecute {
             try {
-                when (type) {
-                    TrainingTypeEnum.WORK_OUT -> workoutRemoteDataSource.getTrainingById(id).toTrainingProgram()
-                    TrainingTypeEnum.SERIES -> seriesRemoteDataSource.getTrainingById(id).toTrainingProgram()
-                    TrainingTypeEnum.CHALLENGES -> challengeRemoteDataSource.getTrainingById(id).toTrainingProgram()
-                    TrainingTypeEnum.ROUTINE -> routineRemoteDataSource.getTrainingById(id).toTrainingProgram()
-                }
+                songRemoteDataSource.getSongById(id).mapToSongBo()
             } catch (ex: RemoteDataSourceException) {
-                throw FetchSongsException("An error occurred when fetching the training", ex)
+                throw FetchSongsException("An error occurred when fetching the song", ex)
             }
         }
 
     @Throws(FetchSongsRecommendedException::class)
-    override suspend fun getSongsRecommended(includePremium: Boolean): Iterable<ITrainingProgramBO> = safeExecute {
+    override suspend fun getSongsRecommended(includePremium: Boolean): Iterable<SongBO> = safeExecute {
         try {
-            val workoutDeferred = executeAsync(dispatcher) { workoutRemoteDataSource.getRecommendedTrainings(includePremium).workoutsToTrainingPrograms() }
-            val seriesDeferred = executeAsync(dispatcher) { seriesRemoteDataSource.getRecommendedTrainings(includePremium).seriesToTrainingPrograms() }
-            val challengesDeferred = executeAsync(dispatcher) { challengeRemoteDataSource.getRecommendedTrainings(includePremium).challengesToTrainingPrograms() }
-            val routinesDeferred = executeAsync(dispatcher) { routineRemoteDataSource.getRecommendedTrainings(includePremium).routinesToTrainingPrograms() }
-            workoutDeferred.await() + seriesDeferred.await() + challengesDeferred.await() + routinesDeferred.await()
+            songRemoteDataSource.getRecommendedSongs(includePremium).mapToSongBoList()
         } catch (ex: RemoteDataSourceException) {
             throw FetchSongsRecommendedException(
-                "An error occurred when fetching the recommended trainings",
+                "An error occurred when fetching the recommended songs",
                 ex
             )
         }
     }
 
     @Throws(FetchFeaturedSongsException::class)
-    override suspend fun getFeaturedSongs(includePremium: Boolean): Iterable<ITrainingProgramBO> = safeExecute {
+    override suspend fun getFeaturedSongs(includePremium: Boolean): Iterable<SongBO> = safeExecute {
         try {
-            val workoutDeferred = executeAsync(dispatcher) { workoutRemoteDataSource.getFeaturedTrainings(includePremium).workoutsToTrainingPrograms() }
-            val seriesDeferred = executeAsync(dispatcher) { seriesRemoteDataSource.getFeaturedTrainings(includePremium).seriesToTrainingPrograms() }
-            val routinesDeferred = executeAsync(dispatcher) { routineRemoteDataSource.getFeaturedTrainings(includePremium).routinesToTrainingPrograms() }
-            workoutDeferred.await() + seriesDeferred.await() + routinesDeferred.await()
+            songRemoteDataSource.getFeaturedSongs(includePremium).mapToSongBoList()
         } catch (ex: RemoteDataSourceException) {
             throw FetchFeaturedSongsException(
-                "An error occurred when fetching the featured training",
+                "An error occurred when fetching the featured songs",
                 ex
             )
         }
     }
 
     @Throws(FetchSongByCategoryException::class)
-    override suspend fun getSongsByCategory(id: String, includePremium: Boolean): Iterable<ITrainingProgramBO> =
+    override suspend fun getSongsByCategory(id: String, includePremium: Boolean): Iterable<SongBO> =
         safeExecute {
             try {
-                val workoutDeferred = executeAsync(dispatcher) { workoutRemoteDataSource.getTrainingByCategory(id, includePremium).workoutsToTrainingPrograms() }
-                val seriesDeferred = executeAsync(dispatcher) { seriesRemoteDataSource.getTrainingByCategory(id, includePremium).seriesToTrainingPrograms() }
-                val challengesDeferred = executeAsync(dispatcher) { challengeRemoteDataSource.getTrainingByCategory(id, includePremium).challengesToTrainingPrograms() }
-                val routinesDeferred = executeAsync(dispatcher) { routineRemoteDataSource.getTrainingByCategory(id, includePremium).routinesToTrainingPrograms() }
-                workoutDeferred.await() + seriesDeferred.await() + routinesDeferred.await() + challengesDeferred.await()
+                songRemoteDataSource.getSongsByCategory(id, includePremium).mapToSongBoList()
             } catch (ex: RemoteDataSourceException) {
                 throw FetchSongByCategoryException(
-                    "An error occurred when fetching the training",
+                    "An error occurred when fetching the song",
                     ex
                 )
             }
@@ -128,20 +107,17 @@ internal class SongRepositoryImpl(
                 favoritesRemoteDataSource.addFavorite(addFavoriteMapper.mapInToOut(data))
             } catch (ex: AddToFavoritesRemoteException) {
                 throw AddFavoriteSongException(
-                    "An error occurred when adding training to favorites",
+                    "An error occurred when adding song to favorites",
                     ex
                 )
             }
         }
 
     @Throws(FetchFavoritesSongsByUserException::class)
-    override suspend fun getFavoritesSongsByProfile(profileId: String): List<ITrainingProgramBO> = safeExecute {
+    override suspend fun getFavoritesSongsByProfile(profileId: String): List<SongBO> = safeExecute {
         try {
             favoritesRemoteDataSource.getFavoritesByUser(profileId).parallelMap {
-                getSongById(
-                    id = it.songId,
-                    type = enumNameOfOrDefault(it.trainingType, TrainingTypeEnum.WORK_OUT)
-                )
+                getSongById(id = it.songId)
             }
         } catch (ex: GetFavoritesByUserRemoteException) {
             throw FetchFavoritesSongsByUserException(
@@ -154,11 +130,11 @@ internal class SongRepositoryImpl(
     @Throws(VerifyFavoriteSongException::class)
     override suspend fun hasSongInFavorites(profileId: String, songId: String): Boolean = safeExecute {
         try {
-            favoritesRemoteDataSource.hasTrainingInFavorites(
+            favoritesRemoteDataSource.hasSongInFavorites(
                 profileId = profileId,
-                trainingId = songId
+                songId = songId
             )
-        } catch (ex: HasTrainingInFavoritesRemoteException) {
+        } catch (ex: HasSongInFavoritesRemoteException) {
             throw VerifyFavoriteSongException(
                 "An error occurred when checking favorites",
                 ex
@@ -171,55 +147,31 @@ internal class SongRepositoryImpl(
         try {
             favoritesRemoteDataSource.removeFavorite(
                 profileId = profileId,
-                trainingId = songId
+                songId = songId
             )
         } catch (ex: RemoveFromFavoritesRemoteException) {
             throw RemoveFavoriteSongException(
-                "An error occurred when removing training from favorites",
+                "An error occurred when removing song from favorites",
                 ex
             )
         }
     }
 
-    private suspend fun WorkoutDTO.toTrainingProgram(): ITrainingProgramBO =
-        let { workout -> workout to instructorRemoteDataSource.getArtistById(workout.instructor) }
-            .let(workoutMapper::mapInToOut)
+    private suspend fun SongDTO.mapToSongBo() =
+        let { song ->
+            SongMapperData(
+                artist = artistRemoteDataSource.getArtistById(song.artist),
+                category = categoryRemoteDataSource.getCategoryById(song.category),
+                song = song
+            )
+        }.let(songsMapper::mapInToOut)
 
-    private suspend fun SeriesDTO.toTrainingProgram(): ITrainingProgramBO =
-        let { series -> series to instructorRemoteDataSource.getArtistById(series.instructor) }
-            .let(seriesMapper::mapInToOut)
-
-    private suspend fun ChallengeDTO.toTrainingProgram(): ITrainingProgramBO =
-        let { challenge ->
-            val instructor = instructorRemoteDataSource.getArtistById(challenge.instructor)
-            val weaklyPlans = challenge.weaklyPlans.parallelMap { weaklyPlan ->
-                workoutRemoteDataSource.getTrainingByIdList(weaklyPlan.workouts)
-            }.flatten()
-            challengesMapper.mapInToOut(Triple(challenge, weaklyPlans, instructor))
-        }
-
-    private suspend fun RoutineDTO.toTrainingProgram(): ITrainingProgramBO =
-        let { routine -> routine to instructorRemoteDataSource.getArtistById(routine.instructor) }
-            .let(routineMapper::mapInToOut)
-
-    private suspend fun List<WorkoutDTO>.workoutsToTrainingPrograms(): Iterable<ITrainingProgramBO> =
-        parallelMap { workout -> workout to instructorRemoteDataSource.getArtistById(workout.instructor) }
-            .let(workoutMapper::mapInListToOutList)
-
-    private suspend fun List<SeriesDTO>.seriesToTrainingPrograms(): Iterable<ITrainingProgramBO> =
-        parallelMap { series -> series to instructorRemoteDataSource.getArtistById(series.instructor) }
-            .let(seriesMapper::mapInListToOutList)
-
-    private suspend fun List<ChallengeDTO>.challengesToTrainingPrograms(): Iterable<ITrainingProgramBO> =
-        parallelMap { challenge ->
-            val instructor = instructorRemoteDataSource.getArtistById(challenge.instructor)
-            val weaklyPlans = challenge.weaklyPlans.parallelMap { weaklyPlan ->
-                workoutRemoteDataSource.getTrainingByIdList(weaklyPlan.workouts)
-            }.flatten()
-            challengesMapper.mapInToOut(Triple(challenge, weaklyPlans, instructor))
-        }
-
-    private suspend fun List<RoutineDTO>.routinesToTrainingPrograms(): Iterable<ITrainingProgramBO> =
-        parallelMap { series -> series to instructorRemoteDataSource.getArtistById(series.instructor) }
-            .let(routineMapper::mapInListToOutList)
+    private suspend fun List<SongDTO>.mapToSongBoList() =
+        parallelMap { song ->
+            SongMapperData(
+                artist = artistRemoteDataSource.getArtistById(song.artist),
+                category = categoryRemoteDataSource.getCategoryById(song.category),
+                song = song
+            )
+        }.let(songsMapper::mapInListToOutList)
 }

@@ -14,7 +14,7 @@ internal class SongFilterDataMapper: IOneSideMapper<SongFilterDataBO, SongFilter
 
     override fun mapInToOut(input: SongFilterDataBO): SongFilterDTO = with(input) {
         SongFilterDTO(
-            language = classLanguage.takeIf { it != LanguageEnum.NOT_SET }?.value,
+            language = language.takeIf { it != LanguageEnum.NOT_SET }?.value,
             type = type.takeIf { it != SongTypeEnum.NOT_SET }?.value,
             genre = genre.takeIf { it != SongGenreEnum.NOT_SET }?.value,
             mood = mood.takeIf { it != SongMoodEnum.NOT_SET }?.value,

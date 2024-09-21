@@ -7,7 +7,7 @@ import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 
-fun SongBO?.formatTimeAndTypeTraining(): String =
+fun SongBO?.formatTimeAndType(): String =
     this?.run { "$duration | ${type.value} " }.orEmpty()
 
 val String.Companion.EMPTY: String
@@ -21,7 +21,7 @@ fun SongTypeEnum.getStartButtonID() = when (this) {
     SongTypeEnum.STUDIO -> R.string.start_program
     SongTypeEnum.LIVE -> R.string.start_program
     SongTypeEnum.ACOUSTIC -> R.string.start_program
-    SongTypeEnum.REMIX -> R.string.start_program
+    else -> R.string.start_program
 }
 
 fun AvatarTypeEnum.toDrawableResource(): Int =

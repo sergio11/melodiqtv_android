@@ -27,22 +27,22 @@ fun DashboardNavHost(
         composable(Screen.Home.route) {
             with(navController) {
                 HomeScreen(
-                    onOpenTrainingCategory = { id ->
+                    onOpenCategory = { id ->
                         navigate(Screen.CategoryDetail.buildRoute(id))
                     },
                     onGoToSubscriptions = {
                         navigate(Screen.Subscription.route)
                     },
-                    onOpenTrainingProgram = {  id, type ->
-                        navigate(Screen.TrainingDetail.buildRoute(id, type))
+                    onOpenSongDetail = { id ->
+                        navigate(Screen.SongDetail.buildRoute(id))
                     }
                 )
             }
         }
-        composable(Screen.Training.route) {
+        composable(Screen.Songs.route) {
             SongsScreen(
-                onOpenSongDetail = { id, type ->
-                    navController.navigate(Screen.TrainingDetail.buildRoute(id, type))
+                onOpenSongDetail = { id ->
+                    navController.navigate(Screen.SongDetail.buildRoute(id))
                 }
             )
         }
@@ -52,8 +52,8 @@ fun DashboardNavHost(
                     onBackPressed = {
                         popBackStack()
                     },
-                    onOpenSongDetail = { id, type ->
-                        navigate(Screen.TrainingDetail.buildRoute(id, type))
+                    onOpenSongDetail = { id ->
+                        navigate(Screen.SongDetail.buildRoute(id))
                     }
                 )
             }
@@ -64,8 +64,8 @@ fun DashboardNavHost(
                 with(navController) {
                     CategoryDetailScreen(
                         args = args,
-                        onOpenSongDetail = { id, type ->
-                            navigate(Screen.TrainingDetail.buildRoute(id, type))
+                        onOpenSongDetail = { id ->
+                            navigate(Screen.SongDetail.buildRoute(id))
                         },
                         onBackPressed = {
                             popBackStack()
@@ -105,16 +105,16 @@ fun DashboardNavHost(
                 )
             }
         }
-        composable(Screen.TrainingDetail.route) { navBackStackEntry ->
-            navBackStackEntry.arguments?.let(Screen.TrainingDetail::parseArgs)?.let { args ->
+        composable(Screen.SongDetail.route) { navBackStackEntry ->
+            navBackStackEntry.arguments?.let(Screen.SongDetail::parseArgs)?.let { args ->
                 with(navController) {
                     SongDetailScreen(
                         args = args,
-                        onPlaySongVideoClip = { id, type ->
-                            navigate(Screen.VideoPlayer.buildRoute(id, type))
+                        onPlaySongVideoClip = { id ->
+                            navigate(Screen.VideoPlayer.buildRoute(id))
                         },
-                        onOpenMoreDetails = { id, type ->
-                            navigate(Screen.MoreOptions.buildRoute(id, type))
+                        onOpenMoreDetails = { id ->
+                            navigate(Screen.MoreOptions.buildRoute(id))
                         },
                         onBackPressed = {
                             popBackStack()
@@ -128,14 +128,14 @@ fun DashboardNavHost(
                 with(navController) {
                     MoreOptionsScreen(
                         args = args,
-                        onPlayVideoClip = { id, type ->
-                            navigate(Screen.VideoPlayer.buildRoute(id, type))
+                        onPlayVideoClip = { id ->
+                            navigate(Screen.VideoPlayer.buildRoute(id))
                         },
                         onPlaySong = {
                             navigate(Screen.AudioPlayer.buildRoute(it))
                         },
                         onOpenArtistDetail = {
-                            navigate(Screen.InstructorDetail.buildRoute(it))
+                            navigate(Screen.ArtistDetail.buildRoute(it))
                         },
                         onBackPressed = {
                             popBackStack()
@@ -145,8 +145,8 @@ fun DashboardNavHost(
             }
         }
 
-        composable(Screen.InstructorDetail.route) { navBackStackEntry ->
-            navBackStackEntry.arguments?.let(Screen.InstructorDetail::parseArgs)?.let { args ->
+        composable(Screen.ArtistDetail.route) { navBackStackEntry ->
+            navBackStackEntry.arguments?.let(Screen.ArtistDetail::parseArgs)?.let { args ->
                 with(navController) {
                     ArtistDetailScreen(
                         args = args,
