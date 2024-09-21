@@ -33,7 +33,6 @@ import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.ui.screens.songdetail.SongDetailUiState
-import com.dreamsoftware.melodiqtv.ui.utils.getStartButtonID
 
 @Composable
 fun SongEntityDetails(
@@ -87,13 +86,13 @@ fun SongEntityDetails(
                             modifier = Modifier.focusRequester(requester),
                             type = FudgeTvButtonTypeEnum.LARGE,
                             style = FudgeTvButtonStyleTypeEnum.NORMAL,
-                            textRes = type.getStartButtonID(),
+                            textRes = R.string.song_detail_watch_video_clip_button_text,
                             onClick = onPlaySongVideoClip
                         )
                         FudgeTvButton(
                             type = FudgeTvButtonTypeEnum.LARGE,
                             style = FudgeTvButtonStyleTypeEnum.INVERSE,
-                            textRes = R.string.more_info,
+                            textRes = R.string.song_detail_more_info_button_text,
                             onClick = onMoreInfoClicked
                         )
                         FavouriteButton(

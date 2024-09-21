@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.ui.utils.formatTimeAndType
-import com.dreamsoftware.melodiqtv.ui.utils.getStartButtonID
 import com.dreamsoftware.fudge.component.FudgeTvBackRowSchema
 import com.dreamsoftware.fudge.component.FudgeTvCardDetails
 import com.dreamsoftware.fudge.component.FudgeTvFocusRequester
@@ -65,7 +64,7 @@ internal fun MoreOptionsScreenContent(
                                     top.linkTo(trainingDetails.top)
                                     start.linkTo(trainingDetails.end, margin = 164.dp)
                                 },
-                            textRes = song?.type?.getStartButtonID() ?: R.string.start_workout,
+                            textRes = R.string.more_options_play_song_video_clip_button_text,
                             icon = R.drawable.ic_rounded_play,
                             onClick = actionListener::onPlaySongVideoClip
                         )
@@ -77,9 +76,9 @@ internal fun MoreOptionsScreenContent(
                             start.linkTo(startButton.start)
                         },
                         textRes = if (isFavorite) {
-                            R.string.remove_from_favorites
+                            R.string.more_options_remove_from_favorites_button_text
                         } else {
-                            R.string.add_to_favorites
+                            R.string.more_options_add_to_favorites_button_text
                         },
                         icon = if (isFavorite) {
                             R.drawable.favorite
@@ -93,8 +92,8 @@ internal fun MoreOptionsScreenContent(
                             top.linkTo(favoritesButton.bottom, margin = 12.dp)
                             start.linkTo(startButton.start)
                         },
-                        textRes = R.string.play_training_song_button_text,
-                        icon = R.drawable.music_icon,
+                        textRes = R.string.more_options_play_song_button_text,
+                        icon = R.drawable.ic_play_song,
                         onClick = actionListener::onPlaySong
                     )
                     FudgeTvMoreOptionsButton(
@@ -102,8 +101,8 @@ internal fun MoreOptionsScreenContent(
                             top.linkTo(moreInfoButton.bottom, margin = 12.dp)
                             start.linkTo(startButton.start)
                         },
-                        textRes = R.string.view_instructor,
-                        icon = R.drawable.ic_instructor,
+                        textRes = R.string.more_options_view_artist_detail_button_text,
+                        icon = R.drawable.ic_music_artist,
                         onClick = actionListener::onOpenArtistDetail
                     )
                     FudgeTvMoreOptionsButton(
@@ -111,7 +110,7 @@ internal fun MoreOptionsScreenContent(
                             top.linkTo(viewInstructorButton.bottom, margin = 12.dp)
                             start.linkTo(startButton.start)
                         },
-                        textRes = R.string.share,
+                        textRes = R.string.more_options_share_button_text,
                         icon = R.drawable.ic_share
                     )
                 }

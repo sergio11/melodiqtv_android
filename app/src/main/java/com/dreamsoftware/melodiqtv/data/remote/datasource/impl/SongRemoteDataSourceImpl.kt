@@ -46,7 +46,7 @@ internal class SongRemoteDataSourceImpl(
                     genre?.let { query = query.whereEqualTo(GENRE, it) }
                     type?.let { query = query.whereEqualTo(TYPE, it) }
                     artist?.let { query = query.whereEqualTo(ARTIST, it) }
-                    videoLength?.let {
+                    duration?.let {
                         query = query.whereGreaterThanOrEqualTo(DURATION, it.first.toString())
                             .whereLessThanOrEqualTo(DURATION, it.last.toString())
                     }
