@@ -7,7 +7,7 @@ import com.dreamsoftware.melodiqtv.data.remote.dto.response.FavoriteSongDTO
 import com.dreamsoftware.melodiqtv.data.remote.exception.AddToFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.DeleteProfileRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.GetFavoritesByUserRemoteException
-import com.dreamsoftware.melodiqtv.data.remote.exception.HasTrainingInFavoritesRemoteException
+import com.dreamsoftware.melodiqtv.data.remote.exception.HasSongInFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.RemoveAllFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.data.remote.exception.RemoveFromFavoritesRemoteException
 import com.dreamsoftware.melodiqtv.utils.IOneSideMapper
@@ -61,37 +61,37 @@ internal class FavoritesRemoteDataSourceImpl(
         throw GetFavoritesByUserRemoteException("An error occurred when trying to fetch favorite trainings", ex)
     }
 
-    @Throws(HasTrainingInFavoritesRemoteException::class)
-    override suspend fun hasTrainingInFavorites(profileId: String, trainingId: String): Boolean = try {
+    @Throws(HasSongInFavoritesRemoteException::class)
+    override suspend fun hasSongInFavorites(profileId: String, songId: String): Boolean = try {
         withContext(dispatcher) {
             val document = firebaseStore
                 .collection(COLLECTION_NAME)
                 .document(profileId)
                 .collection(SUB_COLLECTION_NAME)
-                .document(trainingId)
+                .document(songId)
                 .get()
                 .await()
             document.exists()
         }
     } catch (ex: Exception) {
-        throw HasTrainingInFavoritesRemoteException("An error occurred when trying to check favorites", ex)
+        throw HasSongInFavoritesRemoteException("An error occurred when trying to check favorites", ex)
     }
 
     @Throws(RemoveFromFavoritesRemoteException::class)
-    override suspend fun removeFavorite(profileId: String, trainingId: String): Boolean = try {
+    override suspend fun removeFavorite(profileId: String, songId: String): Boolean = try {
         withContext(dispatcher) {
             firebaseStore
                 .collection(COLLECTION_NAME)
                 .document(profileId)
                 .collection(SUB_COLLECTION_NAME)
-                .document(trainingId)
+                .document(songId)
                 .delete()
                 .await()
             true
         }
     } catch (ex: Exception) {
         throw DeleteProfileRemoteException(
-            "An error occurred when trying to remove training $trainingId from favorites",
+            "An error occurred when trying to remove training $songId from favorites",
             ex
         )
     }

@@ -29,7 +29,7 @@ class DatastoreModule {
      * Companion object containing constants related to DataStore preferences.
      */
     private companion object {
-        const val PREFERENCE_FILE_NAME = "fitflex_preferences"
+        const val PREFERENCE_FILE_NAME = "melodiq_preferences"
     }
 
     /**

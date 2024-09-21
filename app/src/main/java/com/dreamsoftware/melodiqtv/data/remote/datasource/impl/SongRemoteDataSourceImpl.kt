@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.CoroutineDispatcher
 
-internal abstract class SongRemoteDataSourceImpl(
+internal class SongRemoteDataSourceImpl(
     private val firebaseStore: FirebaseFirestore,
     private val dataMapper: IOneSideMapper<Map<String, Any?>, SongDTO>,
     dispatcher: CoroutineDispatcher

@@ -70,8 +70,8 @@ internal fun CategoryDetailScreenContent(
                                         actionListener.onSongOpened(item)
                                     },
                                     imageUrl = item.imageUrl,
-                                    title = item.name,
-                                    subtitle = "${item.duration} - ${item.intensity.value}",
+                                    title = item.title,
+                                    subtitle = "${item.duration} - ${item.type.value}",
                                 )
                             }
                         }

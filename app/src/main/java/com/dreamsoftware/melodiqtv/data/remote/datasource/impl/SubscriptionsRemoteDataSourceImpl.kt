@@ -15,7 +15,7 @@ internal class SubscriptionsRemoteDataSourceImpl(
 ): SupportFireStoreDataSourceImpl(dispatcher), ISubscriptionsRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "melodiqtv_subscriptions"
+        const val COLLECTION_NAME = "subscriptions"
     }
 
     @Throws(FetchSubscriptionsRemoteException::class)

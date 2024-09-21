@@ -39,7 +39,6 @@ import com.dreamsoftware.melodiqtv.ui.theme.popupShadow
 import com.dreamsoftware.melodiqtv.ui.theme.surfaceContainerHigh
 import com.dreamsoftware.melodiqtv.ui.theme.surfaceVariant
 import com.dreamsoftware.melodiqtv.ui.utils.getStartButtonID
-import com.dreamsoftware.melodiqtv.ui.utils.toTrainingType
 import com.dreamsoftware.fudge.component.FudgeTvButton
 import com.dreamsoftware.fudge.component.FudgeTvButtonStyleTypeEnum
 import com.dreamsoftware.fudge.component.FudgeTvButtonTypeEnum
@@ -52,6 +51,7 @@ import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 import com.dreamsoftware.fudge.utils.conditional
 import com.dreamsoftware.fudge.utils.shadowBox
+import com.dreamsoftware.melodiqtv.domain.model.SongBO
 
 @Composable
 internal fun FavoritesScreenContent(
@@ -93,8 +93,8 @@ internal fun FavoritesScreenContent(
                                         focusRequester(focusRequester)
                                     }),
                                     imageUrl = item.imageUrl,
-                                    title = item.name,
-                                    subtitle = "${item.duration} - ${item.intensity.level}",
+                                    title = item.title,
+                                    subtitle = "${item.duration} - ${item.type.value}",
                                     onClick = {
                                         actionListener.onSongSelected(item)
                                     })
@@ -111,8 +111,8 @@ internal fun FavoritesScreenContent(
                         ),
                     ) {
                         songSelected?.let {
-                            TrainingProgramDetailsPopup(
-                                trainingProgram = it,
+                            SongDetailsPopup(
+                                song = it,
                                 onStartTrainingProgram = actionListener::onOpenSongDetail,
                                 onRemoveFromFavorites = actionListener::onSongRemovedFromFavorites,
                                 onBackPressed = actionListener::onDismissRequest
@@ -126,8 +126,8 @@ internal fun FavoritesScreenContent(
 }
 
 @Composable
-private fun TrainingProgramDetailsPopup(
-    trainingProgram: ITrainingProgramBO,
+private fun SongDetailsPopup(
+    song: SongBO,
     onStartTrainingProgram: (id: String) -> Unit,
     onRemoveFromFavorites: (id: String) -> Unit,
     onBackPressed: () -> Unit
@@ -151,7 +151,7 @@ private fun TrainingProgramDetailsPopup(
                         .fillMaxWidth()
                         .fillMaxHeight(0.5f)
                         .alpha(0.88f),
-                    model = trainingProgram.imageUrl,
+                    model = song.imageUrl,
                     contentDescription = null,
                     contentScale = ContentScale.Crop
                 )
@@ -168,7 +168,7 @@ private fun TrainingProgramDetailsPopup(
                         type = FudgeTvTextTypeEnum.HEADLINE_SMALL,
                         textColor = onSurface,
                         textAlign = TextAlign.Justify,
-                        titleText = trainingProgram.name,
+                        titleText = song.title,
                         overflow = TextOverflow.Ellipsis,
                     )
                     Row(
@@ -181,7 +181,7 @@ private fun TrainingProgramDetailsPopup(
                         FudgeTvText(
                             modifier = Modifier,
                             type = FudgeTvTextTypeEnum.LABEL_MEDIUM,
-                            titleText = "${trainingProgram.duration} | ${trainingProgram.intensity.value} ",
+                            titleText = "${song.duration} | ${song.type.value} ",
                             textColor = onSurface,
                             overflow = TextOverflow.Ellipsis,
                             softWrap = true,
@@ -189,7 +189,7 @@ private fun TrainingProgramDetailsPopup(
                         )
                     }
                     FudgeTvText(
-                        titleText = trainingProgram.description,
+                        titleText = song.description,
                         modifier = Modifier.padding(bottom = 28.dp),
                         type = FudgeTvTextTypeEnum.BODY_SMALL,
                         textColor = Color.LightGray,
@@ -204,9 +204,9 @@ private fun TrainingProgramDetailsPopup(
                             .padding(bottom = 12.dp),
                         type = FudgeTvButtonTypeEnum.MEDIUM,
                         style = FudgeTvButtonStyleTypeEnum.NORMAL,
-                        textRes = trainingProgram.toTrainingType().getStartButtonID()
+                        textRes = song.type.getStartButtonID()
                     ) {
-                        onStartTrainingProgram(trainingProgram.id)
+                        onStartTrainingProgram(song.id)
                     }
                     FudgeTvButton(
                         modifier = Modifier
@@ -216,7 +216,7 @@ private fun TrainingProgramDetailsPopup(
                         style = FudgeTvButtonStyleTypeEnum.INVERSE,
                         textRes = R.string.remove_from_favorites
                     ) {
-                        onRemoveFromFavorites(trainingProgram.id)
+                        onRemoveFromFavorites(song.id)
                     }
                 }
             }

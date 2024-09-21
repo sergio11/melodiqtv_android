@@ -53,7 +53,7 @@ class UiModule {
     @Provides
     @ViewModelScoped
     @SongsScreenErrorMapper
-    fun provideTrainingScreenSimpleErrorMapper(
+    fun provideSongScreenSimpleErrorMapper(
         @ApplicationContext context: Context
     ): IFudgeTvErrorMapper =
         SongScreenSimpleErrorMapper(context = context)
