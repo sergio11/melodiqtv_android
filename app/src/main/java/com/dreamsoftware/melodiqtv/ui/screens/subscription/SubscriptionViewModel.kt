@@ -64,6 +64,10 @@ class SubscriptionViewModel @Inject constructor(
         launchSideEffect(SubscriptionSideEffects.AddSubscriptionCompleted)
     }
 
+    override fun onNotInterested() {
+        launchSideEffect(SubscriptionSideEffects.NotInterested)
+    }
+
     private fun onAddSubscriptionCompleted(isAdded: Boolean) {
         if(isAdded) {
             updateState {
@@ -118,4 +122,5 @@ data class SubscriptionUiState(
 
 sealed interface SubscriptionSideEffects: SideEffect {
     data object AddSubscriptionCompleted: SubscriptionSideEffects
+    data object NotInterested: SubscriptionSideEffects
 }

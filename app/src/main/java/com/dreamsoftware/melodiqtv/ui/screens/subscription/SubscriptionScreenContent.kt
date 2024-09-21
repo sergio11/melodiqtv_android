@@ -93,6 +93,13 @@ fun SubscriptionScreenContent(
                                 textRes = R.string.restore_purchases,
                                 onClick = actionListener::onRestorePurchases
                             )
+                        } else {
+                            FudgeTvButton(
+                                type = FudgeTvButtonTypeEnum.LARGE,
+                                style = FudgeTvButtonStyleTypeEnum.INVERSE,
+                                textRes = R.string.subscription_not_interested_button_text,
+                                onClick = actionListener::onNotInterested
+                            )
                         }
                     }
                 }
