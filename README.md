@@ -7,6 +7,12 @@ Welcome to **MelodiqTV**, your ultimate music experience on Android TV. MelodiqT
 
 MelodiqTV 🎶📺 is a cutting-edge music and video streaming platform designed for Android TV, offering users a personalized and immersive entertainment experience. With MelodiqTV, users can explore a vast library of music and music videos, organized by genres and categories, while easily creating and managing multiple profiles to keep track of their favorites ⭐. The app is built using Firebase 🔥 for real-time data synchronization and secure user authentication, ensuring a seamless and reliable experience. Developed with a robust architecture, it follows Clean Architecture principles and the MVI pattern 🏛️, making the codebase maintainable and scalable. The UI is crafted with Jetpack Compose for TV 📺, providing a modern, flexible, and reusable interface that enhances the overall user experience on large screens.
 
+**Built using Jetpack Compose for TV**, MelodiqTV seamlessly integrates into your Smart TV environment. Utilizing [**🍮 Fudge**](https://github.com/sergio11/fudge_tv_compose_library), a powerful UI Kit for TV apps, MelodiqTV ensures smooth navigation and an engaging user experience. Our platform transforms your living room into a musical haven, where you can explore, enjoy, and share your favorite tunes. 🎶✨
+
+A heartfelt thank you to the creators of the [JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit) for providing such an invaluable starting point for Jetpack Compose for TV. Your work has been incredibly inspiring and instrumental in shaping the development of this project.
+
+Happy listening with MelodiqTV! 🎉📺
+
 <p align="center">
   <img src="https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white" />
   <img src="https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white" />
@@ -15,16 +21,99 @@ MelodiqTV 🎶📺 is a cutting-edge music and video streaming platform designed
   <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" />
 </p>
 
-## Key Features:
-- **Personalized Profiles:** Create multiple profiles, each with personalized playlists, favorite songs, and viewing history.
-- **Curated Music Selection:** Explore a wide range of genres and curated playlists, categorized for easy navigation.
-- **Music Videos:** Not just audio! Enjoy music videos directly on your TV for a more immersive experience.
-- **Advanced Filters:** Search and filter content by genre, mood, era, and more to quickly find exactly what you're looking for.
-- **Seamless Experience:** Optimized for Android TV, MelodiqTV delivers a smooth and engaging interface designed specifically for the big screen.
+Slides are built using the template from [Previewed](https://previewed.app/template/AFC0B4CB). I extend my gratitude to them for their remarkable work and contribution.
 
-MelodiqTV isn't just another music app; it's a complete music hub where users can enjoy music their way, with profiles tailored to their individual tastes, and access to a world of music and videos at their fingertips.
+## Overview 🌐
 
-Dive into the world of music with MelodiqTV – your music, your rhythm, your way.
+**MelodiqTV** is not just a music streaming service—it’s your ultimate music companion designed to elevate your listening experience. Here’s what makes MelodiqTV stand out:
+
+### Personalized Profiles 👥
+With MelodiqTV, every family member can create their own profile, allowing them to save favorite songs and receive personalized music recommendations. This feature ensures everyone can enjoy a tailored listening experience based on their unique tastes.
+
+### Advanced Music Search 🔍
+Our advanced search functionality allows you to find songs based on various criteria, including:
+- **Genre** 🎵: Explore your favorite music styles.
+- **Mood** 😊: Discover tracks that match your vibe.
+- **Language** 🌍: Choose songs in your preferred language.
+- **Release Date** 📅: Find the latest hits or timeless classics.
+
+### Customizable Preferences ⚙️
+MelodiqTV offers various customization options to enhance your experience:
+- **Default Video Quality** 📺: Set your preferred resolution for streaming music videos.
+- **App Language** 🌐: Select the language for the app interface.
+- **Playback Options** 🎧: Choose your preferred playback settings for a personalized experience.
+
+With these features, MelodiqTV ensures a seamless, user-friendly experience tailored to your music preferences. Whether you're exploring new genres, saving favorites, or adjusting settings, MelodiqTV has got you covered. 🎤📺
+
+## Technologies Used 🛠️
+
+- **Kotlin**: The preferred language for developing Android applications, offering modern syntax and powerful features to enhance productivity. 🚀
+
+- **Firebase Platform**:
+  - **Firestore**: 🔥 A NoSQL cloud database providing real-time data synchronization and offline support, ensuring fast and reliable data retrieval. 📊✨
+  - **Firebase Auth**: 🔐 Simplifies user authentication with secure sign-in and user management capabilities. Supports various authentication methods. 🛡️📱
+  - **Firebase Storage**: ☁️ Stores user-generated content like profile images and media files with built-in security and seamless integration. 📸🎥
+
+- **Coroutines**: 🌀 Simplifies asynchronous programming and manages background tasks efficiently, enhancing app responsiveness. ⏱️
+
+- **Clean Architecture**: 🏗️ Promotes a well-structured and scalable app design by separating concerns into distinct layers, enhancing maintainability and testability. 🔍
+
+- **MVI (Model-View-Intent)**: 📈 Implements a unidirectional data flow pattern, ensuring a clear separation between UI components and business logic. 🔄
+
+- **Jetpack Compose for TV**: 📺 Utilizes Jetpack Compose to build modern, responsive UIs tailored for TV screens, optimizing the interface for large displays. 🎨
+
+- **Jetpack Compose Navigation**: 🗺️ Facilitates in-app navigation and screen transitions with a clear API, supporting deep linking and complex navigation flows effortlessly. 🚦
+
+- **Material Design 3**: 🎨 Applies the latest Material Design guidelines to create a visually appealing and intuitive user interface. 🖌️
+
+- **🍮 Fudge**: [Fudge](https://github.com/sergio11/fudge_tv_compose_library) is a Jetpack Compose UI Kit for TV apps, providing pre-built components and tools to craft engaging experiences on the big screen. 🎬🚀
+
+- **Jetpack DataStore**: 💾 A modern data storage solution for key-value pairs and typed objects, ensuring reliable data handling in your app. 🔐
+
+- **Media3 for Media Playback**:
+  - **Media3 ExoPlayer**: 🎥 Part of the Media3 library, ExoPlayer supports various media formats and advanced features for high-quality playback. 📻🍿
+  - **Media3 UI**: 🎨 Provides UI components for integrating media playback controls into your app’s interface. 🕹️
+
+- **Dagger Hilt**: 🧩 A dependency injection library simplifying the management of dependencies and enhancing modularity in your app. 🔧💡
+
+- **Mapper Pattern**: 🔄 Facilitates conversion between different data models, ensuring data consistency across application components. 📐
+
+## Architecture Overview 🏛️
+
+Our application is designed with a robust architecture for maintainability, testability, and flexibility. The architecture leverages several design patterns and principles:
+
+### **Clean Architecture** 🏗️
+Clean Architecture focuses on separating concerns into distinct layers:
+- **Presentation Layer**: Handles UI and user interactions using Jetpack Compose for modern interfaces.
+- **Domain Layer**: Contains business logic and use cases, independent of external frameworks.
+- **Data Layer**: Manages data sources and repositories, abstracting data retrieval and storage.
+
+### **Data Sources** 📦
+Data sources fetch and manage data from various origins, including:
+- **Remote Data Sources**: Interact with cloud services or web APIs (e.g., Firebase Firestore).
+- **Local Data Sources**: Handle local data storage (e.g., Jetpack DataStore).
+
+### **Repository Pattern** 🗃️
+The repository pattern provides a unified interface for data access, decoupling data retrieval from the rest of the application for easier testing and maintenance.
+
+### **Use Cases** 🧩
+In the Domain Layer, Use Cases represent specific actions, encapsulating business logic and interacting with repositories to retrieve or modify data.
+
+### **Inversion of Control (IoC)** 🔄
+IoC inverts control flow, allowing dependencies to be injected rather than hardcoded, promoting modularity and reducing boilerplate code.
+
+### **SOLID Principles** 📏
+We apply SOLID principles to ensure our codebase remains clean and maintainable:
+- **Single Responsibility Principle (SRP)**: Each class has one responsibility.
+- **Open/Closed Principle (OCP)**: Classes are open for extension but closed for modification.
+- **Liskov Substitution Principle (LSP)**: Subtypes must be substitutable for their base types.
+- **Interface Segregation Principle (ISP)**: Clients should not depend on interfaces they do not use.
+- **Dependency Inversion Principle (DIP)**: High-level modules depend on abstractions.
+
+### **MVI (Model-View-Intent)** 📈
+MVI manages state and interactions, ensuring a predictable unidirectional data flow.
+
+This architecture ensures that MelodiqTV is well-structured, easy to maintain, and scalable, adhering to best practices and design principles.
 
 ## License ⚖️
 
