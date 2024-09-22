@@ -115,6 +115,78 @@ MVI manages state and interactions, ensuring a predictable unidirectional data f
 
 This architecture ensures that MelodiqTV is well-structured, easy to maintain, and scalable, adhering to best practices and design principles.
 
+## App Screenshots 📸
+
+Dive into **Melodiq** and explore its vibrant and intuitive design with these screenshots showcasing the heart of our app!
+
+### Onboarding 🏠
+
+Kickstart your musical adventure with our Onboarding screens. If you’re new to **Melodiq** and haven’t logged in yet, you’ll be greeted by our welcoming landing page. Here, you can get a sneak peek of what’s in store 📜 and easily navigate to login 🔒 or create a new account 🆕 to start your sonic journey.
+
+### Sign In 🔑
+
+Ready to join the **Melodiq** community? Log in with your email and password to access all the musical features awaiting you. If you’re not yet a member, don’t worry—our sign-up process is just a tap away! 🌟✉️
+
+### Sign Up ✨
+
+Welcome to **Melodiq**! 🎉 Setting up your account is a breeze and opens the door to a world of musical delights. Ready to create something amazing? 🎶
+
+Simply enter your details: your name 📝, email 📧, and a secure password 🔒. Choose a password that’s memorable yet secure—your musical adventure is our priority!
+
+Once you’ve filled in the fields, hit "Register" ✅ and you’re all set! 🎊 You’re now part of the **Melodiq** family, ready to explore and enjoy exclusive features. 🚀🌟
+
+
+### Managing Your Profiles 👤
+
+Step into the **Profiles** section where customization and ease meet to enhance your musical journey. Here’s how you can make **Melodiq** truly yours:
+
+- **Profile Selection**: Choose which profile you’d like to use from the **Profile Selection** screen. It’s your personal space where you can keep track of favorite songs and tailored recommendations.
+
+- **Creating Profiles**: Add up to four profiles to cater to family members or different users. Customize each profile with its own alias and avatar, making music a fun, personalized experience for everyone!
+
+- **Editing Profiles**: Update your profile’s alias and avatar or change your security PIN with ease. Keep your account secure and reflect your personality in every way you choose.
+
+- **Deleting Profiles**: If a profile is no longer needed, delete it and remove all associated favorites and data. This keeps your app clean and organized, focusing on the songs and features that matter most to you.
+
+The **Profiles** section is all about flexibility and personalization, ensuring your musical journey is as unique as you are.
+
+### Exploring the Home Screen 📱
+
+Welcome to the vibrant **Home Screen**, the hub of your musical adventure. Here’s what awaits you:
+
+- **Featured Songs Carousel** 🎠: Swipe through our rotating selection of standout songs. This dynamic showcase highlights popular and trending tracks to inspire your next musical creation.
+
+- **Categories Row** 📊: Browse through a variety of music categories, from genres to playlists. Presented in a sleek horizontal list, it’s easy to find music based on your mood or current musical goals.
+
+- **Personalized Music Recommendations** ⭐: Discover songs tailored to your taste and preferences. Based on your listening history and likes, this section offers suggestions that are perfect for your musical journey.
+
+The Home Screen is designed to make your exploration of music delightful and engaging. Whether you’re checking out featured tracks, exploring categories, or receiving personalized suggestions, everything is organized to enhance your musical experience.
+
+## Exploring Songs and More 🎶✨
+
+Step into the **Songs** section, your ultimate musical playground where your sonic adventures come to life! 🎉 This hub is designed to help you explore and enjoy a variety of songs that cater to your preferences and musical goals.
+
+In this section, you’ll find a diverse array of categories and types to explore:
+
+- **Song Types** 🌱🎵: Discover a wide range of songs tailored to different styles:
+  - **Pop** 🌟: Catchy melodies and vibrant rhythms that are in vogue.
+  - **Rock** 🎸: Energetic songs that make you move.
+  - **Classical** 🎻: Timeless compositions that delight the ears.
+  - **Jazz** 🎷: Sophisticated rhythms that transport you to another level.
+
+- **Categories** 📚: Browse through various song categories to find exactly what you want to listen to:
+  - **Hits** 🎤: The most popular songs of the moment.
+  - **New Arrivals** 📅: The latest additions to our catalog.
+  - **Playlists** 📋: Thematic selections for different moods and occasions.
+
+- **Special Features** ✨: Take advantage of our advanced filtering and sorting options 🔍. Customize your search based on genre, song type, or playlists to find the perfect track for any occasion.
+
+Once you find a song that excites your taste buds, check out the **detailed view** 📋. Here you’ll get all the essential information, including the artist, album, release year, and any interesting facts, so you can enjoy it to the fullest.
+
+The **Songs** section is crafted to be your personal musical hub, where every melody is an adventure waiting to be discovered. Whether you’re exploring new genres or searching for your next favorite track, this section has everything you need to make your musical experience enjoyable and rewarding. 🌟🚀
+
+
+
 ## License ⚖️
 
 This project is licensed under the MIT License, an open-source software license that allows developers to freely use, copy, modify, and distribute the software. 🛠️ This includes use in both personal and commercial projects, with the only requirement being that the original copyright notice is retained. 📄
