@@ -13,6 +13,7 @@ import com.dreamsoftware.fudge.core.SideEffect
 import com.dreamsoftware.fudge.core.UiState
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SongTypeEnum
+import com.dreamsoftware.melodiqtv.ui.utils.formatDuration
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -96,7 +97,15 @@ class SongDetailViewModel @Inject constructor(
                     description = description,
                     id = id,
                     itemsInfo = buildList {
-                        add(SongInfoItem(info = "$duration min", labelRes = R.string.song_detail_song_duration_label_text))
+                        add(SongInfoItem(info = duration.formatDuration(), labelRes = R.string.song_detail_song_duration_label_text))
+                        album?.let {
+                            add(SongInfoItem(info = it, labelRes = R.string.song_detail_song_album_label_text))
+                        }
+                        add(SongInfoItem(info = genre.value, labelRes = R.string.song_detail_song_genre_label_text))
+                        add(SongInfoItem(info = mood.value, labelRes = R.string.song_detail_song_mood_label_text))
+                        rating?.let {
+                            add(SongInfoItem(info = it.toString(), labelRes = R.string.song_detail_song_rating_label_text))
+                        }
                     },
                     imageUrl = imageUrl
                 )

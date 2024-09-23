@@ -22,9 +22,13 @@
     <string name="dashboard_navigation_drawer_profile_item_name">Profile</string>
 
     <!-- Song Detail -->
-    <string name="song_detail_watch_video_clip_button_text">Watch the Magic! 🎥</string>
-    <string name="song_detail_more_info_button_text">Discover More! 🔍</string>
+    <string name="song_detail_watch_video_clip_button_text">Watch the Magic!</string>
+    <string name="song_detail_more_info_button_text">Discover More!</string>
     <string name="song_detail_song_duration_label_text">Duration</string>
+    <string name="song_detail_song_album_label_text">Album</string>
+    <string name="song_detail_song_genre_label_text">Genre</string>
+    <string name="song_detail_song_mood_label_text">Mood</string>
+    <string name="song_detail_song_rating_label_text">Rating</string>
 
     <!-- Generic Error Messages -->
     <string name="generic_form_invalid_data_provided">Invalid data provided, please check it and try again.</string>
@@ -151,12 +155,12 @@
     <string name="delete_profile_dialog_description">The profile has been successfully removed. Say goodbye! 👋</string>
 
     <!-- More Options -->
-    <string name="more_options_view_artist_detail_button_text">Get to Know the Artist! 🎤</string>
-    <string name="more_options_share_button_text">Spread the Vibe! 📤</string>
-    <string name="more_options_add_to_favorites_button_text">Add to Your Favorites ❤️</string>
-    <string name="more_options_remove_from_favorites_button_text">Remove from Favorites ❌</string>
-    <string name="more_options_play_song_button_text">Play the Song 🎵</string>
-    <string name="more_options_play_song_video_clip_button_text">Watch the Video Clip 🎥</string>
+    <string name="more_options_view_artist_detail_button_text">Get to Know the Artist!</string>
+    <string name="more_options_share_button_text">Spread the Vibe!</string>
+    <string name="more_options_add_to_favorites_button_text">Add to Your Favorites</string>
+    <string name="more_options_remove_from_favorites_button_text">Remove from Favorites</string>
+    <string name="more_options_play_song_button_text">Play the Song</string>
+    <string name="more_options_play_song_video_clip_button_text">Watch the Video Clip</string>
 
     <!-- Splash -->
     <string name="splash_main_title_text">Preparing Your MelodiqTV Experience!</string>
@@ -170,7 +174,7 @@
     <!-- Home -->
     <string name="home_categories_row_title">Explore Your Categories 🌟</string>
     <string name="home_recommended_for_you_row_title">Recommended Just for You 🎶</string>
-    <string name="home_open_song_detail_button_text">🎶 Dive Into the Details!</string>
+    <string name="home_open_song_detail_button_text">Dive Into the Details!</string>
 
     <!-- Settings -->
     <string name="settings">Settings</string>
