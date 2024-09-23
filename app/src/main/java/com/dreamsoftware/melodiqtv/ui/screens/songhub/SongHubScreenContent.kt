@@ -38,6 +38,7 @@ import com.dreamsoftware.fudge.component.menu.FudgeTvFilterSideMenu
 import com.dreamsoftware.fudge.component.menu.FudgeTvOptionsSideMenu
 import com.dreamsoftware.fudge.component.menu.FudgeTvSideMenu
 import com.dreamsoftware.fudge.utils.conditional
+import com.dreamsoftware.melodiqtv.ui.utils.formatSubtitle
 
 @Composable
 internal fun SongHubScreenContent(
@@ -178,7 +179,7 @@ private fun SongHubList(
                                 }),
                                 imageUrl = song.imageUrl,
                                 title = song.title,
-                                subtitle = "${song.duration} - ${song.type}",
+                                subtitle = song.formatSubtitle(),
                                 onClick = { actionListener.onItemClicked(song.id) }
                             )
                         }

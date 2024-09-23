@@ -19,6 +19,7 @@ import com.dreamsoftware.fudge.component.FudgeTvCard
 import com.dreamsoftware.fudge.component.FudgeTvText
 import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.ui.utils.formatSubtitle
 
 @Composable
 internal fun SongsRecommended(
@@ -48,7 +49,7 @@ internal fun SongsRecommended(
                     modifier = modifier.width(196.dp),
                     imageUrl = song.imageUrl,
                     title = song.title,
-                    subtitle = "${song.duration} - ${song.artistName}",
+                    subtitle = song.formatSubtitle(),
                     onClick = { onClick(song) }
                 )
             }

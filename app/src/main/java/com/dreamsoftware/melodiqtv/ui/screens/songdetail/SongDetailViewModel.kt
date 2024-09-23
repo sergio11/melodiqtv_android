@@ -106,6 +106,7 @@ class SongDetailViewModel @Inject constructor(
                         rating?.let {
                             add(SongInfoItem(info = it.toString(), labelRes = R.string.song_detail_song_rating_label_text))
                         }
+                        add(SongInfoItem(info = playCount.toString(), labelRes = R.string.song_detail_song_play_count_label_text))
                     },
                     imageUrl = imageUrl
                 )
