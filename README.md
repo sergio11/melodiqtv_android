@@ -285,6 +285,20 @@ The **Settings** section on **MelodiqTV** is your personal music control center,
 
 The **Settings** section ensures you have full control over your music experience. From language preferences to audio quality, everything is designed to provide a personalized and seamless listening journey. 🎶🛠️
 
+## Contribution
+Contributions to MelodiqTV Android are highly encouraged! If you're interested in adding new features, resolving bugs, or enhancing the project's functionality, please feel free to submit pull requests.
+
+## Credits
+MelodiqTV is developed and maintained by Sergio Sánchez Sánchez (Dream Software). Special thanks to the open-source community and the contributors who have made this project possible. If you have any questions, feedback, or suggestions, feel free to reach out at dreamsoftware92@gmail.com.
+
+## Acknowledgements 🙏
+
+We express our deep appreciation to [Freepik](https://www.freepik.es/) for generously providing the resources used in this project.
+<div> Icons and images takes from <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es'</a></div>
+
+A heartfelt thank you to the creators of the [JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit) for providing such an invaluable starting point for Jetpack Compose for TV. Your work has been incredibly inspiring and instrumental in shaping the development of this project.
+
+The resources, examples, and insights provided in the JetFit repository served as a foundational reference, enabling us to build and expand upon your excellent groundwork. Your contributions have significantly accelerated our journey and enriched our understanding of creating seamless TV applications using Jetpack Compose. 📺✨
 
 ## License ⚖️
 
