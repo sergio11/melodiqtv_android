@@ -185,6 +185,74 @@ Once you find a song that excites your taste buds, check out the **detailed view
 
 The **Songs** section is crafted to be your personal musical hub, where every melody is an adventure waiting to be discovered. Whether you’re exploring new genres or searching for your next favorite track, this section has everything you need to make your musical experience enjoyable and rewarding. 🌟🚀
 
+## Song Details 🎶✨
+
+When you explore a song on **MelodiqTV**, you’ll unlock a wealth of information to elevate your music experience. Our **Song Detail Screen** provides all the essential details and interactive features to ensure you enjoy every moment of your favorite tunes.
+
+
+### What You’ll Find in the Song Details:
+
+- **Song Overview** 📝: Get a quick glance at the song, including a **description**, **artist information**, **release date**, and **duration** so you know what to expect from the track.
+  
+- **Mood and Genre** 🎵: See the mood and genre tags to match your listening preference and explore similar music.
+
+- **Lyrics** 📜: Dive into the full lyrics of the song and sing along or reflect on the words as you enjoy the music.
+
+- **Related Songs** 🎧: Discover other tracks by the same artist or within the same genre, curated to complement the song you're currently enjoying.
+
+- **Music Video** 🎥: Prefer to watch the official video? Play the **music video** directly from the detail screen for a full audio-visual experience.
+
+### Interactive Features 🎛️
+
+The song details go beyond just information—here are the **interactive options** you’ll enjoy:
+
+- **Add to Favorites** ❤️: Found a song you love? Save it to your personal favorites and access it anytime with ease.
+
+- **Detailed Artist Info** 👨‍🎤: Curious about the artist? Dive into their profile, discover their discography, and explore more tracks and albums.
+
+- **Share the Song** 📲: Share your favorite music with friends and family via social media or messaging, so they can enjoy the tunes too.
+
+- **Rate the Song** ⭐: Share your opinion by rating the song and see what other listeners think.
+
+- **More Options** 🎛️: From tweaking your preferences to exploring artist insights, you can access additional features to enhance your listening experience.
+
+
+With all these features at your fingertips, the **Song Detail Screen** is designed to make listening interactive, enjoyable, and engaging. Whether you're reading the lyrics, checking out the artist, or sharing the track, everything you need is just a tap away!
+
+---
+
+## Favorites Section 🌟
+
+Welcome to the **Favorites** section, your personal music collection! Here you can keep all your cherished tracks just a tap away. 🎶✨ This section is designed to make your music exploration even more enjoyable by providing quick access to the songs you love most.
+
+#### What’s in the Favorites Section?
+
+- **Quick Access**: Instantly view all the songs you’ve marked as favorites, so you can easily revisit and enjoy your top picks without searching again. ❤️
+- **Detailed View**: Tap on any favorite song to dive straight into its details, from lyrics to artist information, with a seamless experience. 📋
+- **Easy Listening**: With one click, you can start playing any of your favorite tracks instantly. Enjoy a personalized and streamlined listening experience! 🎧
+
+Make your music journey more efficient and personalized by keeping your favorite songs close at hand. Enjoy effortless access to the tracks you love most, and savor every moment of your music with ease! 🌟🎶
+
+---
+
+## Music Player 🎥🎶
+
+The **Music Player** on **MelodiqTV** is where your favorite tracks come to life. Designed to provide a seamless and immersive experience, it ensures you stay engaged and entertained throughout your listening journey.
+
+- **High-Quality Audio** 🎧: Enjoy your songs in crystal-clear quality with support for various audio formats. The player adapts to provide the best experience based on your connection and preferences.
+
+- **Player Controls** ⏯️: Effortlessly navigate through your music with intuitive controls. You can play, pause, rewind, or skip tracks to stay in control of your listening session.
+
+- **On-Screen Lyrics** 📝: Follow along with synchronized lyrics that appear on-screen as the music plays, making it easy to sing along or get immersed in the story behind the song.
+
+- **Progress Tracking** ⏳: Visual progress bars show you how much of the song you've listened to and how much remains, helping you stay tuned in to your favorite parts.
+
+- **Full-Screen Mode** 📱: Switch to full-screen mode to fully immerse yourself in the music and lyrics, minimizing distractions for a more focused experience.
+
+
+The **Music Player** on **MelodiqTV** is your ultimate listening companion, ensuring every track is not only enjoyable but also fun and interactive. Whether you're chilling out with your favorite playlist or exploring new tracks, the player has everything you need for an exceptional music experience. 🎶🌟
+
+
 
 
 ## License ⚖️
