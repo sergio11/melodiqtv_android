@@ -150,13 +150,13 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideArtistRepository(
-        instructorsRemoteDataSource: IArtistsRemoteDataSource,
-        instructorMapper: IOneSideMapper<ArtistDTO, ArtistBO>,
+        artistsRemoteDataSource: IArtistsRemoteDataSource,
+        artistMapper: IOneSideMapper<ArtistDTO, ArtistBO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): IArtistRepository =
         ArtistRepositoryImpl(
-            instructorsRemoteDataSource,
-            instructorMapper,
+            artistsRemoteDataSource,
+            artistMapper,
             dispatcher
         )
 

@@ -8,6 +8,7 @@ data class SongBO(
     val description: String,
     val imageUrl: String,
     val duration: Long,
+    val artistId: String,
     val artistName: String,
     val videoUrl: String,
     val audioUrl: String,

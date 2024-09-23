@@ -221,7 +221,7 @@ private fun CarouselItemBackground(song: SongBO, modifier: Modifier = Modifier) 
                         Brush.radialGradient(
                             colors = listOf(
                                 surface.copy(alpha = 0.1f),
-                                surface,
+                                surface.copy(alpha = 0.95f),
                             ),
                             center = Offset(sizeCard.width, -(sizeCard.width * .35F)),
                             radius = sizeCard.width * .75f,
