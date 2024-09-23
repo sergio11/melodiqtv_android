@@ -51,6 +51,8 @@ import com.dreamsoftware.fudge.component.FudgeTvTextTypeEnum
 import com.dreamsoftware.fudge.utils.conditional
 import com.dreamsoftware.fudge.utils.shadowBox
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
+import com.dreamsoftware.melodiqtv.ui.utils.formatDuration
+import com.dreamsoftware.melodiqtv.ui.utils.formatSubtitle
 
 @Composable
 internal fun FavoritesScreenContent(
@@ -93,7 +95,7 @@ internal fun FavoritesScreenContent(
                                     }),
                                     imageUrl = item.imageUrl,
                                     title = item.title,
-                                    subtitle = "${item.duration} - ${item.type.value}",
+                                    subtitle = item.formatSubtitle(),
                                     onClick = {
                                         actionListener.onSongSelected(item)
                                     })
@@ -180,7 +182,7 @@ private fun SongDetailsPopup(
                         FudgeTvText(
                             modifier = Modifier,
                             type = FudgeTvTextTypeEnum.LABEL_MEDIUM,
-                            titleText = "${song.duration} | ${song.type.value} ",
+                            titleText = song.formatSubtitle(),
                             textColor = onSurface,
                             overflow = TextOverflow.Ellipsis,
                             softWrap = true,
