@@ -11,12 +11,12 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.dreamsoftware.melodiqtv.R
-import com.dreamsoftware.melodiqtv.ui.utils.formatTimeAndType
 import com.dreamsoftware.fudge.component.FudgeTvBackRowSchema
 import com.dreamsoftware.fudge.component.FudgeTvCardDetails
 import com.dreamsoftware.fudge.component.FudgeTvFocusRequester
 import com.dreamsoftware.fudge.component.FudgeTvMoreOptionsButton
 import com.dreamsoftware.fudge.component.FudgeTvScreenContent
+import com.dreamsoftware.melodiqtv.ui.utils.formatSubtitle
 
 @Composable
 internal fun MoreOptionsScreenContent(
@@ -46,7 +46,7 @@ internal fun MoreOptionsScreenContent(
                     FudgeTvCardDetails(
                         modifier = Modifier.width(268.dp).constrainAs(songDetails) {},
                         title = song?.title.orEmpty(),
-                        subtitle = song.formatTimeAndType(),
+                        subtitle = song.formatSubtitle(),
                         description = song?.description.orEmpty(),
                         imageUrl = song?.imageUrl.orEmpty()
                     )

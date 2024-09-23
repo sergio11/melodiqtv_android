@@ -7,8 +7,8 @@ import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
 import java.util.Locale
 
-fun SongBO?.formatTimeAndType(): String =
-    this?.run { "$duration | ${type.value} " }.orEmpty()
+fun SongBO?.formatSubtitle(): String =
+    this?.run { "${duration.formatDuration()} ${rating?.let { " - $it" }} - ${type.value} - ${genre.value}" }.orEmpty()
 
 fun Long.formatDuration(): String {
     val minutes = this / 60
