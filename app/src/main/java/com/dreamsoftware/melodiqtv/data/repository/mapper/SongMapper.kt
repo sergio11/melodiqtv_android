@@ -20,6 +20,7 @@ internal class SongMapper : IOneSideMapper<SongMapperData, SongBO> {
             description = song.description,
             imageUrl = song.imageUrl,
             duration = song.duration,
+            artistId = artist.id,
             artistName = artist.name,
             videoUrl = song.videoUrl,
             audioUrl = song.audioUrl,

@@ -65,7 +65,7 @@ class MoreOptionsViewModel @Inject constructor(
     override fun onOpenArtistDetail() {
         uiState.value.song?.let {
             launchSideEffect(
-                MoreOptionsSideEffects.OpenArtistDetail(id = it.id)
+                MoreOptionsSideEffects.OpenArtistDetail(id = it.artistId)
             )
         }
     }

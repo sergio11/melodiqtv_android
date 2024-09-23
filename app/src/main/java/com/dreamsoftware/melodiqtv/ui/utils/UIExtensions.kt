@@ -5,9 +5,16 @@ import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.AvatarTypeEnum
 import com.dreamsoftware.melodiqtv.domain.model.SongBO
 import com.dreamsoftware.melodiqtv.domain.model.SubscriptionBO
+import java.util.Locale
 
 fun SongBO?.formatTimeAndType(): String =
     this?.run { "$duration | ${type.value} " }.orEmpty()
+
+fun Long.formatDuration(): String {
+    val minutes = this / 60
+    val seconds = this % 60
+    return String.format(Locale.getDefault(), "%d:%02d min", minutes, seconds)
+}
 
 val String.Companion.EMPTY: String
     get() = ""

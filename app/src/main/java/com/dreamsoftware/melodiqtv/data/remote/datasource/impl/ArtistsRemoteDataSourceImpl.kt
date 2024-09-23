@@ -11,23 +11,23 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 internal class ArtistsRemoteDataSourceImpl(
     private val firebaseStore: FirebaseFirestore,
-    private val instructorsMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
+    private val artistsMapper: IOneSideMapper<Map<String, Any?>, ArtistDTO>,
     dispatcher: CoroutineDispatcher
 ) : SupportFireStoreDataSourceImpl(dispatcher), IArtistsRemoteDataSource {
 
     private companion object {
-        const val COLLECTION_NAME = "instructors"
+        const val COLLECTION_NAME = "melodiqtv_artists"
     }
 
     @Throws(FetchArtistsRemoteException::class)
     override suspend fun getArtists(): List<ArtistDTO> = try {
         fetchListFromFireStore(
             query = { firebaseStore.collection(COLLECTION_NAME).get() },
-            mapper = { instructorsMapper.mapInToOut(it) }
+            mapper = { artistsMapper.mapInToOut(it) }
         )
     } catch (ex: Exception) {
         throw FetchArtistsRemoteException(
-            "An error occurred when trying to fetch instructors",
+            "An error occurred when trying to fetch artists",
             ex
         )
     }
@@ -40,11 +40,11 @@ internal class ArtistsRemoteDataSourceImpl(
                     .document(id)
                     .get()
             },
-            mapper = { instructorsMapper.mapInToOut(it) }
+            mapper = { artistsMapper.mapInToOut(it) }
         )
     } catch (ex: Exception) {
         throw FetchArtistByIdRemoteException(
-            "An error occurred when trying to fetch instructors",
+            "An error occurred when trying to fetch artists",
             ex
         )
     }
