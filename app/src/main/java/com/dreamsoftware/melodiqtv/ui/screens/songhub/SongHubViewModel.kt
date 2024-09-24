@@ -179,6 +179,8 @@ class SongHubViewModel @Inject constructor(
                 songs = emptyList()
             )
         }
+
+        songType = SongTypeEnum.entries[index]
         fetchSongs()
     }
 
