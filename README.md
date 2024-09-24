@@ -218,13 +218,33 @@ The **Profiles** section is all about flexibility and personalization, ensuring 
 
 Welcome to the vibrant **Home Screen**, the hub of your musical adventure. Here’s what awaits you:
 
+<p align="center">
+  <img src="doc/screenshots/picture_18.png" />
+</p>
+
 - **Featured Songs Carousel** 🎠: Swipe through our rotating selection of standout songs. This dynamic showcase highlights popular and trending tracks to inspire your next musical creation.
+
+<p align="center">
+  <img src="doc/screenshots/picture_17.png" />
+</p>
 
 - **Categories Row** 📊: Browse through a variety of music categories, from genres to playlists. Presented in a sleek horizontal list, it’s easy to find music based on your mood or current musical goals.
 
+<p align="center">
+  <img src="doc/screenshots/picture_19.png" />
+</p>
+
 - **Personalized Music Recommendations** ⭐: Discover songs tailored to your taste and preferences. Based on your listening history and likes, this section offers suggestions that are perfect for your musical journey.
 
+<p align="center">
+  <img src="doc/screenshots/picture_20.png" />
+</p>
+
 The Home Screen is designed to make your exploration of music delightful and engaging. Whether you’re checking out featured tracks, exploring categories, or receiving personalized suggestions, everything is organized to enhance your musical experience.
+
+<p align="center">
+  <img src="doc/screenshots/picture_21.png" />
+</p>
 
 ## Exploring Songs and More 🎶✨
 
@@ -288,6 +308,10 @@ With all these features at your fingertips, the **Song Detail Screen** is design
 ## Favorites Section 🌟
 
 Welcome to the **Favorites** section, your personal music collection! Here you can keep all your cherished tracks just a tap away. 🎶✨ This section is designed to make your music exploration even more enjoyable by providing quick access to the songs you love most.
+
+<p align="center">
+  <img src="doc/screenshots/picture_22.png" />
+</p>
 
 #### What’s in the Favorites Section?
 
