@@ -4,7 +4,7 @@ import kotlin.enums.enumEntries
 
 @OptIn(ExperimentalStdlibApi::class)
 inline fun <reified T : Enum<T>> enumNameOfOrDefault(name: String, default: T): T =
-    enumEntries<T>().find { it.name == name } ?: default
+    enumEntries<T>().find { it.name.equals(name, ignoreCase = true) } ?: default
 
 @OptIn(ExperimentalStdlibApi::class)
 inline fun <reified T : Enum<T>> enumOfOrDefault(predicate: (T) -> Boolean, default: T): T =
