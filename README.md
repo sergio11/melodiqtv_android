@@ -168,6 +168,10 @@ Once you’ve filled in the fields, hit "Register" ✅ and you’re all set! �
 
 Step into the **Profiles** section where customization and ease meet to enhance your musical journey. Here’s how you can make **Melodiq** truly yours:
 
+<p align="center">
+  <img src="doc/screenshots/picture_15.png" />
+</p>
+
 - **Profile Selection**: Choose which profile you’d like to use from the **Profile Selection** screen. It’s your personal space where you can keep track of favorite songs and tailored recommendations.
 
 <p align="center">
@@ -190,9 +194,25 @@ Step into the **Profiles** section where customization and ease meet to enhance 
   <img src="doc/screenshots/picture_11.png" />
 </p>
 
+<p align="center">
+  <img src="doc/screenshots/picture_12.png" />
+</p>
+
 - **Deleting Profiles**: If a profile is no longer needed, delete it and remove all associated favorites and data. This keeps your app clean and organized, focusing on the songs and features that matter most to you.
 
+<p align="center">
+  <img src="doc/screenshots/picture_14.png" />
+</p>
+
 The **Profiles** section is all about flexibility and personalization, ensuring your musical journey is as unique as you are.
+
+<p align="center">
+  <img src="doc/screenshots/picture_13.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_16.png" />
+</p>
 
 ### Exploring the Home Screen 📱
 
