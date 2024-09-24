@@ -123,9 +123,30 @@ Dive into **Melodiq** and explore its vibrant and intuitive design with these sc
 
 Kickstart your musical adventure with our Onboarding screens. If you’re new to **Melodiq** and haven’t logged in yet, you’ll be greeted by our welcoming landing page. Here, you can get a sneak peek of what’s in store 📜 and easily navigate to login 🔒 or create a new account 🆕 to start your sonic journey.
 
+<p align="center">
+  <img src="doc/screenshots/picture_1.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_2.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_3.png" />
+</p>
+
 ### Sign In 🔑
 
 Ready to join the **Melodiq** community? Log in with your email and password to access all the musical features awaiting you. If you’re not yet a member, don’t worry—our sign-up process is just a tap away! 🌟✉️
+
+<p align="center">
+  <img src="doc/screenshots/picture_4.png" />
+</p>
+
+
+<p align="center">
+  <img src="doc/screenshots/picture_7.png" />
+</p>
 
 ### Sign Up ✨
 
@@ -135,6 +156,13 @@ Simply enter your details: your name 📝, email 📧, and a secure password �
 
 Once you’ve filled in the fields, hit "Register" ✅ and you’re all set! 🎊 You’re now part of the **Melodiq** family, ready to explore and enjoy exclusive features. 🚀🌟
 
+<p align="center">
+  <img src="doc/screenshots/picture_5.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_6.png" />
+</p>
 
 ### Managing Your Profiles 👤
 
@@ -142,9 +170,25 @@ Step into the **Profiles** section where customization and ease meet to enhance 
 
 - **Profile Selection**: Choose which profile you’d like to use from the **Profile Selection** screen. It’s your personal space where you can keep track of favorite songs and tailored recommendations.
 
+<p align="center">
+  <img src="doc/screenshots/picture_10.png" />
+</p>
+
 - **Creating Profiles**: Add up to four profiles to cater to family members or different users. Customize each profile with its own alias and avatar, making music a fun, personalized experience for everyone!
 
+<p align="center">
+  <img src="doc/screenshots/picture_8.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_9.png" />
+</p>
+
 - **Editing Profiles**: Update your profile’s alias and avatar or change your security PIN with ease. Keep your account secure and reflect your personality in every way you choose.
+
+<p align="center">
+  <img src="doc/screenshots/picture_11.png" />
+</p>
 
 - **Deleting Profiles**: If a profile is no longer needed, delete it and remove all associated favorites and data. This keeps your app clean and organized, focusing on the songs and features that matter most to you.
 
