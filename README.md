@@ -250,20 +250,53 @@ The Home Screen is designed to make your exploration of music delightful and eng
 
 Step into the **Songs** section, your ultimate musical playground where your sonic adventures come to life! 🎉 This hub is designed to help you explore and enjoy a variety of songs that cater to your preferences and musical goals.
 
+<p align="center">
+  <img src="doc/screenshots/picture_24.png" />
+</p>
+
 In this section, you’ll find a diverse array of categories and types to explore:
+
+<p align="center">
+  <img src="doc/screenshots/picture_25.png" />
+</p>
 
 - **Song Types** 🌱🎵: Discover a wide range of songs tailored to different styles:
   - **Pop** 🌟: Catchy melodies and vibrant rhythms that are in vogue.
   - **Rock** 🎸: Energetic songs that make you move.
   - **Classical** 🎻: Timeless compositions that delight the ears.
   - **Jazz** 🎷: Sophisticated rhythms that transport you to another level.
+ 
+<p align="center">
+  <img src="doc/screenshots/picture_26.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_27.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_28.png" />
+</p>
 
 - **Categories** 📚: Browse through various song categories to find exactly what you want to listen to:
   - **Hits** 🎤: The most popular songs of the moment.
   - **New Arrivals** 📅: The latest additions to our catalog.
   - **Playlists** 📋: Thematic selections for different moods and occasions.
 
+<p align="center">
+  <img src="doc/screenshots/picture_29.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_30.png" />
+</p>
+
 - **Special Features** ✨: Take advantage of our advanced filtering and sorting options 🔍. Customize your search based on genre, song type, or playlists to find the perfect track for any occasion.
+
+<p align="center">
+  <img src="doc/screenshots/picture_31.png" />
+</p>
+
 
 Once you find a song that excites your taste buds, check out the **detailed view** 📋. Here you’ll get all the essential information, including the artist, album, release year, and any interesting facts, so you can enjoy it to the fullest.
 
@@ -273,6 +306,9 @@ The **Songs** section is crafted to be your personal musical hub, where every me
 
 When you explore a song on **MelodiqTV**, you’ll unlock a wealth of information to elevate your music experience. Our **Song Detail Screen** provides all the essential details and interactive features to ensure you enjoy every moment of your favorite tunes.
 
+<p align="center">
+  <img src="doc/screenshots/picture_23.png" />
+</p>
 
 ### What You’ll Find in the Song Details:
 
