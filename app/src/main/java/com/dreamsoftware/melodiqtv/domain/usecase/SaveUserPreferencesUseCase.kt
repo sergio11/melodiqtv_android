@@ -1,7 +1,6 @@
 package com.dreamsoftware.melodiqtv.domain.usecase
 
 import com.dreamsoftware.melodiqtv.domain.model.AppLanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.UnitsEnum
 import com.dreamsoftware.melodiqtv.domain.model.UserPreferenceBO
 import com.dreamsoftware.melodiqtv.domain.model.VideoQualityEnum
 import com.dreamsoftware.melodiqtv.domain.repository.IUserRepository
@@ -17,13 +16,11 @@ class SaveUserPreferencesUseCase(
     }
 
     private fun Params.toUserPreferencesBO() = UserPreferenceBO(
-        units = enumOfOrDefault({it.value == units}, UnitsEnum.METRIC),
         language = enumOfOrDefault({it.value == language}, AppLanguageEnum.ENGLISH),
         videoQuality = enumOfOrDefault({it.value == videoQuality}, VideoQualityEnum.FULL_HD)
     )
 
     data class Params(
-        val units: String,
         val language: String,
         val videoQuality: String
     )

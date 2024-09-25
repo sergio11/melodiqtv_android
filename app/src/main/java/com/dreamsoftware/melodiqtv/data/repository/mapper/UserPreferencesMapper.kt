@@ -2,7 +2,6 @@ package com.dreamsoftware.melodiqtv.data.repository.mapper
 
 import com.dreamsoftware.melodiqtv.data.preferences.dto.UserPreferencesDTO
 import com.dreamsoftware.melodiqtv.domain.model.AppLanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.UnitsEnum
 import com.dreamsoftware.melodiqtv.domain.model.UserPreferenceBO
 import com.dreamsoftware.melodiqtv.domain.model.VideoQualityEnum
 import com.dreamsoftware.melodiqtv.utils.IMapper
@@ -12,7 +11,6 @@ internal class UserPreferencesMapper : IMapper<UserPreferencesDTO, UserPreferenc
 
     override fun mapInToOut(input: UserPreferencesDTO): UserPreferenceBO = with(input) {
         UserPreferenceBO(
-            units = enumOfOrDefault({ it.value == units}, UnitsEnum.METRIC),
             language = enumOfOrDefault({ it.value == language}, AppLanguageEnum.ENGLISH),
             videoQuality = enumOfOrDefault({ it.value == videoQuality}, VideoQualityEnum.FULL_HD)
         )
@@ -23,7 +21,6 @@ internal class UserPreferencesMapper : IMapper<UserPreferencesDTO, UserPreferenc
 
     override fun mapOutToIn(input: UserPreferenceBO): UserPreferencesDTO = with(input) {
         UserPreferencesDTO(
-            units = units.value,
             language = language.value,
             videoQuality = videoQuality.value
         )

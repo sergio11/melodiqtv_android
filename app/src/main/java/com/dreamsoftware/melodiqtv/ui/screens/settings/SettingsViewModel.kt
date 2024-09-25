@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import com.dreamsoftware.melodiqtv.AppEvent
 import com.dreamsoftware.melodiqtv.R
 import com.dreamsoftware.melodiqtv.domain.model.AppLanguageEnum
-import com.dreamsoftware.melodiqtv.domain.model.UnitsEnum
 import com.dreamsoftware.melodiqtv.domain.model.UserPreferenceBO
 import com.dreamsoftware.melodiqtv.domain.model.VideoQualityEnum
 import com.dreamsoftware.melodiqtv.domain.usecase.GetUserPreferencesUseCase
@@ -102,7 +101,6 @@ class SettingsViewModel @Inject constructor(
                 executeUseCaseWithParams(
                     useCase = saveUserPreferencesUseCase,
                     params = SaveUserPreferencesUseCase.Params(
-                        units = settings.find { it.type == SettingTypeEnum.UNITS }?.value.orEmpty(),
                         language = settings.find { it.type == SettingTypeEnum.APP_LANGUAGE }?.value.orEmpty(),
                         videoQuality = settings.find { it.type == SettingTypeEnum.VIDEO_QUALITY }?.value.orEmpty()
                     )
@@ -112,12 +110,6 @@ class SettingsViewModel @Inject constructor(
 
     private fun onBuildSettingsList(userPreferences: UserPreferenceBO? = null) = listOf(
         ISettingItemVO.SettingHeaderVO(titleRes = R.string.app_settings),
-        ISettingItemVO.ISettingValueItemVO.SettingMultipleValuesVO(
-            titleRes = R.string.settings_units_preference_title,
-            value = userPreferences?.units?.value ?: UnitsEnum.METRIC.value,
-            type = SettingTypeEnum.UNITS,
-            possibleValues = UnitsEnum.entries.map { it.value }
-        ),
         ISettingItemVO.ISettingValueItemVO.SettingMultipleValuesVO(
             titleRes = R.string.settings_language_title,
             value = userPreferences?.language?.value ?: AppLanguageEnum.ENGLISH.value,
@@ -191,7 +183,7 @@ sealed interface ISettingItemVO {
 }
 
 enum class SettingTypeEnum {
-    UNITS, APP_LANGUAGE, VIDEO_QUALITY
+    APP_LANGUAGE, VIDEO_QUALITY
 }
 
 enum class SettingActionTypeEnum {
