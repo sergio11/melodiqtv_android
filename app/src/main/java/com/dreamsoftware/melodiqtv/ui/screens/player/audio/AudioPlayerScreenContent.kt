@@ -93,46 +93,49 @@ internal fun AudioPlayerScreenContent(
         ),
         label = String.EMPTY
     )
-    Column(
-        modifier = Modifier
-            .focusable()
-            .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background),
-        verticalArrangement = Arrangement.SpaceEvenly,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AsyncImage(
+    with(state) {
+        Column(
             modifier = Modifier
-                .size(196.dp)
-                .scale(scale)
-                .clip(RoundedCornerShape(16.dp)),
-            model = state.imageUrl,
-            contentDescription = stringResource(R.string.image_cannot_be_loaded),
-            contentScale = ContentScale.Crop,
-        )
+                .focusable()
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.background),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            AsyncImage(
+                modifier = Modifier
+                    .size(196.dp)
+                    .scale(scale)
+                    .clip(RoundedCornerShape(16.dp)),
+                model = state.imageUrl,
+                contentDescription = stringResource(R.string.image_cannot_be_loaded),
+                contentScale = ContentScale.Crop,
+            )
 
-        FudgeTvPlayerTitle(
-            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-            descriptionModifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-            title = state.title,
-            description = "${state.artistName} • ${state.description}"
-        )
+            FudgeTvPlayerTitle(
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                descriptionModifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                title = title,
+                description = "$artistName • $category ${ album.takeIf { it.isNotBlank() }?.let { " • $it" } }"
+            )
 
-        FudgeTvAudioPlayerSeeker(
-            modifier = Modifier
-                .fillMaxWidth(0.6f)
-                .align(alignment = Alignment.CenterHorizontally),
-            onSeek = { exoPlayer.seekTo(exoPlayer.duration.times(it).toLong()) },
-            contentProgress = contentCurrentPosition.milliseconds,
-            contentDuration = exoPlayer.duration.milliseconds
-        )
+            FudgeTvAudioPlayerSeeker(
+                modifier = Modifier
+                    .fillMaxWidth(0.6f)
+                    .align(alignment = Alignment.CenterHorizontally),
+                onSeek = { exoPlayer.seekTo(exoPlayer.duration.times(it).toLong()) },
+                contentProgress = contentCurrentPosition.milliseconds,
+                contentDuration = exoPlayer.duration.milliseconds
+            )
 
-        AudioPlayerControls(
-            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-            exoPlayer = exoPlayer,
-            isPlaying = isPlaying,
-        )
+            AudioPlayerControls(
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                exoPlayer = exoPlayer,
+                isPlaying = isPlaying,
+            )
+        }
     }
+
 }
 
 @Composable
