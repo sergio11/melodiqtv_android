@@ -30,6 +30,7 @@
     <string name="song_detail_song_mood_label_text">Mood</string>
     <string name="song_detail_song_rating_label_text">Rating</string>
     <string name="song_detail_song_play_count_label_text">Play Count</string>
+    <string name="song_detail_song_artist_label_text">Artist</string>
 
     <!-- Generic Error Messages -->
     <string name="generic_form_invalid_data_provided">Invalid data provided, please check it and try again.</string>

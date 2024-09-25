@@ -29,7 +29,8 @@ class AudioPlayerViewModel @Inject constructor(
             with(song) {
                 it.copy(
                     title = title,
-                    description = description,
+                    category = category,
+                    album = album.orEmpty(),
                     artistName = artistName,
                     audioUrl = audioUrl,
                     id = id,
@@ -46,7 +47,8 @@ data class AudioPlayerUiState(
     val id: String = String.EMPTY,
     val audioUrl: String = String.EMPTY,
     val title: String = String.EMPTY,
-    val description: String = String.EMPTY,
+    val category: String = String.EMPTY,
+    val album: String = String.EMPTY,
     val artistName: String = String.EMPTY,
     val imageUrl: String = String.EMPTY,
 ): UiState<AudioPlayerUiState>(isLoading, errorMessage) {
