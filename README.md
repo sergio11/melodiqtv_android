@@ -380,6 +380,10 @@ The **Music Player** on **MelodiqTV** is your ultimate listening companion, ensu
 
 In the **Subscriptions** section, discover flexible plans designed to enhance your music experience on **MelodiqTV**! 🎉✨ Whether you’re a casual listener or a music enthusiast, our subscription options offer exclusive access to premium tracks and features that will take your music journey to the next level.
 
+<p align="center">
+  <img src="doc/screenshots/picture_38.png" />
+</p>
+
 Here’s what you need to know:
 
 - **Choose Your Plan** 🗓️: Pick the subscription that fits your listening habits. We offer three options: 1 month, 6 months, or 12 months. Each plan provides unlimited access to a wide range of premium songs, albums, and artists.
@@ -387,6 +391,10 @@ Here’s what you need to know:
 - **Enjoy Discounts** 💰: The longer you subscribe, the more you save! Opt for a longer subscription period and enjoy special discounts. It’s a win-win—more savings and more music at your fingertips!
 
 - **Unlock Premium Tracks** 🔓: With a subscription, you’ll gain exclusive access to high-quality, premium tracks and albums not available in the free plan. Enjoy curated playlists, exclusive artist interviews, and content that will enhance your love for music.
+
+<p align="center">
+  <img src="doc/screenshots/picture_39.png" />
+</p>
 
 The **Subscriptions** section ensures that your music journey is both rewarding and flexible. With the option to choose your plan and the added value of premium content, you’ll stay inspired and engaged, enjoying a seamless music experience. 🎶🚀
 
@@ -396,15 +404,39 @@ The **Subscriptions** section ensures that your music journey is both rewarding 
 
 The **Settings** section on **MelodiqTV** is your personal music control center, where you can customize your app experience to match your preferences. 🎵 Here’s what you can adjust:
 
+<p align="center">
+  <img src="doc/screenshots/picture_32.png" />
+</p>
+
 - **Adjust Language** 🌐: Choose the language you’re most comfortable with. Whether you prefer English, Spanish, or another language, **MelodiqTV** will adapt to your choice for a seamless music experience.
+
+<p align="center">
+  <img src="doc/screenshots/picture_33.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_34.png" />
+</p>
 
 - **Select Audio Quality** 🎧: Control your music streaming experience by selecting the audio quality. Choose from standard, high-quality, or lossless formats depending on your internet connection and device capabilities.
 
+<p align="center">
+  <img src="doc/screenshots/picture_35.png" />
+</p>
+
 - **Manage Subscriptions** 💳: Review and adjust your subscription plan. You can easily change your plan, upgrade, or even cancel your subscription if needed, keeping you in control of your music journey.
+
+<p align="center">
+  <img src="doc/screenshots/picture_36.png" />
+</p>
 
 - **Learn About Us** 🎤: Discover more about the team behind **MelodiqTV** and our mission to bring you the best music experience possible. Learn about the artists and curators that power the platform.
 
 - **Log Out** 🚪: Easily log out or switch accounts when needed. Keep your profile secure and manage your preferences with a few simple taps.
+
+<p align="center">
+  <img src="doc/screenshots/picture_37.png" />
+</p>
 
 
 The **Settings** section ensures you have full control over your music experience. From language preferences to audio quality, everything is designed to provide a personalized and seamless listening journey. 🎶🛠️
