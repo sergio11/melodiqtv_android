@@ -346,9 +346,21 @@ When you explore a song on **MelodiqTV**, you’ll unlock a wealth of informatio
 
 - **Music Video** 🎥: Prefer to watch the official video? Play the **music video** directly from the detail screen for a full audio-visual experience.
 
+<p align="center">
+  <img src="doc/screenshots/picture_52.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_53.png" />
+</p>
+
 ### Interactive Features 🎛️
 
 The song details go beyond just information—here are the **interactive options** you’ll enjoy:
+
+<p align="center">
+  <img src="doc/screenshots/picture_54.png" />
+</p>
 
 - **Add to Favorites** ❤️: Found a song you love? Save it to your personal favorites and access it anytime with ease.
 
@@ -359,6 +371,14 @@ The song details go beyond just information—here are the **interactive options
 - **Rate the Song** ⭐: Share your opinion by rating the song and see what other listeners think.
 
 - **More Options** 🎛️: From tweaking your preferences to exploring artist insights, you can access additional features to enhance your listening experience.
+
+<p align="center">
+  <img src="doc/screenshots/picture_55.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_56.png" />
+</p>
   
 <p align="center">
   <img src="doc/screenshots/picture_42.png" />
