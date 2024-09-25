@@ -27,8 +27,16 @@ Slides are built using the template from [Previewed](https://previewed.app/templ
 
 **MelodiqTV** is not just a music streaming service—it’s your ultimate music companion designed to elevate your listening experience. Here’s what makes MelodiqTV stand out:
 
+<p align="center">
+  <img src="doc/screenshots/picture_48.gif" />
+</p>
+
 ### Personalized Profiles 👥
 With MelodiqTV, every family member can create their own profile, allowing them to save favorite songs and receive personalized music recommendations. This feature ensures everyone can enjoy a tailored listening experience based on their unique tastes.
+
+<p align="center">
+  <img src="doc/screenshots/picture_49.gif" />
+</p>
 
 ### Advanced Music Search 🔍
 Our advanced search functionality allows you to find songs based on various criteria, including:
@@ -37,6 +45,10 @@ Our advanced search functionality allows you to find songs based on various crit
 - **Language** 🌍: Choose songs in your preferred language.
 - **Release Date** 📅: Find the latest hits or timeless classics.
 
+<p align="center">
+  <img src="doc/screenshots/picture_50.gif" />
+</p>
+
 ### Customizable Preferences ⚙️
 MelodiqTV offers various customization options to enhance your experience:
 - **Default Video Quality** 📺: Set your preferred resolution for streaming music videos.
@@ -44,6 +56,10 @@ MelodiqTV offers various customization options to enhance your experience:
 - **Playback Options** 🎧: Choose your preferred playback settings for a personalized experience.
 
 With these features, MelodiqTV ensures a seamless, user-friendly experience tailored to your music preferences. Whether you're exploring new genres, saving favorites, or adjusting settings, MelodiqTV has got you covered. 🎤📺
+
+<p align="center">
+  <img src="doc/screenshots/picture_51.png" />
+</p>
 
 ## Technologies Used 🛠️
 
