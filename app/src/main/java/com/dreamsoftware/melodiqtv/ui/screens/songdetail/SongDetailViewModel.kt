@@ -101,12 +101,12 @@ class SongDetailViewModel @Inject constructor(
                         album?.let {
                             add(SongInfoItem(info = it, labelRes = R.string.song_detail_song_album_label_text))
                         }
+                        add(SongInfoItem(info = artistName, labelRes = R.string.song_detail_song_artist_label_text))
                         add(SongInfoItem(info = genre.value, labelRes = R.string.song_detail_song_genre_label_text))
                         add(SongInfoItem(info = mood.value, labelRes = R.string.song_detail_song_mood_label_text))
                         rating?.let {
                             add(SongInfoItem(info = it.toString(), labelRes = R.string.song_detail_song_rating_label_text))
                         }
-                        add(SongInfoItem(info = playCount.toString(), labelRes = R.string.song_detail_song_play_count_label_text))
                     },
                     imageUrl = imageUrl
                 )
