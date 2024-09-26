@@ -368,6 +368,10 @@ The song details go beyond just information—here are the **interactive options
 
 - **Share the Song** 📲: Share your favorite music with friends and family via social media or messaging, so they can enjoy the tunes too.
 
+<p align="center">
+  <img src="doc/screenshots/picture_59.png" />
+</p>
+
 - **Rate the Song** ⭐: Share your opinion by rating the song and see what other listeners think.
 
 - **More Options** 🎛️: From tweaking your preferences to exploring artist insights, you can access additional features to enhance your listening experience.
@@ -424,6 +428,10 @@ The **Music Player** on **MelodiqTV** is where your favorite tracks come to life
 
 - **High-Quality Audio** 🎧: Enjoy your songs in crystal-clear quality with support for various audio formats. The player adapts to provide the best experience based on your connection and preferences.
 
+<p align="center">
+  <img src="doc/screenshots/picture_58.png" />
+</p>
+
 - **Player Controls** ⏯️: Effortlessly navigate through your music with intuitive controls. You can play, pause, rewind, or skip tracks to stay in control of your listening session.
 
 - **On-Screen Lyrics** 📝: Follow along with synchronized lyrics that appear on-screen as the music plays, making it easy to sing along or get immersed in the story behind the song.
@@ -433,7 +441,20 @@ The **Music Player** on **MelodiqTV** is where your favorite tracks come to life
 - **Full-Screen Mode** 📱: Switch to full-screen mode to fully immerse yourself in the music and lyrics, minimizing distractions for a more focused experience.
 
 
+<p align="center">
+  <img src="doc/screenshots/picture_57.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_58.png" />
+</p>
+
+
 The **Music Player** on **MelodiqTV** is your ultimate listening companion, ensuring every track is not only enjoyable but also fun and interactive. Whether you're chilling out with your favorite playlist or exploring new tracks, the player has everything you need for an exceptional music experience. 🎶🌟
+
+<p align="center">
+  <img src="doc/screenshots/picture_61.gif" />
+</p>
 
 ### Subscription Options 🌟🎶
 
