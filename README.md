@@ -27,8 +27,16 @@ Slides are built using the template from [Previewed](https://previewed.app/templ
 
 **MelodiqTV** is not just a music streaming service—it’s your ultimate music companion designed to elevate your listening experience. Here’s what makes MelodiqTV stand out:
 
+<p align="center">
+  <img src="doc/screenshots/picture_48.gif" />
+</p>
+
 ### Personalized Profiles 👥
 With MelodiqTV, every family member can create their own profile, allowing them to save favorite songs and receive personalized music recommendations. This feature ensures everyone can enjoy a tailored listening experience based on their unique tastes.
+
+<p align="center">
+  <img src="doc/screenshots/picture_49.gif" />
+</p>
 
 ### Advanced Music Search 🔍
 Our advanced search functionality allows you to find songs based on various criteria, including:
@@ -37,6 +45,10 @@ Our advanced search functionality allows you to find songs based on various crit
 - **Language** 🌍: Choose songs in your preferred language.
 - **Release Date** 📅: Find the latest hits or timeless classics.
 
+<p align="center">
+  <img src="doc/screenshots/picture_50.gif" />
+</p>
+
 ### Customizable Preferences ⚙️
 MelodiqTV offers various customization options to enhance your experience:
 - **Default Video Quality** 📺: Set your preferred resolution for streaming music videos.
@@ -44,6 +56,10 @@ MelodiqTV offers various customization options to enhance your experience:
 - **Playback Options** 🎧: Choose your preferred playback settings for a personalized experience.
 
 With these features, MelodiqTV ensures a seamless, user-friendly experience tailored to your music preferences. Whether you're exploring new genres, saving favorites, or adjusting settings, MelodiqTV has got you covered. 🎤📺
+
+<p align="center">
+  <img src="doc/screenshots/picture_51.png" />
+</p>
 
 ## Technologies Used 🛠️
 
@@ -222,6 +238,10 @@ Welcome to the vibrant **Home Screen**, the hub of your musical adventure. Here�
   <img src="doc/screenshots/picture_18.png" />
 </p>
 
+<p align="center">
+  <img src="doc/screenshots/picture_45.png" />
+</p>
+
 - **Featured Songs Carousel** 🎠: Swipe through our rotating selection of standout songs. This dynamic showcase highlights popular and trending tracks to inspire your next musical creation.
 
 <p align="center">
@@ -307,10 +327,14 @@ The **Songs** section is crafted to be your personal musical hub, where every me
 When you explore a song on **MelodiqTV**, you’ll unlock a wealth of information to elevate your music experience. Our **Song Detail Screen** provides all the essential details and interactive features to ensure you enjoy every moment of your favorite tunes.
 
 <p align="center">
-  <img src="doc/screenshots/picture_23.png" />
+  <img src="doc/screenshots/picture_46.png" />
 </p>
 
 ### What You’ll Find in the Song Details:
+
+<p align="center">
+  <img src="doc/screenshots/picture_47.png" />
+</p>
 
 - **Song Overview** 📝: Get a quick glance at the song, including a **description**, **artist information**, **release date**, and **duration** so you know what to expect from the track.
   
@@ -322,9 +346,21 @@ When you explore a song on **MelodiqTV**, you’ll unlock a wealth of informatio
 
 - **Music Video** 🎥: Prefer to watch the official video? Play the **music video** directly from the detail screen for a full audio-visual experience.
 
+<p align="center">
+  <img src="doc/screenshots/picture_52.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_53.png" />
+</p>
+
 ### Interactive Features 🎛️
 
 The song details go beyond just information—here are the **interactive options** you’ll enjoy:
+
+<p align="center">
+  <img src="doc/screenshots/picture_54.png" />
+</p>
 
 - **Add to Favorites** ❤️: Found a song you love? Save it to your personal favorites and access it anytime with ease.
 
@@ -332,10 +368,25 @@ The song details go beyond just information—here are the **interactive options
 
 - **Share the Song** 📲: Share your favorite music with friends and family via social media or messaging, so they can enjoy the tunes too.
 
+<p align="center">
+  <img src="doc/screenshots/picture_59.png" />
+</p>
+
 - **Rate the Song** ⭐: Share your opinion by rating the song and see what other listeners think.
 
 - **More Options** 🎛️: From tweaking your preferences to exploring artist insights, you can access additional features to enhance your listening experience.
 
+<p align="center">
+  <img src="doc/screenshots/picture_55.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_56.png" />
+</p>
+  
+<p align="center">
+  <img src="doc/screenshots/picture_42.png" />
+</p>
 
 With all these features at your fingertips, the **Song Detail Screen** is designed to make listening interactive, enjoyable, and engaging. Whether you're reading the lyrics, checking out the artist, or sharing the track, everything you need is just a tap away!
 
@@ -357,13 +408,29 @@ Welcome to the **Favorites** section, your personal music collection! Here you c
 
 Make your music journey more efficient and personalized by keeping your favorite songs close at hand. Enjoy effortless access to the tracks you love most, and savor every moment of your music with ease! 🌟🎶
 
+<p align="center">
+  <img src="doc/screenshots/picture_40.png" />
+</p>
+
 ---
 
 ## Music Player 🎥🎶
 
 The **Music Player** on **MelodiqTV** is where your favorite tracks come to life. Designed to provide a seamless and immersive experience, it ensures you stay engaged and entertained throughout your listening journey.
 
+<p align="center">
+  <img src="doc/screenshots/picture_43.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_44.png" />
+</p>
+
 - **High-Quality Audio** 🎧: Enjoy your songs in crystal-clear quality with support for various audio formats. The player adapts to provide the best experience based on your connection and preferences.
+
+<p align="center">
+  <img src="doc/screenshots/picture_58.png" />
+</p>
 
 - **Player Controls** ⏯️: Effortlessly navigate through your music with intuitive controls. You can play, pause, rewind, or skip tracks to stay in control of your listening session.
 
@@ -374,7 +441,20 @@ The **Music Player** on **MelodiqTV** is where your favorite tracks come to life
 - **Full-Screen Mode** 📱: Switch to full-screen mode to fully immerse yourself in the music and lyrics, minimizing distractions for a more focused experience.
 
 
+<p align="center">
+  <img src="doc/screenshots/picture_57.png" />
+</p>
+
+<p align="center">
+  <img src="doc/screenshots/picture_58.png" />
+</p>
+
+
 The **Music Player** on **MelodiqTV** is your ultimate listening companion, ensuring every track is not only enjoyable but also fun and interactive. Whether you're chilling out with your favorite playlist or exploring new tracks, the player has everything you need for an exceptional music experience. 🎶🌟
+
+<p align="center">
+  <img src="doc/screenshots/picture_61.gif" />
+</p>
 
 ### Subscription Options 🌟🎶
 
