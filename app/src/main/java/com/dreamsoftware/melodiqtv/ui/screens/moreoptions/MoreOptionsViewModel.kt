@@ -78,6 +78,12 @@ class MoreOptionsViewModel @Inject constructor(
         }
     }
 
+    override fun onOpenSongLyricsDetail() {
+        uiState.value.song?.let {
+            launchSideEffect(MoreOptionsSideEffects.OpenSongLyricsDetail(it.id))
+        }
+    }
+
     private fun removeSongFromFavorites(id: String) {
         executeUseCaseWithParams(
             useCase = removeFavoriteSongUseCase,
@@ -121,5 +127,6 @@ sealed interface MoreOptionsSideEffects : SideEffect {
     data class PlaySongVideoClip(val id: String) : MoreOptionsSideEffects
     data class PlaySong(val id: String) : MoreOptionsSideEffects
     data class OpenArtistDetail(val id: String): MoreOptionsSideEffects
+    data class OpenSongLyricsDetail(val id: String): MoreOptionsSideEffects
     data object CloseMoreOptions: MoreOptionsSideEffects
 }

@@ -8,6 +8,7 @@ import com.dreamsoftware.melodiqtv.ui.screens.category.CategoryDetailScreen
 import com.dreamsoftware.melodiqtv.ui.screens.favorites.FavoritesScreen
 import com.dreamsoftware.melodiqtv.ui.screens.home.HomeScreen
 import com.dreamsoftware.melodiqtv.ui.screens.artistdetail.ArtistDetailScreen
+import com.dreamsoftware.melodiqtv.ui.screens.lyrics.LyricsDetailScreen
 import com.dreamsoftware.melodiqtv.ui.screens.moreoptions.MoreOptionsScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreen
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreen
@@ -123,6 +124,20 @@ fun DashboardNavHost(
                 }
             }
         }
+
+        composable(Screen.SongLyricsDetail.route) { navBackStackEntry ->
+            navBackStackEntry.arguments?.let(Screen.SongLyricsDetail::parseArgs)?.let { args ->
+                with(navController) {
+                    LyricsDetailScreen(
+                        args = args,
+                        onBackPressed = {
+                            popBackStack()
+                        }
+                    )
+                }
+            }
+        }
+
         composable(Screen.MoreOptions.route) { navBackStackEntry ->
             navBackStackEntry.arguments?.let(Screen.MoreOptions::parseArgs)?.let { args ->
                 with(navController) {
@@ -136,6 +151,9 @@ fun DashboardNavHost(
                         },
                         onOpenArtistDetail = {
                             navigate(Screen.ArtistDetail.buildRoute(it))
+                        },
+                        onOpenSongLyricsDetail = {
+                            navigate(Screen.SongLyricsDetail.buildRoute(it))
                         },
                         onBackPressed = {
                             popBackStack()

@@ -9,4 +9,5 @@ interface MoreOptionsScreenActionListener: IFudgeTvScreenActionListener {
     fun onFavouriteClicked()
     fun onOpenArtistDetail()
     fun onPlaySong()
+    fun onOpenSongLyricsDetail()
 }

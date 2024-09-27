@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.dreamsoftware.melodiqtv.ui.screens.category.CategoryDetailScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.artistdetail.ArtistDetailScreenArgs
+import com.dreamsoftware.melodiqtv.ui.screens.lyrics.LyricsDetailScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.moreoptions.MoreOptionsScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.player.audio.AudioPlayerScreenArgs
 import com.dreamsoftware.melodiqtv.ui.screens.player.video.VideoPlayerScreenArgs
@@ -160,6 +161,24 @@ sealed class Screen(
         fun parseArgs(args: Bundle): SongDetailScreenArgs? = with(args) {
             getString("id")?.let { id ->
                 SongDetailScreenArgs(id = id)
+            }
+        }
+    }
+
+    data object SongLyricsDetail : Screen(route = "song_lyrics/{id}", name = "SongLyricsDetail", arguments = listOf(
+        navArgument("id") {
+            type = NavType.StringType
+        }
+    )) {
+        fun buildRoute(id: String): String =
+            route.replace(
+                oldValue = "{id}",
+                newValue = id
+            )
+
+        fun parseArgs(args: Bundle): LyricsDetailScreenArgs? = with(args) {
+            getString("id")?.let { id ->
+                LyricsDetailScreenArgs(id = id)
             }
         }
     }

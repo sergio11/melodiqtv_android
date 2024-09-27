@@ -40,7 +40,8 @@ internal fun MoreOptionsScreenContent(
                         favoritesButton,
                         moreInfoButton,
                         viewInstructorButton,
-                        shareButton
+                        shareButton,
+                        lyricsButton
                     ) = createRefs()
 
                     FudgeTvCardDetails(
@@ -113,6 +114,17 @@ internal fun MoreOptionsScreenContent(
                         textRes = R.string.more_options_share_button_text,
                         icon = R.drawable.ic_share
                     )
+                    if(!song?.lyrics.isNullOrBlank()) {
+                        FudgeTvMoreOptionsButton(
+                            modifier = Modifier.constrainAs(lyricsButton) {
+                                top.linkTo(shareButton.bottom, margin = 12.dp)
+                                start.linkTo(startButton.start)
+                            },
+                            textRes = R.string.more_options_lyrics_button_text,
+                            icon = R.drawable.ic_lyrics,
+                            onClick = actionListener::onOpenSongLyricsDetail
+                        )
+                    }
                 }
             }
         }
