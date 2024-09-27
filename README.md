@@ -21,7 +21,15 @@ Happy listening with MelodiqTV! 🎉📺
   <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" />
 </p>
 
-Slides are built using the template from [Previewed](https://previewed.app/template/AFC0B4CB). I extend my gratitude to them for their remarkable work and contribution.
+<p align="center">
+  <img width="400px" src="doc/previewed/image1.jpeg" />
+  <img width="400px" src="doc/previewed/image2.jpeg" />
+  <img width="400px" src="doc/previewed/image3.jpeg" />
+  <img width="400px" src="doc/previewed/image4.jpeg" />
+  <img width="400px" src="doc/previewed/image5.jpeg" />
+</p>
+
+Slides are built using the  template from [Previewed](https://previewed.app/template/AFC0B4CB). I extend my gratitude to them for their remarkable work and contribution.
 
 ## Overview 🌐
 
@@ -336,6 +344,10 @@ When you explore a song on **MelodiqTV**, you’ll unlock a wealth of informatio
   <img src="doc/screenshots/picture_47.png" />
 </p>
 
+<p align="center">
+  <img src="doc/screenshots/picture_62.png" />
+</p>
+
 - **Song Overview** 📝: Get a quick glance at the song, including a **description**, **artist information**, **release date**, and **duration** so you know what to expect from the track.
   
 - **Mood and Genre** 🎵: See the mood and genre tags to match your listening preference and explore similar music.
@@ -389,6 +401,11 @@ The song details go beyond just information—here are the **interactive options
 </p>
 
 With all these features at your fingertips, the **Song Detail Screen** is designed to make listening interactive, enjoyable, and engaging. Whether you're reading the lyrics, checking out the artist, or sharing the track, everything you need is just a tap away!
+
+<p align="center">
+  <img src="doc/screenshots/picture_63.png" />
+</p>
+
 
 ---
 
