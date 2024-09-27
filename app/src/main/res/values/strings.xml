@@ -159,6 +159,7 @@
     <!-- More Options -->
     <string name="more_options_view_artist_detail_button_text">Get to Know the Artist!</string>
     <string name="more_options_share_button_text">Spread the Vibe!</string>
+    <string name="more_options_lyrics_button_text">Explore More Lyrics!</string>
     <string name="more_options_add_to_favorites_button_text">Add to Your Favorites</string>
     <string name="more_options_remove_from_favorites_button_text">Remove from Favorites</string>
     <string name="more_options_play_song_button_text">Play the Song</string>
@@ -217,4 +218,9 @@
     <!-- Miscellaneous -->
     <string name="no_text_value">--</string>
     <string name="image_cannot_be_loaded">Image cannot be loaded</string>
+
+    <!-- Song Lyrics Detail -->
+    <string name="song_lyrics_detail_main_title_text">🎤 Dive into the Lyrics!</string>
+    <string name="song_lyrics_detail_secondary_title_text">Discover the Heart and Soul of Your Favorite Songs</string>
+    <string name="song_lyrics_detail_confirm_button_text">🎶 Let’s Sing Along!</string>
 </resources>

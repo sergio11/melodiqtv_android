@@ -14,6 +14,7 @@ fun MoreOptionsScreen(
     args: MoreOptionsScreenArgs,
     onBackPressed: () -> Unit,
     onOpenArtistDetail: (id: String) -> Unit,
+    onOpenSongLyricsDetail: (id: String) -> Unit,
     onPlayVideoClip: (id: String) -> Unit,
     onPlaySong: (id: String) -> Unit
 ) {
@@ -27,6 +28,7 @@ fun MoreOptionsScreen(
                 is MoreOptionsSideEffects.PlaySongVideoClip -> onPlayVideoClip(it.id)
                 is MoreOptionsSideEffects.PlaySong -> onPlaySong(it.id)
                 is MoreOptionsSideEffects.OpenArtistDetail -> onOpenArtistDetail(it.id)
+                is MoreOptionsSideEffects.OpenSongLyricsDetail -> onOpenSongLyricsDetail(it.id)
             }
         },
         onInit = {
