@@ -553,6 +553,15 @@ A heartfelt thank you to the creators of the [JetFit repository](https://github.
 
 The resources, examples, and insights provided in the JetFit repository served as a foundational reference, enabling us to build and expand upon your excellent groundwork. Your contributions have significantly accelerated our journey and enriched our understanding of creating seamless TV applications using Jetpack Compose. 📺✨
 
+## Visitors Count
+
+<img width="auto" src="https://profile-counter.glitch.me/melodiqtv_android/count.svg" />
+ 
+ ## Please Share & Star the repository to keep me motivated.
+  <a href = "https://github.com/sergio11/melodiqtv_android/stargazers">
+     <img src = "https://img.shields.io/github/stars/sergio11/melodiqtv_android" />
+  </a>
+
 ## License ⚖️
 
 This project is licensed under the MIT License, an open-source software license that allows developers to freely use, copy, modify, and distribute the software. 🛠️ This includes use in both personal and commercial projects, with the only requirement being that the original copyright notice is retained. 📄
