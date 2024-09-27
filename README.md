@@ -344,6 +344,10 @@ When you explore a song on **MelodiqTV**, you’ll unlock a wealth of informatio
   <img src="doc/screenshots/picture_47.png" />
 </p>
 
+<p align="center">
+  <img src="doc/screenshots/picture_62.png" />
+</p>
+
 - **Song Overview** 📝: Get a quick glance at the song, including a **description**, **artist information**, **release date**, and **duration** so you know what to expect from the track.
   
 - **Mood and Genre** 🎵: See the mood and genre tags to match your listening preference and explore similar music.
@@ -397,6 +401,11 @@ The song details go beyond just information—here are the **interactive options
 </p>
 
 With all these features at your fingertips, the **Song Detail Screen** is designed to make listening interactive, enjoyable, and engaging. Whether you're reading the lyrics, checking out the artist, or sharing the track, everything you need is just a tap away!
+
+<p align="center">
+  <img src="doc/screenshots/picture_63.png" />
+</p>
+
 
 ---
 
