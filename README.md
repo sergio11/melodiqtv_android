@@ -39,25 +39,25 @@ Delve into the world of **Android TV development** with these cutting-edge proje
 
 ## Featured Projects 🌟  
 
-### **TvNexa - Your Global IPTV Destination** 🌐📺  
+#### [**TvNexa - Your Global IPTV Destination** 🌐📺 ](https://github.com/sergio11/tvnexa_androidtv)
 Experience global entertainment with **TvNexa**, a platform offering:  
 - **Access to diverse international channels**  
 - **Seamless multi-device compatibility**  
 - A modern, intuitive interface  
 
-### **FitFlexTV - Your Fitness Companion** 🏋️‍♂️💪  
+#### [**FitFlexTV - Your Fitness Companion** 🏋️‍♂️💪](https://github.com/sergio11/fitflextv_android)
 Stay active and fit with **FitFlexTV**, featuring:  
 - **A variety of workouts** including yoga and HIIT  
 - **Personalized fitness plans**  
 - **Smooth navigation** optimized for Smart TVs  
 
-### **SaboryTV - Your Culinary Guide** 🍳📺  
+#### [**SaboryTV - Your Culinary Guide** 🍳📺 ](https://github.com/sergio11/saborytv_android)
 Refine your cooking skills with **SaboryTV**, providing:  
 - **Step-by-step video recipes** tailored to your taste  
 - **Hands-free navigation** for seamless cooking  
 - **Expert guidance** from professional chefs  
   
-### **NimbusTV - Effortless M3U Streaming** 🌐📺  
+#### [**NimbusTV - Effortless M3U Streaming** 🌐📺](https://github.com/sergio11/nimbustv_android)
 Simplify streaming with **NimbusTV**, your go-to M3U playlist solution:  
 - **Support for multiple playlists**: Organize by theme (sports, news, etc.)  
 - **EPG integration**: Real-time programming schedules with reminders  
