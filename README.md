@@ -9,9 +9,9 @@ MelodiqTV 🎶📺 is a cutting-edge music and video streaming platform designed
 
 **Built using Jetpack Compose for TV**, MelodiqTV seamlessly integrates into your Smart TV environment. Utilizing [**🍮 Fudge**](https://github.com/sergio11/fudge_tv_compose_library), a powerful UI Kit for TV apps, MelodiqTV ensures smooth navigation and an engaging user experience. Our platform transforms your living room into a musical haven, where you can explore, enjoy, and share your favorite tunes. 🎶✨
 
-A heartfelt thank you to the creators of the [JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit) for providing such an invaluable starting point for Jetpack Compose for TV. Your work has been incredibly inspiring and instrumental in shaping the development of this project.
-
 Happy listening with MelodiqTV! 🎉📺
+
+A huge thank you to the creators of **[JetFit](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** for providing an invaluable foundation for **MelodiqTV**. Licensed under **Apache 2.0** (implementation) and **CC BY 4.0** (design), JetFit served as a key reference for building a seamless **Jetpack Compose for TV** experience. For more details and attributions, please check the **"Credits"** section below. 🚀  
 
 This app, **MelodiqTV**, includes images and resources designed by [Freepik](https://www.freepik.com). We would like to acknowledge and thank Freepik for their incredible design assets. The images used in the app are provided with attribution, as required by Freepik's licensing terms. For more information on Freepik's resources, please visit [www.freepik.com](https://www.freepik.com).
 
@@ -32,6 +32,16 @@ This app, **MelodiqTV**, includes images and resources designed by [Freepik](htt
 </p>
 
 Slides are built using the  template from [Previewed](https://previewed.app/template/AFC0B4CB). I extend my gratitude to them for their remarkable work and contribution.
+
+## ⚠️ Disclaimer
+
+This project, **MelodiqTV**, has been developed **for educational purposes only**. The main objective is to explore and learn how to build **modern Android TV applications** using **Jetpack Compose** and related technologies.
+
+**MelodiqTV does not provide any music streaming content, licenses, or music programs.** Instead, it serves as a **demonstration project** showcasing how to design and develop TV-based music and video applications. The UI, navigation, and functionalities are implemented to simulate a real-world music streaming app experience.
+
+Additionally, the name **"MelodiqTV"** was generated during a **brainstorming session with AI**, and any resemblance to existing brands or services is purely **coincidental**.
+
+This repository is intended solely for **learning, experimentation, and non-commercial purposes**. If you wish to develop a real music streaming service, please ensure compliance with content licensing, intellectual property, and relevant regulations.
 
 ## 🌟 Explore These Incredible Android TV Projects! 📺🚀  
 
@@ -576,20 +586,41 @@ The **Settings** section on **MelodiqTV** is your personal music control center,
 
 The **Settings** section ensures you have full control over your music experience. From language preferences to audio quality, everything is designed to provide a personalized and seamless listening journey. 🎶🛠️
 
+## ⚠️ Disclaimer
+
+This project, **MelodiqTV**, has been developed **for educational purposes only**. The main objective is to explore and learn how to build **modern Android TV applications** using **Jetpack Compose** and related technologies.
+
+**MelodiqTV does not provide any music streaming content, licenses, or music programs.** Instead, it serves as a **demonstration project** showcasing how to design and develop TV-based music and video applications. The UI, navigation, and functionalities are implemented to simulate a real-world music streaming app experience.
+
+Additionally, the name **"MelodiqTV"** was generated during a **brainstorming session with AI**, and any resemblance to existing brands or services is purely **coincidental**.
+
+This repository is intended solely for **learning, experimentation, and non-commercial purposes**. If you wish to develop a real music streaming service, please ensure compliance with content licensing, intellectual property, and relevant regulations.
+
 ## Contribution
 Contributions to MelodiqTV Android are highly encouraged! If you're interested in adding new features, resolving bugs, or enhancing the project's functionality, please feel free to submit pull requests.
 
-## Credits
+## 🎖️ Recognition & Credits  
+
 MelodiqTV is developed and maintained by Sergio Sánchez Sánchez (Dream Software). Special thanks to the open-source community and the contributors who have made this project possible. If you have any questions, feedback, or suggestions, feel free to reach out at dreamsoftware92@gmail.com.
 
-## Acknowledgements 🙏
+A heartfelt thank you to the creators of the **[JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** for providing such an invaluable starting point for **Jetpack Compose for TV**. Your work has been incredibly inspiring and instrumental in shaping the development of **FitFlexTV**.  
+
+The **JetFit** project, licensed under **Apache 2.0**, has served as a foundational reference for implementing the **Jetpack Compose for TV UI framework**, while its design, licensed under **CC BY 4.0**, provided an excellent structure to build upon.  
+
+### 📌 Resources:  
+- **JetFit GitHub Repository**: [JetFit on GitHub](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)  
+- **JetFit Figma Design**: [JetFit Fitness App on Figma](https://www.figma.com/community/file/1237433831695839696/jetfit-fitness-app)  
+- **JetFit Case Study & Guidelines**: [Google TV JetFit Case Study](https://developer.android.com/design/ui/tv/samples/jet-fit?hl=es-419)  
+- **Google TV Design Kit**: [TV Design Kit (Figma)](https://developer.android.com/design/ui/tv/guidelines)  
+
+The resources, examples, and insights provided in the **JetFit repository** significantly accelerated our development process and enriched our understanding of **building seamless TV applications using Jetpack Compose**. We deeply appreciate the contributions of the JetFit team and their dedication to open-source development.  
+
+This project acknowledges and respects the **original JetFit implementation**, ensuring proper attribution under **Apache 2.0** and **CC BY 4.0** licenses. 🚀  
+
+This project acknowledges and respects the work of the original **JetFit** creators and follows the **CC BY 4.0** license terms. If you are interested in designing a TV-based fitness app, we highly recommend exploring the **JetFit project and Google's TV design resources**.  
 
 We express our deep appreciation to [Freepik](https://www.freepik.es/) for generously providing the resources used in this project.
 <div> Icons and images takes from <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es'</a></div>
-
-A heartfelt thank you to the creators of the [JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit) for providing such an invaluable starting point for Jetpack Compose for TV. Your work has been incredibly inspiring and instrumental in shaping the development of this project.
-
-The resources, examples, and insights provided in the JetFit repository served as a foundational reference, enabling us to build and expand upon your excellent groundwork. Your contributions have significantly accelerated our journey and enriched our understanding of creating seamless TV applications using Jetpack Compose. 📺✨
 
 ## Visitors Count
 
@@ -602,36 +633,25 @@ The resources, examples, and insights provided in the JetFit repository served a
 
 ## License ⚖️
 
-This project is licensed under the MIT License, an open-source software license that allows developers to freely use, copy, modify, and distribute the software. 🛠️ This includes use in both personal and commercial projects, with the only requirement being that the original copyright notice is retained. 📄
+This project is licensed under the **Apache License 2.0**, a permissive open-source software license that allows developers to freely use, modify, and distribute the software. 🚀 This includes both personal and commercial use, with some conditions for distribution and modification. 📜
 
-Please note the following limitations:
+Key terms of the Apache License 2.0:
 
-- The software is provided "as is", without any warranties, express or implied. 🚫🛡️
-- If you distribute the software, whether in original or modified form, you must include the original copyright notice and license. 📑
-- The license allows for commercial use, but you cannot claim ownership over the software itself. 🏷️
+- You are allowed to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software. 💻
+- If you modify and distribute the software, you must include the original copyright notice, provide a copy of the Apache 2.0 license, and indicate any modifications made. 📝
+- You are not allowed to use the name of the project or its contributors to promote derived works without permission. ✋
+- The software is provided "as is," without any warranties, express or implied. 🚫🛡️
 
-The goal of this license is to maximize freedom for developers while maintaining recognition for the original creators.
+Please see the full license text below for more detailed terms.
 
 ```
-MIT License
+Apache License Version 2.0, January 2004 http://www.apache.org/licenses/
 
-Copyright (c) 2024 Dream software - Sergio Sánchez 
+Copyright (c) 2024 Dream software - Sergio Sánchez
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+http://www.apache.org/licenses/LICENSE-2.0
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 ```
