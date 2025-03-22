@@ -13,6 +13,10 @@ A huge thank you to the creators of **[JetFit](https://github.com/TheChance101/t
 
 This app, **MelodiqTV**, includes images and resources designed by [Freepik](https://www.freepik.com). We would like to acknowledge and thank Freepik for their incredible design assets. The images used in the app are provided with attribution, as required by Freepik's licensing terms. For more information on Freepik's resources, please visit [www.freepik.com](https://www.freepik.com).
 
+For the purpose of this project, I have used a free demonstration video sourced from **Mixkit**. The video showcases a young girl dancing and serves as an example to demonstrate the app's features in action.
+You can view the video used here: [Young Black-Haired Girl Dancing - Mixkit](https://mixkit.co/free-stock-video/young-black-haired-girl-dancing-40367/).
+This video is only for demonstration purposes and is not part of the final project’s original content.
+
 <p align="center">
   <img src="https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white" />
   <img src="https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white" />
@@ -620,6 +624,10 @@ This project acknowledges and respects the work of the original **JetFit** creat
 
 We express our deep appreciation to [Freepik](https://www.freepik.es/) for generously providing the resources used in this project.
 <div> Icons and images takes from <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es'</a></div>
+
+For the purpose of this project, I have used a free demonstration video sourced from **Mixkit**. The video showcases a young girl dancing and serves as an example to demonstrate the app's features in action.
+You can view the video used here: [Young Black-Haired Girl Dancing - Mixkit](https://mixkit.co/free-stock-video/young-black-haired-girl-dancing-40367/).
+This video is only for demonstration purposes and is not part of the final project’s original content.
 
 ## Visitors Count
 
