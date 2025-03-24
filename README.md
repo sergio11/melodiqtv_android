@@ -9,7 +9,7 @@ I used **Firebase 🔥** for real-time data synchronization and secure authentic
 
 The user interface is crafted with **Jetpack Compose for TV 📺**, ensuring a modern and flexible design. I also integrated **[🍮 Fudge](https://github.com/sergio11/fudge_tv_compose_library)**, a UI kit for TV apps, to improve navigation and create a more polished experience on large screens.
 
-A huge thank you to the creators of **[JetFit](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** for providing an invaluable foundation for **MelodiqTV**. Licensed under **Apache 2.0** (implementation) and **CC BY 4.0** (design), JetFit served as a key reference for building a seamless **Jetpack Compose for TV** experience. For more details and attributions, please check the **"Credits"** section below. 🚀  
+A huge thank you to the creators of **[JetFit](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** and the contributors to **[PR #183](https://github.com/android/tv-samples/pull/183)** for providing an invaluable foundation for **MelodiqTV**. This is an attempt to provide an open-source implementation of JetFit. Licensed under **Apache 2.0** (implementation) and **CC BY 4.0** (design), JetFit served as a key reference for building a seamless **Jetpack Compose for TV** experience. I encourage you to visit the PR, review the effort, and give the deserved recognition. For more details and attributions, please check the **"Credits"** section below. 🚀
 
 This app, **MelodiqTV**, includes images and resources designed by [Freepik](https://www.freepik.com). We would like to acknowledge and thank Freepik for their incredible design assets. The images used in the app are provided with attribution, as required by Freepik's licensing terms. For more information on Freepik's resources, please visit [www.freepik.com](https://www.freepik.com).
 
@@ -606,7 +606,7 @@ Contributions to MelodiqTV Android are highly encouraged! If you're interested i
 
 MelodiqTV is developed and maintained by Sergio Sánchez Sánchez (Dream Software). Special thanks to the open-source community and the contributors who have made this project possible. If you have any questions, feedback, or suggestions, feel free to reach out at dreamsoftware92@gmail.com.
 
-A heartfelt thank you to the creators of the **[JetFit repository](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** for providing such an invaluable starting point for **Jetpack Compose for TV**. Your work has been incredibly inspiring and instrumental in shaping the development of **MelodiqTV**.  
+A huge thank you to the creators of **[JetFit](https://github.com/TheChance101/tv-samples/tree/JetFit/JetFit)** and the contributors to **[PR #183](https://github.com/android/tv-samples/pull/183)** for providing an invaluable foundation for **MelodiqTV**. This is an attempt to provide an open-source implementation of JetFit. Licensed under **Apache 2.0** (implementation) and **CC BY 4.0** (design), JetFit served as a key reference for building a seamless **Jetpack Compose for TV** experience. I encourage you to visit the PR, review the effort, and give the deserved recognition. 
 
 The **JetFit** project, licensed under **Apache 2.0**, has served as a foundational reference for implementing the **Jetpack Compose for TV UI framework**, while its design, licensed under **CC BY 4.0**, provided an excellent structure to build upon.  
 
