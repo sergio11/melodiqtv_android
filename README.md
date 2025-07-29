@@ -590,10 +590,6 @@ For the purpose of this project, I have used a free demonstration video sourced 
 You can view the video used here: [Young Black-Haired Girl Dancing - Mixkit](https://mixkit.co/free-stock-video/young-black-haired-girl-dancing-40367/).
 This video is only for demonstration purposes and is not part of the final project’s original content.
 
-## Visitors Count
-
-<img width="auto" src="https://profile-counter.glitch.me/melodiqtv_android/count.svg" />
- 
 
 ## License ⚖️
 
